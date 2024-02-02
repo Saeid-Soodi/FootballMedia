@@ -1,0 +1,7 @@
+# front end
+.vscode
+node_modules
+
+# api
+api/.env
+api/node_modules

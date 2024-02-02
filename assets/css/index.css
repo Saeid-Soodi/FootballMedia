@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'shadow';
+  src: url('../fonts/ShadowsIntoLight-Regular.ttf');
+}
+body {
+  color: brown;
+  font-family: shadow;
+}

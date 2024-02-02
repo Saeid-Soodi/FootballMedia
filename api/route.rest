@@ -1,0 +1,50 @@
+GET http://localhost:8080/api/validate
+
+###
+GET http://localhost:8080/api/user
+
+###
+
+GET http://localhost:8080/api/user/65bc8e9b713548d1be5f9fbc
+
+###
+
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "name":"amir",
+  "familyName":"sharafdost",
+  "email":"re3@gmail.com",
+  "birthDate":"1380/20/06",
+  "pass":"123",
+  "gender":"dsfgdf",
+  "phone":"09120805153"
+}
+
+###
+
+PATCH http://localhost:8080/api/user/65bc8e9b713548d1be5f8fbc
+Content-Type: application/json
+
+{
+  "name":"amir",
+  "familyName":"sharafdost",
+  "email":"amir@gmail.com",
+  "birthDate":"1380/20/06",
+  "pass":"123",
+  "gender":"MALE",
+  "phone":"09120804153"
+}
+
+###
+
+DELETE http://localhost:8080/api/user/65bc8e9b713548d1be5f8fbc
+###
+
+post http://localhost:8080/api/user/auth
+{
+  "email":"ahmad@gmail.com",
+  "pass":"123",
+}
+
