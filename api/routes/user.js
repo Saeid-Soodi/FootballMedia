@@ -37,12 +37,21 @@ async function hashPassword(password) {
 // Creating one
 router.post('/', async (req, res) => {
   try {
-    const { name, familyName, email, birthDate, pass, gender, phone } =
-      req.body;
+    const {
+      name,
+      familyName,
+      userName,
+      email,
+      birthDate,
+      pass,
+      gender,
+      phone,
+    } = req.body;
 
     if (
       !name ||
       !familyName ||
+      !userName ||
       !email ||
       !birthDate ||
       !pass ||
@@ -67,6 +76,7 @@ router.post('/', async (req, res) => {
     const newUser = await User.create({
       name,
       familyName,
+      userName,
       email,
       birthDate,
       pass: hashPass,
@@ -93,6 +103,9 @@ router.patch('/:id', async (req, res) => {
       user.name = req.body.name;
     }
     if (!req.body.familyName) {
+      user.familyName = req.body.familyName;
+    }
+    if (!req.body.userName) {
       user.familyName = req.body.familyName;
     }
     if (!req.body.email) {

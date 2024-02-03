@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { path: '/contact', component: 'ContactPage', css: 'contact' },
     { path: '/hello', component: 'HelloPage' },
     { path: '/signIn', component: 'SignInPage', css: 'signIn' },
+    { path: '/signUp', component: 'SignUpPage', css: 'signUp' },
   ];
 
   // Initial load of the content based on the current URL path
