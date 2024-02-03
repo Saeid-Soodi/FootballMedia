@@ -31,7 +31,7 @@ export default {
         .map((user) => `<span>${user.name} ${user.familyName}</span>`)
         .join('')}</div>
 
-      <img src="./assets/images/logo.PNG" alt="kia" />`;
+      `;
     } catch (error) {
       console.error('Error fetching home data:', error);
       return '<h2>Error Loading Home Page</h2><p>Unable to fetch data.</p>';

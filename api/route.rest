@@ -13,13 +13,13 @@ POST http://localhost:8080/api/user
 Content-Type: application/json
 
 {
-  "name":"amir",
-  "familyName":"sharafdost",
-  "email":"re3@gmail.com",
+  "name":"kiarsh",
+  "familyName":"alizadeh",
+  "email":"kia@gmail.com",
   "birthDate":"1380/20/06",
   "pass":"123",
-  "gender":"dsfgdf",
-  "phone":"09120805153"
+  "gender":"MALE",
+  "phone":"09120803123"
 }
 
 ###

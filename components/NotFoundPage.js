@@ -17,6 +17,6 @@ export default {
     await fetchContent();
 
     return `<h2>404 - Page Not Found!</h2>
-    <p>Sorry ,the requested page does not exist!</p > `;
+    <p>Sorry ,the requested page does not exist!</p >`;
   },
 };
