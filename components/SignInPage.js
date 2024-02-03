@@ -15,10 +15,16 @@ export default {
     }
     await fetchContent();
 
-    return `<h2>Welcome to the SignIn Page</h2>
-      <input type="email" id="emailInput" placeholder="email"/>
-      <input type="password" id="passwordInput" placeholder="pass" />
-      <button id='signInBtn' onclick="handleSignIn()">Sign In</button>
+    return `   <div class="formContainer">
+          <h3>SignIn</h3>
+          <input type="emai" id="emailInput" placeholder="Email">
+          <input type="password" id="passwordInput" placeholder="Password">
+          <button class="signInBtn">Sign In</button>
+          <div class="dontHaveAccount">
+          <p>Don't have an account?</p>
+          <a href="/signUp">Sign Up</a>
+      </div>
+        </div> 
       `;
   },
 };
