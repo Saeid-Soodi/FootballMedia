@@ -14,14 +14,23 @@ export default {
     // await fetchContent();
 
     return `<div>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/hello">hello page</a>
-        <a href="/signIn">signIn page</a>
-        <a href="/dfsdfs">404 page</a>
-      </nav>
+    <nav>
+    <div class="left">
+        <img src="../assets/images/SoccerMediaLogo.png" alt="SoccerMediaLogo">
+        <span class="text">Soccer Media</span>
+      
+    </div>
+    <ul class="center">
+        <li>Home</li>
+        <li>Profile</li>
+        <li>Predict</li>
+        <li>My Team</li>
+        <li>Settings & Privacy</li>
+    </ul>
+    <button class="right">
+        Sign In
+    </button>
+</nav>
     </div>`;
   },
 };
