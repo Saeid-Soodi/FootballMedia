@@ -1,1 +1,89 @@
 /* CSS for SignIn Page */
+
+/* SignIn Form Starts */
+
+main .formContainer {
+  min-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 80px auto;
+  background-color: #0e1513;
+  padding: 30px 50px;
+  border-radius: 20px;
+}
+
+main h3 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+main input {
+  width: 65%;
+  padding: 12px 6px;
+  border-radius: 12px;
+  box-shadow: rgba(255, 255, 255, 0.424) 0px 3px 8px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+}
+main input:focus {
+  border: 2px dashed #fc4308;
+  outline: none;
+}
+
+/*SignIn Btn Styles*/
+.signInBtn {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid #fc4308;
+  color: #fc4308;
+  font-size: 1rem;
+}
+.signInBtn:hover {
+  color: #fff;
+}
+.signInBtn:hover:after {
+  width: 100%;
+}
+.signInBtn:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: #fc4308;
+}
+
+
+main .dontHaveAccount{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 1rem;
+  user-select: none;
+}
+
+main .dontHaveAccount a:hover{
+  opacity: 70%;
+  transition: all 0.5s ease;
+}
