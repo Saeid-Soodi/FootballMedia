@@ -1,6 +1,7 @@
 # front end
 .vscode
 node_modules
+package.json
 
 # api
 api/.env
