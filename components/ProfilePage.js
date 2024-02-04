@@ -49,7 +49,15 @@ export default {
 
     return `
     <div class="container">
-    Profile page
+    <div class="right">
+    <div class="image"></div>
+    <div class="suggestions"></div>
+    <div class="predictions"></div>
+    </div>
+    <div class="left">
+    <div class="bio"></div>
+    <div class="tweets"></div>
+    </div>
     </div>
     `;
   },
