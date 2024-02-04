@@ -39,7 +39,7 @@ window.handleSignIn = async function () {
   const pass = document.getElementById('passwordInput');
 
   if (email.value === '' || pass.value === '') {
-    alert('You must fill the form before signing up');
+    alert('You must fill the form before signing In');
   } else {
     try {
       const res = await fetch('http://localhost:8080/api/auth', {
