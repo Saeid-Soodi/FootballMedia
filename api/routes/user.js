@@ -99,32 +99,54 @@ router.patch('/:id', async (req, res) => {
     }
 
     // Update fields based on request body
-    if (!req.body.name) {
+    if (req.body.name) {
       user.name = req.body.name;
     }
-    if (!req.body.familyName) {
+    if (req.body.familyName) {
       user.familyName = req.body.familyName;
     }
-    if (!req.body.userName) {
-      user.familyName = req.body.familyName;
+    if (req.body.userName) {
+      user.userName = req.body.userName;
     }
-    if (!req.body.email) {
+    if (req.body.email) {
       user.email = req.body.email;
     }
-    if (!req.body.birthDate) {
+    if (req.body.birthDate) {
       user.birthDate = req.body.birthDate;
     }
-    if (!req.body.pass) {
+    if (req.body.pass) {
       const hashPass = await hashPassword(req.body.pass);
       user.pass = hashPass;
     }
-    if (!req.body.gender) {
+    if (req.body.gender) {
       user.gender = req.body.gender;
     }
-    if (!req.body.phone) {
+    if (req.body.phone) {
       user.phone = req.body.phone;
     }
-    if (!req.body.role) {
+    if (req.body.favoriteTeam) {
+      user.favoriteTeam = req.body.favoriteTeam;
+    }
+    if (req.body.followingId) {
+      // Check if the followingId is already in the followers array
+      if (user.followings.includes(req.body.followingId)) {
+        // If already following, send a message indicating that
+        return res.status(400).json({
+          message: `You are already following user with ID: ${req.body.followingId}`,
+        });
+      } // If not, add it to the followers array
+      user.followings.push(req.body.followingId);
+    }
+    if (req.body.followers) {
+      user.followers.push(req.body.followers);
+    }
+    if (req.body.unFollowingId) {
+      // Assuming req.body.unfollowingId is the ID to unfollow
+      user.followings = user.followings.filter(
+        (id) => id !== req.body.unFollowingId
+      );
+    }
+    if (req.body.role) {
       user.role = req.body.role;
     }
 

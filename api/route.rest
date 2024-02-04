@@ -15,26 +15,25 @@ Content-Type: application/json
 {
   "name":"kiarsh",
   "familyName":"alizadeh",
+  "userName":"kia_ali",
   "email":"kia@gmail.com",
   "birthDate":"1380/20/06",
   "pass":"123",
   "gender":"MALE",
-  "phone":"09120803123"
+  "phone":"09120803123",
+  "favoriteTeam":"mamadTeam",
+  "followings":["65bdea1c1b2590e9e29f0549"],
+
 }
 
 ###
 
-PATCH http://localhost:8080/api/user/65bc8e9b713548d1be5f8fbc
+PATCH http://localhost:8080/api/user/65bf221269865bfec3e8482d
 Content-Type: application/json
 
 {
-  "name":"amir",
-  "familyName":"sharafdost",
-  "email":"amir@gmail.com",
-  "birthDate":"1380/20/06",
-  "pass":"123",
-  "gender":"MALE",
-  "phone":"09120804153"
+  
+  "followings":["65bdea1c1b2590e9e29f0551"],
 }
 
 ###

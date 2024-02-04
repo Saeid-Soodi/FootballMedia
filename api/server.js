@@ -46,6 +46,13 @@ const signOutRouter = require('./routes/signOut');
 app.use('/api/signOut', signOutRouter);
 // url is like localhost:8080/api/signOut
 
+const followRouter = require('./routes/follow');
+app.use('/api/follow', followRouter);
+// url is like localhost:8080/api/follow
+const unFollowRouter = require('./routes/unFollow');
+app.use('/api/unFollow', unFollowRouter);
+// url is like localhost:8080/api/follow
+
 const PORT = 8080;
 // server port
 app.listen(PORT, () => {

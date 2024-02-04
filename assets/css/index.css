@@ -20,11 +20,11 @@ body {
   font-size: 16px;
   background: linear-gradient(
     243deg,
-    rgba(13, 30, 32, 1) 0%,
+    rgba(13, 30, 32, 1) 5%,
     rgba(49, 62, 42, 1) 23%,
     rgba(49, 62, 42, 1) 52%,
-    rgba(49, 62, 42, 1) 75%,
-    rgba(38, 45, 32, 1) 100%
+    rgba(38, 45, 32, 1) 75%,
+    rgba(38, 45, 32, 1) 91%
   );
   background-size: cover;
   background-repeat: no-repeat;
@@ -107,59 +107,54 @@ nav .right:active {
 }
 
 /* Footer Section */
-.footer-flex-justify{
+.footer-flex-justify {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
 }
-.footer-bg-color{
-
-  padding: 3rem 0 ;
+.footer-bg-color {
+  padding: 3rem 0;
   background-color: #0e1513;
 }
-.footer-h1{
+.footer-h1 {
   font-size: 1rem;
 }
-.footer-flex-h1{
+.footer-flex-h1 {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   padding-left: 3rem;
 }
-.footer-line{
-  margin-top: .5rem;
+.footer-line {
+  margin-top: 0.5rem;
   margin-left: 3rem;
-  width: 35rem; 
-  height: 1rem; 
-  border-top: 1px solid white; 
+  width: 35rem;
+  height: 1rem;
+  border-top: 1px solid white;
 }
-.footer-gif-container{
+.footer-gif-container {
   width: 20rem;
   height: 20rem;
-  
 }
-.footer-gif-container-margin{
+.footer-gif-container-margin {
   margin-right: 10rem;
 }
-.footer-h1-brand{
+.footer-h1-brand {
   margin-left: 3rem;
   margin-top: 1rem;
 }
-.footer-logo{
+.footer-logo {
   display: flex;
   direction: row;
   align-items: center;
 }
 .footer-logo img {
-  
   margin-top: 1rem;
-  width:3rem;
+  width: 3rem;
   height: 3rem;
   animation: bounce 1s infinite;
-  
 }
-.footer-ul{
+.footer-ul {
   margin-left: 3rem;
   list-style-type: none;
   line-height: 2.5rem;
@@ -168,10 +163,11 @@ nav .right:active {
   color: #fff;
 }
 @keyframes bounce {
-  0%, 100% { 
-    transform: translateY(0); 
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  50% { 
-    transform: translateY(-50px); 
+  50% {
+    transform: translateY(-50px);
   }
 }
