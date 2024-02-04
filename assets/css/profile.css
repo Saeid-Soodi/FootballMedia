@@ -179,3 +179,39 @@
 .left .bio .profileDesc .desc a:active {
   color: rgb(190, 190, 226);
 }
+
+.tweets{
+
+}
+
+.tweets .tweetText{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+}
+
+.tweets .tweetText .tweetTextAraea{
+ border-radius: 20px;
+}
+
+.tweets .tweetText .tweetBtn{
+ 
+    min-width: 100px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #57cc99;
+    background: #57cc99;
+  }
+  .tweets .tweetText .tweetBtn:hover {
+    background: #fff;
+    color: #57cc99
+  }
