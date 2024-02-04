@@ -22,6 +22,7 @@ export default {
         userLogin = true;
       }
 
+      // follow user
       // const up = await fetch('http://localhost:8080/api/follow', {
       //   method: 'POST',
       //   body: JSON.stringify({
@@ -30,6 +31,17 @@ export default {
       //   }),
       //   headers: { 'Content-Type': 'application/json' },
       // });
+      // const data = await up.json();
+      // console.log('data:', data);
+
+      // list of followers
+      // const up = await fetch(
+      //   'http://localhost:8080/api/followerList/65bf221269865bfec3e8482d',
+      //   {
+      //     method: 'GET',
+      //     headers: { 'Content-Type': 'application/json' },
+      //   }
+      // );
       // const data = await up.json();
       // console.log('data:', data);
     }
