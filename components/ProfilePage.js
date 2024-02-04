@@ -50,8 +50,34 @@ export default {
     return `
     <div class="container">
     <div class="right">
-    <div class="image"></div>
-    <div class="suggestions"></div>
+    <div ><img class="image" src="../assets/images/upImage.jpg" alt="" /></div>
+    <div class="suggestions">
+      <h3>Suggestions</h3>
+      <div class="suggestionsUser">
+        <img class="userImage" src="../assets/images/profile.png" alt="" />
+        <span class="userDetails">
+        <span class="detailName">kiarash</span>
+        <span class="detailId">@kiarash_alizadeh</span>
+        </span>
+        <button class="followBtn">Follow</button>
+      </div>
+      <div class="suggestionsUser">
+        <img class="userImage" src="../assets/images/profile.png" alt="" />
+        <span class="userDetails">
+          <span class="detailName">kiarash</span>
+          <span class="detailId">@kiarash_alizadeh</span>
+        </span>
+        <button class="followBtn">Follow</button>
+      </div>
+      <div class="suggestionsUser">
+      <img class="userImage" src="../assets/images/profile.png" alt="" />
+      <span class="userDetails">
+      <span class="detailName">kiarash</span>
+      <span class="detailId">@kiarash_alizadeh</span>
+      </span>
+      <button class="followBtn">Follow</button>
+    </div>
+    </div>
     <div class="predictions"></div>
     </div>
     <div class="left">
