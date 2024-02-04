@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Define routes
   const routes = [
     { path: '/', component: 'HomePage', css: 'home' },
-    { path: '/about', component: 'AboutPage', css: 'about' },
-    { path: '/contact', component: 'ContactPage', css: 'contact' },
-    { path: '/hello', component: 'HelloPage' },
+    { path: '/profile', component: 'ProfilePage', css: 'profile' },
+    { path: '/predict', component: 'PredictPage', css: 'predict' },
+    { path: '/myTeam', component: 'MyTeamPage', css: 'myTeam' },
+    { path: '/settings', component: 'SettingsPage', css: 'settings' },
     { path: '/signIn', component: 'SignInPage', css: 'signIn' },
     { path: '/signUp', component: 'SignUpPage', css: 'signUp' },
   ];

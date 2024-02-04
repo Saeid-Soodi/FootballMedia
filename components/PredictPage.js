@@ -1,7 +1,7 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Soccer Media | Not Found';
+    const title = 'Soccer Media | Predict';
     document.title = title;
 
     let userLogin;
@@ -23,12 +23,7 @@ export default {
 
     return `
     <div class="container">
-    <span>Whoops!</span>
-    <h2>404 - Page Not Found</h2>
-    <img src="../assets/images/notFound.jpg" alt="notFound" class="notFoundImage" />
-    ${userLogin ? `<span>Dear ${user.name} are you Lost?</span>` : ''}
-    <p>Looks like this page went on vacation.</p >
-    <a href="/" class="backToHomeBtn">Back to Home Page</a>
+    Predict page
     </div>
     `;
   },
