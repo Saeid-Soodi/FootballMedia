@@ -184,6 +184,9 @@ nav .rightLogin button:hover{
   width: 20rem;
   height: 20rem;
 }
+.gifImage {
+  border-radius: 500px;
+}
 .footer-gif-container-margin {
   margin-right: 10rem;
 }

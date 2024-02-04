@@ -25,7 +25,7 @@ export default {
   </div>
   <div class='footer-gif-container-margin'>
        <div class="footer-gif-container">
-          <img autoplay loop muted src="https://static1.squarespace.com/static/535e680de4b0eea56c05a375/t/56ea9f004c2f85a15d4649f1/1458216715862/football.gif"></img>
+          <img class="gifImage" autoplay loop muted src="../assets/images/Football.gif"></img>
         </div>
   </div>
  
