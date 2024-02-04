@@ -13,7 +13,7 @@ const twitsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  twit: {
+  tweetContent: {
     type: String,
     required: true,
   },
@@ -32,4 +32,4 @@ const twitsSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Twits', twitsSchema);
+module.exports = mongoose.model('Tweets', twitsSchema);
