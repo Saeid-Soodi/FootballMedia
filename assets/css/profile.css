@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 100px;
   margin: 40px auto;
   padding: 0px 20px;
-
 }
 
 .container .right {
@@ -14,17 +14,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 25%;
+  max-width: 25%;
 }
 
-.container .right .image{
-  width: 200px;
+.container .right .image {
+  width: 257px;
   margin-bottom: 30px;
   border-radius: 20px;
- 
 }
 
-.container .right .suggestions{
+.container .right .suggestions {
   background-color: #fff;
   color: black;
   display: flex;
@@ -34,35 +33,33 @@
   gap: 15px;
 }
 
-.container .right .suggestions h3{
+.container .right .suggestions h3 {
   margin: auto;
 }
 
-.container .right .suggestions .suggestionsUser{
+.container .right .suggestions .suggestionsUser {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
-.container .right .suggestions .suggestionsUser .userDetails{
+.container .right .suggestions .suggestionsUser .userDetails {
   display: flex;
   flex-direction: column;
   font-size: 0.75rem;
 }
 
-.detailName{
+.detailName {
   font-weight: bold;
 }
 
-.detailId{
+.detailId {
   font-size: 0.65rem;
   opacity: 70%;
 }
 
-.container .right .suggestions .suggestionsUser .userImage{
+.container .right .suggestions .suggestionsUser .userImage {
   width: 50px;
-
 }
 
 .followBtn{
@@ -96,7 +93,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 75%;
+  max-width: 75%;
 }
 
 .left .bio{
@@ -115,70 +112,70 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.left .bio .profileImg{
-  border-radius:100%;
+.left .bio .profileImg {
+  border-radius: 100%;
   width: 150px;
 }
-.left .bio .profileImg img{
+.left .bio .profileImg img {
   width: 150px;
-  border-radius:100%;
+  border-radius: 100%;
   position: relative;
   border: 3px solid rgb(211, 105, 0);
 }
-.left .bio .profileImg i{
+.left .bio .profileImg i {
   position: absolute;
   top: 120px;
-  left:130px;
+  left: 130px;
   color: rgb(249, 250, 252);
   font-size: 1.5rem;
 }
 
-.left .bio .profileImg i:hover{
+.left .bio .profileImg i:hover {
   cursor: pointer;
 }
-.left .bio .profileDesc{
-  display:flex;
+.left .bio .profileDesc {
+  display: flex;
   flex-direction: column;
-  gap:5px;
+  gap: 5px;
 }
 
-.left .bio .profileDesc .text{
+.left .bio .profileDesc .text {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.left .bio .profileDesc .text .name{
+.left .bio .profileDesc .text .name {
   font-weight: 700;
   color: black;
 }
-.left .bio .profileDesc .text .id{
+.left .bio .profileDesc .text .id {
   margin-top: -5px;
   color: rgb(148, 148, 148);
 }
-.left .bio .profileDesc .stats{
+.left .bio .profileDesc .stats {
   display: flex;
   font-weight: 700;
   gap: 20px;
 }
 
-.left .bio .profileDesc .desc{
+.left .bio .profileDesc .desc {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
 
-.left .bio .profileDesc .desc p{
+.left .bio .profileDesc .desc p {
   display: flex;
   width: 450px;
   text-align: justify;
 }
 
-.left .bio .profileDesc .desc a{
+.left .bio .profileDesc .desc a {
   margin-top: -5px;
   color: rgb(241, 92, 38);
   text-decoration: none;
 }
-.left .bio .profileDesc .desc a:active{
+.left .bio .profileDesc .desc a:active {
   color: rgb(190, 190, 226);
 }
