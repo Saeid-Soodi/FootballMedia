@@ -33,6 +33,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  favoriteTeam: {
+    type: String,
+    default: '',
+  },
+  followings: {
+    type: Array,
+    default: [],
+  },
+  followers: {
+    type: Array,
+    default: [],
+  },
   role: {
     type: String,
     default: 'USER',
