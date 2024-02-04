@@ -18,14 +18,14 @@
 body {
   min-height: 100vh;
   font-size: 16px;
-  background: linear-gradient(
+  background:linear-gradient(
     243deg,
     rgba(13, 30, 32, 1) 0%,
     rgba(49, 62, 42, 1) 23%,
     rgba(49, 62, 42, 1) 52%,
     rgba(49, 62, 42, 1) 75%,
     rgba(38, 45, 32, 1) 100%
-  );
+  ) ;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -40,9 +40,9 @@ a {
 }
 
 /* Navbar Section */
-
 nav{
-  margin-top: 0;
+  max-width: 1480px;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,7 +52,7 @@ nav .left{
 display: flex;
 align-items: center;
 }
-nav .left span{
+nav .left .text{
  font-weight: bold; 
  color: var(--text-main);
 }
@@ -63,7 +63,8 @@ nav .left img{
 
 nav .left img:hover{
   transform: translateX(185px); 
-  transition: 1s ease; 
+  transition: 1s ease-in-out; 
+  cursor: pointer;
 }
 
 nav .center {
@@ -76,7 +77,7 @@ nav .center li{
   color:var(--text-main)
 }
 nav .center li:hover{
-color: var(--text-main2);
+color: var(--text-secondary);
 cursor: pointer;
 transition: all 0.5s ease;
 }
@@ -95,7 +96,7 @@ nav .right{
       border-radius: 5px;
       border: none;
       background-size: 120% auto;
-      background-image: linear-gradient(315deg, #215d3e 0%, #d9600a 75%);
+      background-image: linear-gradient(315deg, #215d3e 0%, #d9600a 95%);
     }
    
     nav  .right:hover {
