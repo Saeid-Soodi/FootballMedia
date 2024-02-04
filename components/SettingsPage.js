@@ -15,6 +15,7 @@ export default {
       user = await auth.json();
       if (auth.status === 500) {
         userLogin = false;
+        window.location.href = '/';
       } else if (auth.status === 200) {
         userLogin = true;
       }

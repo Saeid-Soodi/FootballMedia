@@ -3,6 +3,8 @@ export default {
   content: async function () {
     const title = 'Soccer Media | Profile';
     document.title = title;
+    // var id = window.location.toString().split('#')[1];
+    // console.log('id :', id);
 
     let userLogin;
     let user;
@@ -15,6 +17,7 @@ export default {
       user = await auth.json();
       if (auth.status === 500) {
         userLogin = false;
+        window.location.href = '/';
       } else if (auth.status === 200) {
         userLogin = true;
       }
