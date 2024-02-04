@@ -119,7 +119,7 @@ export default {
          </div>
         </div>
         <div class="tweeting"">
-         <textarea placeholder="whats happening?" cols="65" rows="5"></textarea>
+         <textarea placeholder="What's happening?" cols="65" rows="5"></textarea>
        <button>Tweet</button>
          </div>
         </div>

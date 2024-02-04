@@ -151,10 +151,29 @@
 .left .bio .profileDesc .stats {
   display: flex;
   font-weight: 700;
+  align-items: center;
   margin-top: 10px;
   color: black;
   gap: 20px;
 }
+.left .bio .profileDesc .stats button{
+ 
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background-color: #3a86ff;
+    box-shadow: 0 3px 1px -2px #ccc, 0 2px 2px 0 #ccc, 0 1px 5px 0 #ccc;
+}
+
 
 .left .bio .profileDesc .desc {
   display: flex;
@@ -178,11 +197,12 @@
   color: rgb(190, 190, 226);
 }
 
+/* Tweet Section */
+
 .tweets{
   width: 700px;
   height: 305px;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.22); /* Same glassmorphism color */
+  background: rgba(255, 255, 255, 0.22); 
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -190,7 +210,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
     }
   
-    .tweets .tweetName{
+.tweets .tweetName{
   display: flex;
   gap:10px;
   margin-top: 10px;
@@ -198,14 +218,14 @@
   justify-content: start;
     }
   
-    .tweets .tweetName img{
+.tweets .tweetName img{
     width: 50px;
     height: 50px;
     margin-left: 30px;
     border-radius: 50%;
     object-fit: cover;
     }
-    .tweets .tweetName .text{
+.tweets .tweetName .text{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -213,18 +233,18 @@
   color: #000;
     }
   
-    .tweets .tweetName .text .name{
+.tweets .tweetName .text .name{
       font-size: 1.1rem;
       font-weight: 900;
       
     }
   
-    .tweets .tweetName .text .id{
+.tweets .tweetName .text .id{
     margin-top: -5px;
     font-size: 0.9rem;
     }
   
-    .tweeting {
+.tweeting {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -234,8 +254,8 @@
      
     }
     
-    .tweeting textarea {
-      background: rgba(255, 255, 255, 0.22); /* Same glassmorphism color */
+.tweeting textarea {
+      background: rgba(255, 255, 255, 0.22); 
       border-radius: 5px;
       opacity: 85%;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -249,13 +269,13 @@
       font-family: 'Poppins';
       resize: none;
     }
-    .tweeting textarea::placeholder{
+.tweeting textarea::placeholder{
       color: white;
       opacity: 90%;
       font-size: 1.1rem;
     }
   
-    .tweeting button{
+.tweeting button{
       min-width: 100px;
       height: 40px;
       color: #fff;
@@ -270,7 +290,7 @@
       border: 2px solid #57cc99;
       background: #57cc99;
     }
-    .tweeting button:hover{
+.tweeting button:hover{
       background: #fff;
       color: #57cc99
     }
