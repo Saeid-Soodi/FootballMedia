@@ -26,6 +26,7 @@ Content-Type: application/json
 
 }
 
+
 ###
 
 PATCH http://localhost:8080/api/user/65bf221269865bfec3e8482d
@@ -47,3 +48,15 @@ post http://localhost:8080/api/user/auth
   "pass":"123",
 }
 
+###
+
+POST http://localhost:8080/api/tweet
+Content-Type: application/json
+
+{
+  "userId" : "65bdeb1c1b2590e9e29f0551", "userNameAndFamilyName" : "kiarash alizadeh", "userName" : "kiarash_alizadeh", "tweetContent" : "hello!, my first tweet."
+
+}
+
+###
+GET http://localhost:8080/api/tweet
