@@ -84,7 +84,6 @@ export default {
     <div class="bio">
         <div class="profileImg">
             <img src="../assets/images/profile.png" alt="profileImg">
-            <i class="bi bi-plus-circle"></i>
         </div>
         <div class="profileDesc">
             <div class="text">

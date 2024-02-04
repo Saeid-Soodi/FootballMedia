@@ -118,20 +118,8 @@
   border-radius: 50%; /* Use border-radius 50% for a circular shape */
   border: 2px solid  #fc4308;
   object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-  position: relative;
 }
 
-.left .bio .profileImg i {
-  position: absolute;
-  top: 270px;
-  left: 400px;
-  color: #000000;
-  font-size: 1.5rem;
-}
-
-.left .bio .profileImg i:hover {
-  cursor: pointer;
-}
 .left .bio .profileDesc {
   display: flex;
   flex-direction: column;
