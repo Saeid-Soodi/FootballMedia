@@ -85,12 +85,19 @@ export default {
             </div>
         </div>
         </div>
-    <div class="tweets">
-      <div class="tweetText">
-      <textarea class="tweetTextAraea" cols="70" rows="5"></textarea>
-      <button class="tweetBtn">Tweet</button>
-      </div>
-    </div>
+        <div class="tweets">
+        <div class="tweetName">
+         <img src="../assets/images/profile.png" alt="img">
+         <div class="text">
+             <span class="name">Saeed</span>
+             <span class="id">@Saeedsi</span>
+         </div>
+        </div>
+        <div class="tweeting"">
+         <textarea placeholder="whats happening?" cols="65" rows="5"></textarea>
+       <button>Tweet</button>
+         </div>
+        </div>
     </div>
     </div>
     `;

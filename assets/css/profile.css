@@ -114,10 +114,10 @@
 
 .left .bio .profileImg img {
   width: 150px;
-  height: 150px; /* Set the height to match the width for a perfect circle */
-  border-radius: 50%; /* Use border-radius 50% for a circular shape */
+  height: 150px; 
+  border-radius: 50%;
   border: 2px solid  #fc4308;
-  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+  object-fit: cover; 
 }
 
 .left .bio .profileDesc {
@@ -172,37 +172,98 @@
 }
 
 .tweets{
-
-}
-
-.tweets .tweetText{
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 15px;
-}
-
-.tweets .tweetText .tweetTextAraea{
- border-radius: 20px;
-}
-
-.tweets .tweetText .tweetBtn{
- 
-    min-width: 100px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 20px;
-    border: 2px solid #57cc99;
-    background: #57cc99;
-  }
-  .tweets .tweetText .tweetBtn:hover {
-    background: #fff;
-    color: #57cc99
-  }
+  width: 700px;
+  height: 305px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.22); /* Same glassmorphism color */
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  
+    .tweets .tweetName{
+  display: flex;
+  gap:10px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: start;
+    }
+  
+    .tweets .tweetName img{
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    }
+    .tweets .tweetName .text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+    }
+  
+    .tweets .tweetName .text .name{
+      font-size: 1.1rem;
+      font-weight: 900;
+      
+    }
+  
+    .tweets .tweetName .text .id{
+    margin-top: -5px;
+    font-size: 0.9rem;
+    }
+  
+    .tweeting {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+     
+    }
+    
+    .tweeting textarea {
+      background: rgba(255, 255, 255, 0.22); /* Same glassmorphism color */
+      border-radius: 5px;
+      opacity: 85%;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #000;
+      outline: none;
+      padding: 20px;
+      font-size: 1.1rem;
+      font-family: 'Poppins';
+      resize: none;
+    }
+    .tweeting textarea::placeholder{
+      color: white;
+      opacity: 90%;
+      font-size: 1.1rem;
+    }
+  
+    .tweeting button{
+      min-width: 100px;
+      height: 40px;
+      color: #fff;
+      padding: 5px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      outline: none;
+      border-radius: 20px;
+      border: 2px solid #57cc99;
+      background: #57cc99;
+    }
+    .tweeting button:hover{
+      background: #fff;
+      color: #57cc99
+    }
