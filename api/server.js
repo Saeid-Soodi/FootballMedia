@@ -42,6 +42,10 @@ const authRouter = require('./routes/auth');
 app.use('/api/auth', authRouter);
 // url is like localhost:8080/api/user/auth
 
+const signOutRouter = require('./routes/signOut');
+app.use('/api/signOut', signOutRouter);
+// url is like localhost:8080/api/signOut
+
 const PORT = 8080;
 // server port
 app.listen(PORT, () => {
