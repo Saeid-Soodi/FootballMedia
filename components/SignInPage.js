@@ -21,8 +21,8 @@ export default {
     await fetchAuth();
 
     return `   <div class="formContainer">
-          <h3>SignIn</h3>
-          <input type="emai" id="emailInput" placeholder="Email">
+          <h3>Sign In</h3>
+          <input type="email" id="emailInput" placeholder="Email">
           <input type="password" id="passwordInput" placeholder="Password">
           <button class="signInBtn" onclick="handleSignIn()">Sign In</button>
           <div class="dontHaveAccount">
