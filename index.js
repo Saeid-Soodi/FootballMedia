@@ -3,8 +3,6 @@ import Footer from './components/Footer.js';
 const contentContainer = document.getElementById('root');
 const headerElement = document.getElementById('header');
 const footerElement = document.getElementById('footer');
-headerElement.innerHTML = Header.content();
-footerElement.innerHTML = Footer.content();
 
 document.addEventListener('DOMContentLoaded', () => {
   // Define routes
@@ -88,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function importModule(modulePath) {
     try {
+      headerElement.innerHTML = await Header.content();
+      footerElement.innerHTML = Footer.content();
       const module = await import(modulePath);
       const { content } = module.default;
 

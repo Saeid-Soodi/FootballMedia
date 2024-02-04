@@ -3,17 +3,22 @@ export default {
     const title = 'Twitter Sport | SignIn';
     document.title = title;
 
-    let authData;
-    async function fetchContent() {
+    let userLogin;
+    async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/api/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
       });
-      authData = await auth.json();
-      console.log(authData);
+      if (auth.status === 500) {
+        userLogin = false;
+        console.log('userLogin', userLogin);
+      } else if (auth.status === 200) {
+        userLogin = true;
+        window.location.href = '/';
+      }
     }
-    await fetchContent();
+    await fetchAuth();
 
     return `<div class="formContainer">
     <h3>SignUp</h3>
@@ -94,9 +99,23 @@ window.handleSignIn = async function () {
         headers: { 'Content-Type': 'application/json' },
       });
       const data = await res.json();
-
       console.log(data);
-      alert('Your Account has been successfully created!');
+
+      const logInAuth = await fetch('http://localhost:8080/api/auth', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: email.value,
+          pass: pass.value,
+        }),
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const logInAuthData = await logInAuth.json();
+      console.log(logInAuthData);
+
+      alert(
+        'Your Account has been successfully created and You are Logged In!'
+      );
       window.location.href = '/';
     } catch (error) {
       console.error('Error:', error);

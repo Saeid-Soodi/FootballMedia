@@ -3,23 +3,28 @@ export default {
     const title = 'Twitter Sport | SignIn';
     document.title = title;
 
-    let authData;
-    async function fetchContent() {
+    let userLogin;
+    async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/api/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
       });
-      authData = await auth.json();
-      console.log(authData);
+      if (auth.status === 500) {
+        userLogin = false;
+        console.log('userLogin', userLogin);
+      } else if (auth.status === 200) {
+        userLogin = true;
+        window.location.href = '/';
+      }
     }
-    await fetchContent();
+    await fetchAuth();
 
     return `   <div class="formContainer">
           <h3>SignIn</h3>
           <input type="emai" id="emailInput" placeholder="Email">
           <input type="password" id="passwordInput" placeholder="Password">
-          <button class="signInBtn">Sign In</button>
+          <button class="signInBtn" onclick="handleSignIn()">Sign In</button>
           <div class="dontHaveAccount">
           <p>Don't have an account?</p>
           <a href="/signUp">Sign Up</a>
@@ -37,7 +42,7 @@ window.handleSignIn = async function () {
     alert('You must fill the form before signing up');
   } else {
     try {
-      const res = await fetch('http://localhost:8080/api/user/auth', {
+      const res = await fetch('http://localhost:8080/api/auth', {
         method: 'POST',
         body: JSON.stringify({
           email: email.value,
@@ -48,17 +53,9 @@ window.handleSignIn = async function () {
       });
       const data = await res.json();
 
-      // Calculate the expiration date for the cookie
-      const expirationDate = new Date();
-      expirationDate.setDate(expirationDate.getDate() + 1); // Add one day to the current date
-      const expires = expirationDate.toUTCString();
-
-      // Save the cookie in the browser with dynamic expiration time
-      // if (data.data.token) {
-      //   const cookieHeader = data.data.token;
-      //   document.cookie = `token=${cookieHeader}; expires=${expires}; path=/;`;
-      // }
       console.log(data);
+      alert('You are Logged In!');
+      window.location.href = '/';
     } catch (error) {
       console.error('Error:', error);
     }
