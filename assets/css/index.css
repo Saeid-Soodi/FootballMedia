@@ -76,7 +76,7 @@ nav .center {
 nav .center li{
   color:var(--text-main)
 }
-nav .center li:hover{
+nav .center li a:hover{
 color: var(--text-secondary);
 cursor: pointer;
 transition: all 0.5s ease;
