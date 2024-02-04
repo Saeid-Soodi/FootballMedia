@@ -54,9 +54,26 @@ POST http://localhost:8080/api/tweet
 Content-Type: application/json
 
 {
-  "userId" : "65bdeb1c1b2590e9e29f0551", "userNameAndFamilyName" : "kiarash alizadeh", "userName" : "kiarash_alizadeh", "tweetContent" : "hello!, my first tweet."
+  "userId" : "65bdeb1c1b2590e9e29f0551", 
+  "userNameAndFamilyName" : "kiarash alizadeh", 
+  "userName" : "kiarash_alizadeh", 
+  "tweetContent" : "hello!, my first tweet."
 
 }
 
 ###
 GET http://localhost:8080/api/tweet
+
+###
+
+POST http://localhost:8080/api/comment
+Content-Type: application/json
+
+{
+  "tweetId" : "65bfd6352a308af1267fbd3b", 
+  "userId" : "65bdeb1c1b2590e9e29f0551", 
+  "userNameAndFamilyName" : "kiarash alizadeh", 
+  "userName" : "kiarash_alizadeh", 
+  "commentContent" : "my seccond comment."
+
+}

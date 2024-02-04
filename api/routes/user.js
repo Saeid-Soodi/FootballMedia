@@ -46,6 +46,7 @@ router.post('/', async (req, res) => {
       pass,
       gender,
       phone,
+      bio,
     } = req.body;
 
     if (
@@ -56,6 +57,7 @@ router.post('/', async (req, res) => {
       !birthDate ||
       !pass ||
       !gender ||
+      !bio ||
       !phone
     ) {
       // handel if data is empty
@@ -82,6 +84,7 @@ router.post('/', async (req, res) => {
       pass: hashPass,
       gender,
       phone,
+      bio,
     });
 
     res.status(201).json({ message: 'user created' });
@@ -110,6 +113,9 @@ router.patch('/:id', async (req, res) => {
     }
     if (req.body.email) {
       user.email = req.body.email;
+    }
+    if (req.body.bio) {
+      user.bio = req.body.bio;
     }
     if (req.body.birthDate) {
       user.birthDate = req.body.birthDate;

@@ -71,7 +71,7 @@
   background-color: white;
   color: black;
   border-radius: 15px;
-  width: 300px;
+  width: 400px;
   padding: 5px 10px;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .unFollowBtn {
-  min-width: 75px;
+  min-width: 100px;
   height: 35px;
   color: #fff;
   padding: 5px 10px;
@@ -90,7 +90,7 @@
   position: relative;
   display: inline-block;
   outline: none;
-  border-radius: 20px;
+  border-radius: 15px;
   border: 2px solid #d90429;
   background: #d90429;
 }
@@ -99,6 +99,22 @@
   color: #d90429;
 }
 
+.details{
+  display: flex;
+}
+
 .userDetails {
-    
+  display: flex;
+  flex-direction: column;
+}
+
+.userDetails .detailName{
+  font-weight: bold;
+  margin: 0px;
+}
+
+.userDetails .detailId{
+  font-size: 0.80rem;
+  opacity: 70%;
+ 
 }

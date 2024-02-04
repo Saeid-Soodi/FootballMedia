@@ -67,6 +67,10 @@ app.use('/api/followingList', followingListRouter);
 const tweetRouter = require('./routes/tweet');
 app.use('/api/tweet', tweetRouter);
 
+// url is like localhost:8080/api/comment
+const commentRouter = require('./routes/comment');
+app.use('/api/comment', commentRouter);
+
 const PORT = 8080;
 // server port
 app.listen(PORT, () => {

@@ -7,6 +7,7 @@ export default {
     let userLogin;
     let user;
     let users;
+    let userData;
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/api/auth', {
         method: 'Get',
@@ -23,7 +24,11 @@ export default {
 
       const res = await fetch('http://localhost:8080/api/user');
       users = await res.json();
-
+      const resUser = await fetch(
+        `http://localhost:8080/api/user/${user.userId}`
+      );
+      userData = await resUser.json();
+      console.log(userData);
       // follow user
       // const up = await fetch('http://localhost:8080/api/follow', {
       //   method: 'POST',
@@ -38,6 +43,13 @@ export default {
     }
     await fetchAuth();
 
+    window.followerLinkHandler = function () {
+      window.location.href = `/followers#${user.userId}`;
+    };
+    window.followingLinkHandler = function () {
+      window.location.href = `/followings#${user.userId}`;
+    };
+
     return `
     <div class="container">
     <div class="right">
@@ -49,10 +61,12 @@ export default {
           ? users
               .map((user) => {
                 return `<div class="suggestionsUser">
+                <span class="details">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
         <span class="detailName">${user.name + ' ' + user.familyName}</span>
         <span class="detailId">@${user.userName}</span>
+        </span>
         </span>
         <button class="followBtn">Follow</button>
       </div>`;
@@ -71,16 +85,27 @@ export default {
         </div>
         <div class="profileDesc">
             <div class="text">
-                <span class="name">Saeed Soodi</span>
-                <span class="id">@Saeedsi</span>
+                <span class="name">${
+                  userData.name + ' ' + userData.familyName
+                }</span>
+                <span class="id">@${userData.userName}</span>
             </div>
             <div class="stats">
                 <span>9 Tweets</span>
-                <span>2450 Follower</span>
-                <span>1906 Following</span>
+                <button onclick="followingLinkHandler()"><span>${
+                  userData.followers.length >= 1 ? userData.followers.length : 0
+                } Follower</span></button>
+                <button onclick="followerLinkHandler()"><span>${
+                  userData.followings.length >= 1
+                    ? userData.followers.length
+                    : 0
+                } Following</span></button>
+                
             </div>
             <div class="desc">
-                <p class="text"><span><i class="bi bi-card-text"> </i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem a quis, ut debitis saepe voluptatum.</span></p>
+                <p class="text"><span><i class="bi bi-card-text"> </i>${
+                  userData.bio
+                } </span></p>
                 <a href="" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
             </div>
         </div>

@@ -35,6 +35,8 @@
 
 .container .right .suggestions h3 {
   margin: auto;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .container .right .suggestions .suggestionsUser {
@@ -48,6 +50,11 @@
   flex-direction: column;
   font-size: 0.75rem;
 }
+
+.details{
+  display: flex;
+}
+
 
 .detailName {
   font-weight: bold;
