@@ -4,6 +4,7 @@ export default {
     let userLogin;
     let user;
     async function fetchAuth() {
+  
       const auth = await fetch('http://localhost:8080/api/auth', {
         method: 'Get',
         credentials: 'include',
@@ -16,8 +17,10 @@ export default {
         userLogin = true;
       }
     }
+
     await fetchAuth();
 
+  
     window.signInHandler = function () {
       window.location.href = '/signIn';
     };
@@ -33,11 +36,12 @@ export default {
       window.location.href = '/signIn';
     };
 
+    
     return `<div>
     <nav>
     <div class="left">
         <img src="../assets/images/SoccerMediaLogo.png" alt="SoccerMediaLogo">
-        <span class="text">Soccer Media</span>
+        <span class="text displayNone">Soccer Media</span>
       
     </div>
     <ul class="center">
@@ -63,3 +67,13 @@ export default {
     </div>`;
   },
 };
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   let TextLogo = document.querySelector('.text');
+//   TextLogo.addEventListener('mouseover', () => {
+//     TextLogo.classList.remove('displayNone');
+//     TextLogo.classList.add('displayBlock');
+//   });
+// });
+
+
