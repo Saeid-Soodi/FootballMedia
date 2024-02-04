@@ -49,10 +49,12 @@ export default {
           ? users
               .map((user) => {
                 return `<div class="suggestionsUser">
+                <span class="details">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
         <span class="detailName">${user.name + ' ' + user.familyName}</span>
         <span class="detailId">@${user.userName}</span>
+        </span>
         </span>
         <button class="followBtn">Follow</button>
       </div>`;

@@ -42,11 +42,11 @@ export default {
     ${
       listData.length >= 1
         ? listData.map((user) => {
-            return `<div class="following"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails"><span>${
+            return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails"><span class="detailName"">${
               user.name + ' ' + user.familyName
-            }</span> <span>@${
+            }</span> <span class="detailId">@${
               user.userName
-            }</span></span> <button class="unFollowBtn">unFollow</button> </div>`;
+            }</span></span> </span><button class="unFollowBtn">unFollow</button> </div>`;
           })
         : '<div>you have not follow any User </div>'
     }
