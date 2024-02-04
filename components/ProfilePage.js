@@ -3,11 +3,10 @@ export default {
   content: async function () {
     const title = 'Soccer Media | Profile';
     document.title = title;
-    // var id = window.location.toString().split('#')[1];
-    // console.log('id :', id);
 
     let userLogin;
     let user;
+    let users;
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/api/auth', {
         method: 'Get',
@@ -22,6 +21,9 @@ export default {
         userLogin = true;
       }
 
+      const res = await fetch('http://localhost:8080/api/user');
+      users = await res.json();
+
       // follow user
       // const up = await fetch('http://localhost:8080/api/follow', {
       //   method: 'POST',
@@ -33,17 +35,6 @@ export default {
       // });
       // const data = await up.json();
       // console.log('data:', data);
-
-      // list of followers
-      // const up = await fetch(
-      //   'http://localhost:8080/api/followerList/65bf221269865bfec3e8482d',
-      //   {
-      //     method: 'GET',
-      //     headers: { 'Content-Type': 'application/json' },
-      //   }
-      // );
-      // const data = await up.json();
-      // console.log('data:', data);
     }
     await fetchAuth();
 
@@ -53,30 +44,23 @@ export default {
     <div ><img class="image" src="../assets/images/upImage.jpg" alt="" /></div>
     <div class="suggestions">
       <h3>Suggestions</h3>
-      <div class="suggestionsUser">
+      ${
+        users.length >= 1
+          ? users
+              .map((user) => {
+                return `<div class="suggestionsUser">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
-        <span class="detailName">kiarash</span>
-        <span class="detailId">@kiarash_alizadeh</span>
+        <span class="detailName">${user.name + ' ' + user.familyName}</span>
+        <span class="detailId">@${user.userName}</span>
         </span>
         <button class="followBtn">Follow</button>
-      </div>
-      <div class="suggestionsUser">
-        <img class="userImage" src="../assets/images/profile.png" alt="" />
-        <span class="userDetails">
-          <span class="detailName">kiarash</span>
-          <span class="detailId">@kiarash_alizadeh</span>
-        </span>
-        <button class="followBtn">Follow</button>
-      </div>
-      <div class="suggestionsUser">
-      <img class="userImage" src="../assets/images/profile.png" alt="" />
-      <span class="userDetails">
-      <span class="detailName">kiarash</span>
-      <span class="detailId">@kiarash_alizadeh</span>
-      </span>
-      <button class="followBtn">Follow</button>
-    </div>
+      </div>`;
+              })
+              .join(' ')
+          : '<div>no User Found!</div>'
+      }
+      
     </div>
     <div class="predictions"></div>
     </div>
@@ -84,7 +68,6 @@ export default {
     <div class="bio">
         <div class="profileImg">
             <img src="../assets/images/profile.png" alt="profileImg">
-            <i class="bi bi-plus-circle"></i>
         </div>
         <div class="profileDesc">
             <div class="text">
