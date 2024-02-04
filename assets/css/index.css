@@ -43,11 +43,18 @@ nav {
   max-width: 1480px;
   padding: 0 30px;
   display: flex;
-  margin: auto;
+  margin:  15px  auto 0;
   justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.8px);
+  -webkit-backdrop-filter: blur(11.8px);
+  border: 1px solid rgba(255, 255, 255, 0.36);
 }
+
 nav .left {
   display: flex;
   align-items: center;
