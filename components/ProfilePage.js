@@ -102,7 +102,12 @@ export default {
             </div>
         </div>
         </div>
-    <div class="tweets"></div>
+    <div class="tweets">
+      <div class="tweetText">
+      <textarea class="tweetTextAraea" cols="70" rows="5"></textarea>
+      <button class="tweetBtn">Tweet</button>
+      </div>
+    </div>
     </div>
     </div>
     `;

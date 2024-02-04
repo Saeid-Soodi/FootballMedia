@@ -1,7 +1,4 @@
 /* CSS for Profile Page */
-@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 .container {
   display: flex;
   flex-direction: row-reverse;
@@ -65,38 +62,42 @@
   width: 50px;
 }
 
-.followBtn {
-  margin-left: 10px;
-  min-width: 60px;
-  height: 25px;
-  color: #fff;
-  padding: 5px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 20px;
-  border: 2px solid #212529;
-  background: #212529;
-}
+.followBtn{
 
-.followBtn:hover {
-  background: #fff;
-  color: #212529;
-}
+    margin-left: 10px;
+    min-width: 60px;
+    height: 25px;
+    color: #fff;
+    padding: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #212529;
+    background: #212529;
+  }
 
+  
+ .followBtn:hover {
+    background: #fff;
+    color: #212529;
+  }
+
+/* Bio Section */
 .container .left {
   display: flex;
   flex-direction: column;
+  gap: 30px;
   align-items: center;
   justify-content: center;
   max-width: 75%;
 }
 
-.left .bio {
+.left .bio{
   display: flex;
   gap: 40px;
   color: #fff;
@@ -179,3 +180,39 @@
 .left .bio .profileDesc .desc a:active {
   color: rgb(190, 190, 226);
 }
+
+.tweets{
+
+}
+
+.tweets .tweetText{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+}
+
+.tweets .tweetText .tweetTextAraea{
+ border-radius: 20px;
+}
+
+.tweets .tweetText .tweetBtn{
+ 
+    min-width: 100px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #57cc99;
+    background: #57cc99;
+  }
+  .tweets .tweetText .tweetBtn:hover {
+    background: #fff;
+    color: #57cc99
+  }
