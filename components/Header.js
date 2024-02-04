@@ -21,11 +21,11 @@ export default {
       
     </div>
     <ul class="center">
-        <li>Home</li>
-        <li>Profile</li>
-        <li>Predict</li>
-        <li>My Team</li>
-        <li>Settings & Privacy</li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/Profile">Profile</a></li>
+        <li><a href="/Predict">Predict</a></li>
+        <li><a href="/myTeam">My Team</a></li>
+        <li><a href="/Settings">Settings & Privacy</a></li>
     </ul>
     <button class="right">
         Sign In
