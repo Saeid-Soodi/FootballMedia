@@ -95,7 +95,6 @@
   justify-content: center;
   max-width: 75%;
 }
-
 .left .bio{
   display: flex;
   gap: 40px;
@@ -104,29 +103,28 @@
   align-items: center;
   margin: auto;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255, 255, 255);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .left .bio .profileImg {
-  border-radius: 100%;
-  width: 150px;
 }
+
 .left .bio .profileImg img {
   width: 150px;
-  border-radius: 100%;
+  height: 150px; /* Set the height to match the width for a perfect circle */
+  border-radius: 50%; /* Use border-radius 50% for a circular shape */
+  border: 2px solid  #fc4308;
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
   position: relative;
-  border: 3px solid rgb(211, 105, 0);
 }
+
 .left .bio .profileImg i {
   position: absolute;
-  top: 120px;
-  left: 130px;
-  color: rgb(249, 250, 252);
+  top: 270px;
+  left: 400px;
+  color: #000000;
   font-size: 1.5rem;
 }
 
@@ -146,7 +144,8 @@
 }
 
 .left .bio .profileDesc .text .name {
-  font-weight: 700;
+  font-weight: 900;
+  font-size: 1.2rem;
   color: black;
 }
 .left .bio .profileDesc .text .id {
@@ -156,6 +155,8 @@
 .left .bio .profileDesc .stats {
   display: flex;
   font-weight: 700;
+  margin-top: 10px;
+  color: black;
   gap: 20px;
 }
 
@@ -167,12 +168,13 @@
 
 .left .bio .profileDesc .desc p {
   display: flex;
-  width: 450px;
+  width: 400px;
+  color: #212529;
+  margin-top: 10px;
   text-align: justify;
 }
 
 .left .bio .profileDesc .desc a {
-  margin-top: -5px;
   color: rgb(241, 92, 38);
   text-decoration: none;
 }
