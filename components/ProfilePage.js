@@ -55,7 +55,27 @@ export default {
     <div class="predictions"></div>
     </div>
     <div class="left">
-    <div class="bio"></div>
+    <div class="bio">
+        <div class="profileImg">
+            <img src="../assets/images/profile.png" alt="profileImg">
+            <i class="bi bi-plus-circle"></i>
+        </div>
+        <div class="profileDesc">
+            <div class="text">
+                <span class="name">Saeed Soodi</span>
+                <span class="id">@Saeedsi</span>
+            </div>
+            <div class="stats">
+                <span>9 Tweets</span>
+                <span>2450 Follower</span>
+                <span>1906 Following</span>
+            </div>
+            <div class="desc">
+                <p class="text"><span><i class="bi bi-card-text"> </i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem a quis, ut debitis saepe voluptatum.</span></p>
+                <a href="" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
+            </div>
+        </div>
+        </div>
     <div class="tweets"></div>
     </div>
     </div>
