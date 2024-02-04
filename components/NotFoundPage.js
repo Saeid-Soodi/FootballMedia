@@ -4,19 +4,32 @@ export default {
     const title = 'Soccer Media | Not Found';
     document.title = title;
 
-    let authData;
-    async function fetchContent() {
+    let userLogin;
+    let user;
+    async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/api/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
       });
-      authData = await auth.json();
-      console.log(authData);
+      user = await auth.json();
+      if (auth.status === 500) {
+        userLogin = false;
+      } else if (auth.status === 200) {
+        userLogin = true;
+      }
     }
-    await fetchContent();
+    await fetchAuth();
 
-    return `<h2>404 - Page Not Found!</h2>
-    <p>Sorry ,the requested page does not exist!</p >`;
+    return `
+    <div class="container">
+    <span>Whoops!</span>
+    <h2>404 - Page Not Found</h2>
+    <img src="../assets/images/notFound.jpg" alt="notFound" class="notFoundImage" />
+    ${userLogin ? `<span>Dear ${user.name} are you Lost?</span>` : ''}
+    <p>Looks like this page went on vacation.</p >
+    <a href="/" class="backToHomeBtn">Back to Home Page</a>
+    </div>
+    `;
   },
 };
