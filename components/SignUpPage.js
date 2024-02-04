@@ -1,6 +1,6 @@
 export default {
   content: async function () {
-    const title = 'Twitter Sport | SignIn';
+    const title = 'Soccer Media | SignIn';
     document.title = title;
 
     let userLogin;

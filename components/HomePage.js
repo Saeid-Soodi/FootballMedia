@@ -1,7 +1,7 @@
 // Component for Home Page
 export default {
   content: async function () {
-    const title = 'Twitter Sport | Home';
+    const title = 'Soccer Media | Home';
     document.title = title;
 
     try {

@@ -1,7 +1,7 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Twitter Sport | Not Found';
+    const title = 'Soccer Media | Not Found';
     document.title = title;
 
     let authData;
