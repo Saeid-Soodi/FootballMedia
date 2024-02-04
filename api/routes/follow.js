@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const bcrypt = require('bcryptjs');
-const jsonwebtoken = require('jsonwebtoken');
-const cookie = require('cookie');
 
 // authenticating
 router.post('/', async (req, res) => {

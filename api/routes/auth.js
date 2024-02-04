@@ -14,8 +14,12 @@ router.get('/', async (req, res) => {
     const result = jsonwebtoken.verify(authToken, secretKey);
     const user = await User.findOne({ email: result.email });
 
-    const authUser = { name: user.name, role: user.role };
-    console.log('authUser', authUser);
+    const authUser = {
+      name: user.name,
+      role: user.role,
+      userId: user._id,
+    };
+
     res.json(authUser);
   } catch (err) {
     res.status(500).json({ message: err.message });

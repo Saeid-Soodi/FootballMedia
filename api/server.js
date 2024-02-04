@@ -34,24 +34,34 @@ app.use(express.json());
 app.use(cookieParser());
 app.set('trust proxy', true);
 // import routes from other files
+
+// url is like localhost:8080/api/user
 const userRouter = require('./routes/user');
 app.use('/api/user', userRouter);
-// url is like localhost:8080/api/user
 
+// url is like localhost:8080/api/user/auth
 const authRouter = require('./routes/auth');
 app.use('/api/auth', authRouter);
-// url is like localhost:8080/api/user/auth
 
+// url is like localhost:8080/api/signOut
 const signOutRouter = require('./routes/signOut');
 app.use('/api/signOut', signOutRouter);
-// url is like localhost:8080/api/signOut
 
+// url is like localhost:8080/api/follow
 const followRouter = require('./routes/follow');
 app.use('/api/follow', followRouter);
+
 // url is like localhost:8080/api/follow
 const unFollowRouter = require('./routes/unFollow');
 app.use('/api/unFollow', unFollowRouter);
-// url is like localhost:8080/api/follow
+
+// url is like localhost:8080/api/followerList
+const followerListRouter = require('./routes/followerList');
+app.use('/api/followerList', followerListRouter);
+
+// url is like localhost:8080/api/followingList
+const followingListRouter = require('./routes/followingList');
+app.use('/api/followingList', followingListRouter);
 
 const PORT = 8080;
 // server port
