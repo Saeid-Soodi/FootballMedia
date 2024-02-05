@@ -168,7 +168,6 @@
     cursor: pointer;
 }
 
-
 .left .bio .profileDesc .desc {
   display: flex;
   flex-direction: column;
@@ -219,6 +218,7 @@
     border-radius: 50%;
     object-fit: cover;
     }
+
 .tweets .tweetName .text{
   display: flex;
   flex-direction: column;
@@ -229,8 +229,7 @@
   
 .tweets .tweetName .text .name{
       font-size: 1.1rem;
-      font-weight: 900;
-      
+      font-weight: 900; 
     }
   
 .tweets .tweetName .text .id{
@@ -263,6 +262,7 @@
       font-family: 'Poppins';
       resize: none;
     }
+
 .tweeting textarea::placeholder{
       color: white;
       opacity: 90%;
@@ -284,7 +284,98 @@
       border: 2px solid #57cc99;
       background: #57cc99;
     }
+
 .tweeting button:hover{
       background: #fff;
       color: #57cc99
     }
+
+
+  /* User Tweet Section */
+
+.userTweet{
+display: flex;
+ flex-direction: column;
+ width: 700px;
+ padding: 30px;
+background: rgba(252, 67, 8, 0.14);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(11px);
+-webkit-backdrop-filter: blur(11px);
+border: 1px solid rgba(252, 67, 8, 0.2);
+    }
+  
+  .userTweet .userInfo{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+    }
+  
+  .userTweet .userInfo img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+    }
+  
+  .userTweet .userInfo .text{
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  color:var(--text-secondary);
+    }
+  
+  .userTweet .userInfo .text .name {
+      font-size: 1.1rem;
+      font-weight: 900; 
+    }
+  
+  .userTweet .userInfo .text .id {
+      margin-top: -5px;
+      font-size: 0.9rem;
+    }
+  
+  .userTweet .userLastTweet{
+    width: 550px;
+    margin-top: 25px;
+    background-color: #b67a66;
+    color: var(--text-secondary);
+    border-radius: 10px;
+    padding: 10px;
+    }
+
+  .userTweet .userIntract{
+    margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+    }
+
+.userTweet .userIntract .likes{
+  color:var(--text-secondary);
+  }
+.userTweet .userIntract .comments{
+    margin-left: 20px;
+    color:var(--text-secondary);
+  }
+.userTweet .userIntract .likes,
+.userTweet .userIntract .comments{
+   border: none;
+   background-color: transparent;
+   font-family: inherit;
+   font-size: 1rem;
+   font-weight: 900;
+   padding: 0;
+   cursor: pointer;
+    }
+
+.userIntract .likes i{
+  color: rgb(193, 2, 2);
+  }
+
+.userTweet .userIntract .time{
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+  
+

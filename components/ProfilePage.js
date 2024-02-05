@@ -123,6 +123,24 @@ export default {
        <button>Tweet</button>
          </div>
         </div>
+        <div class="userTweet">
+            <div class="userInfo">
+                <img src="../assets/images/profile.png" alt="">
+                <div class="text">
+                    <span class="name">Saeed</span>
+                    <span class="id">@Saeedsi</span>
+                </div>
+            </div>
+            <p class="userLastTweet">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, iste
+           </p>
+           <div class="userIntract">
+            <div>
+            <button class="likes"><i class="bi bi-heart-fill"></i> 100</button>
+            <button class="comments"><i class="bi bi-chat-right-text"></i> 346</button>
+             </div>
+            <span class="time">2 Hours ago</span>
+           </div>
+           </div>
     </div>
     </div>
     `;
