@@ -23,9 +23,54 @@ export default {
     await fetchAuth();
 
     return `
-    <div class="container">
-      <h3>Setting</h3>
-    </div>
+    <div class="mainSetting">
+    <h3>Setting</h3>
+    <div class="settingContainer">
+      <span>
+
+      <label>Name : </label>
+      <input type="text" id="nameInput" placeholder="Name"/>
+      </span>
+      <span>
+      
+      <label>Family Name : </label>
+       <input type="text" id="FamilyNameInput" placeholder="Family Name"/>
+      </span>
+      <span>
+
+      <label>User Name : </label>
+      <input type="text" id="userNameInput" placeholder="User Name"/>
+      </span>
+      <span>
+      
+      <label>Phone Number : </label>
+      <input type="text" id="phoneInput" placeholder="Phone Number"/>
+      </span>
+      <span>
+      
+      <label>Email : </label>
+      <input type="email" id="emailInput" placeholder="Email"/>
+      </span>
+      <span>
+      
+      <label>Gender : </label>
+      <select
+            id="genderInput"
+          >
+            <option value=""  disabled selected>
+              Select Gender
+            </option>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+          </select>
+      </span>
+      </div>
+   
+      <button class="settingBtn"  onclick="handleSignIn()">Sign Up</button>
+        <p>Do You Change Your Password ?  <a href="">Click Here</a></p>
+      </div>
+
     `;
   },
 };
+
