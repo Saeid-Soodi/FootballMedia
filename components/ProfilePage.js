@@ -120,7 +120,7 @@ export default {
         </div>
         <div class="tweeting"">
          <textarea placeholder="What's happening?" cols="65" rows="5"></textarea>
-       <button>Tweet</button>
+       <button>Tweet &nbsp; <i class="bi bi-send-fill"></i></button>
          </div>
         </div>
         <div class="userTweet">
@@ -138,7 +138,7 @@ export default {
             <button class="likes"><i class="bi bi-heart-fill"></i> 100</button>
             <button class="comments"><i class="bi bi-chat-right-text"></i> 346</button>
              </div>
-            <span class="time">2 Hours ago</span>
+            <span class="time"><i class="bi bi-clock"></i> 2 Hours ago</span>
            </div>
            </div>
     </div>
