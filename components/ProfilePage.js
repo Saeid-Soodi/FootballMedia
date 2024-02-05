@@ -4,10 +4,12 @@ export default {
     const title = 'Soccer Media | Profile';
     document.title = title;
 
-    let userLogin;
     let user;
     let users;
     let userData;
+    let listData;
+    let tweetsList;
+
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/api/auth', {
         method: 'Get',
@@ -16,32 +18,73 @@ export default {
       });
       user = await auth.json();
       if (auth.status === 500) {
-        userLogin = false;
+        const userLogin = false;
         window.location.href = '/';
       } else if (auth.status === 200) {
-        userLogin = true;
+        const userLogin = true;
       }
 
       const res = await fetch('http://localhost:8080/api/user');
       users = await res.json();
+
       const resUser = await fetch(
         `http://localhost:8080/api/user/${user.userId}`
       );
       userData = await resUser.json();
-      console.log(userData);
-      // follow user
-      // const up = await fetch('http://localhost:8080/api/follow', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     reqId: '65bf221269865bfec3e8482d',
-      //     userId: '65bdeb1c1b2590e9e29f0551',
-      //   }),
-      //   headers: { 'Content-Type': 'application/json' },
-      // });
-      // const data = await up.json();
-      // console.log('data:', data);
+
+      // list of followings
+      const followings = await fetch(
+        `http://localhost:8080/api/followingList/${user.userId}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+      listData = await followings.json();
+
+      // list of tweets
+      const tweets = await fetch(
+        `http://localhost:8080/api/tweet/${user.userId}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+      tweetsList = await tweets.json();
     }
     await fetchAuth();
+
+    window.followHandler = async function (reqId) {
+      // follow user
+      const up = await fetch('http://localhost:8080/api/follow', {
+        method: 'POST',
+        body: JSON.stringify({
+          reqId,
+          userId: user.userId,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 200) {
+        window.location.reload();
+      }
+    };
+
+    window.unFollowHandler = async function (reqId) {
+      // unFollow user
+      const up = await fetch('http://localhost:8080/api/unFollow', {
+        method: 'POST',
+        body: JSON.stringify({
+          reqId,
+          userId: user.userId,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 200) {
+        window.location.reload();
+      }
+    };
 
     window.followerLinkHandler = function () {
       window.location.href = `/followers#${user.userId}`;
@@ -59,16 +102,37 @@ export default {
       ${
         users.length >= 1
           ? users
-              .map((user) => {
+              .map((User) => {
+                const isFollowing = listData.some(
+                  (followingUser) => followingUser.id === User._id
+                );
+                if (User._id === user.userId) {
+                  return;
+                }
                 return `<div class="suggestionsUser">
                 <span class="details">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
-        <span class="detailName">${user.name + ' ' + user.familyName}</span>
-        <span class="detailId">@${user.userName}</span>
+        <span class="detailName">${User.name + ' ' + User.familyName}</span>
+        <span class="detailId">@${User.userName}</span>
         </span>
         </span>
-        <button class="followBtn">Follow</button>
+        ${
+          isFollowing
+            ? ` <button
+              class="unFollowBtn"
+              onclick="unFollowHandler('${User._id}')"
+            >
+              UnFollow
+            </button>`
+            : `<button
+              class="followBtn"
+              onclick="followHandler('${User._id}')"
+            >
+              Follow
+            </button>`
+        }
+        
       </div>`;
               })
               .join(' ')
@@ -95,14 +159,12 @@ export default {
                 <span class="id">@${userData.userName}</span>
             </div>
             <div class="stats">
-                <span>9 Tweets</span>
-                <button onclick="followingLinkHandler()"><span>${
-                  userData.followers.length >= 1 ? userData.followers.length : 0
-                } Follower</span></button>
+                <span>${tweetsList.length} Tweets</span>
                 <button onclick="followerLinkHandler()"><span>${
-                  userData.followings.length >= 1
-                    ? userData.followers.length
-                    : 0
+                  userData.followers.length
+                } Follower</span></button>
+                <button onclick="followingLinkHandler()"><span>${
+                  userData.followings.length
                 } Following</span></button>
                 
             </div>

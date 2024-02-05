@@ -12,6 +12,22 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Getting One
+router.get('/:id', async (req, res) => {
+  try {
+    const tweets = await Tweets.find({ userId: req.params.id });
+    if (!tweets) {
+      return res
+        .status(404)
+        .json({ message: 'There is no tweet for this user!' });
+    }
+
+    res.json(tweets);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // Creating one
 router.post('/', async (req, res) => {
   try {

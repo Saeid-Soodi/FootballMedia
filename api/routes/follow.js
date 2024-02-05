@@ -11,6 +11,10 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: "Id's are invalid" });
     }
 
+    if (reqId === userId) {
+      return res.status(400).json({ message: 'you can not unFollow yourself' });
+    }
+
     const user = await User.findOne({ _id: userId });
     const reqUser = await User.findOne({ _id: reqId });
     if (user.followings.includes(reqId)) {
