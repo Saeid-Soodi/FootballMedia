@@ -22,15 +22,6 @@ export default {
     await fetchAuth();
 
     return `
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="myTeam.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Team</title>
-</head>
-<body>
     <section class="container">
     <div class="head">
         <h1 class="teamName">Chelsea FC</h1>
@@ -82,13 +73,10 @@ export default {
                 <span class="text">Want to predict Match?</span>
                 <a href=""><img src="../assets/images/predictImage.jpg" alt="" class="clickHere"></a>
             </div>
-
         </div>
-
     </div>
     </section>
-</body>
-</html>
+
     `;
   },
 };
