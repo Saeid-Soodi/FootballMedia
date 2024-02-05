@@ -54,8 +54,10 @@ export default {
         console.log(data);
         if (res.status === 200) {
           alert('Prediction Submitted!');
+          window.location.reload();
         } else {
           alert('something went wrong!');
+          window.location.reload();
         }
       } catch (error) {
         console.error('Error:', error);
