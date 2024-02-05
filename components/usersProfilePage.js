@@ -176,16 +176,7 @@ export default {
             </div>
         </div>
         </div>
-        <div class="tweets">
-        <div class="tweetName">
-         <img src="../assets/images/profile.png" alt="img">
-         <div class="text">
-             <span class="name">Saeed</span>
-             <span class="id">@Saeedsi</span>
-         </div>
-        </div>
       
-        </div>
         <div class="userTweet">
             <div class="userInfo">
                 <img src="../assets/images/profile.png" alt="">

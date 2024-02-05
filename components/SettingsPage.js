@@ -24,7 +24,7 @@ export default {
 
     return `
     <div class="container">
-    Settings and Privacy page
+      <h3>Setting</h3>
     </div>
     `;
   },
