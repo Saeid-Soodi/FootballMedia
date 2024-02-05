@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function importModule(modulePath) {
     try {
       headerElement.innerHTML = await Header.content();
-      footerElement.innerHTML = Footer.content();
+      footerElement.innerHTML = await Footer.content();
       const module = await import(modulePath);
       const { content } = module.default;
 

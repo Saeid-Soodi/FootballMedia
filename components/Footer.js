@@ -1,6 +1,23 @@
 // Component for footer
 export default {
-  content: function () {
+  content: async function () {
+    let userLogin;
+    let user;
+    async function fetchAuth() {
+      const auth = await fetch('http://localhost:8080/api/auth', {
+        method: 'Get',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      user = await auth.json();
+      if (auth.status === 500) {
+        userLogin = false;
+      } else if (auth.status === 200) {
+        userLogin = true;
+      }
+    }
+
+    await fetchAuth();
     return `
     <div>
   <div class='footer-flex-justify footer-bg-color'>
@@ -17,15 +34,22 @@ export default {
         </div>
         <ul class='footer-ul'>
         <li><a href="/">Home</a></li>
-        <li><a href="/Profile">Profile</a></li>
-        <li><a href="/Predict">Predict</a></li>
+        ${userLogin ? '<li><a href="/profile">Profile</a></li>' : ''}
+        
+        <li><a href="/predict">Predict</a></li>
         <li><a href="/myTeam">My Team</a></li>
-        <li><a href="/Settings">Settings</a></li>
+        ${
+          userLogin
+            ? `
+        <li><a href="/settings">Settings</a></li>`
+            : ''
+        }
+        
         </ul>
   </div>
   <div class='footer-gif-container-margin'>
        <div class="footer-gif-container">
-          <img class="gifImage" autoplay loop muted src="../assets/images/Football.gif"></img>
+          <img class="gifImage" autoplay loop src="../assets/images/Football.gif"></img>
         </div>
   </div>
  
