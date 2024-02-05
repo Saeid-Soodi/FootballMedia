@@ -22,18 +22,10 @@ export default {
     await fetchAuth();
 
     return `
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="myTeam.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Team</title>
-</head>
-<body>
     <section class="container">
     <div class="head">
     ${userLogin ? '<h1 class="teamName">Chelsea FC</h1>' : ''}
+        <span class="logo">My Favorite Team</span>
         <span class="logo">Football Media</span>
     </div><div class="teamInfo">${
       userLogin
@@ -44,7 +36,7 @@ export default {
             <img src="../assets/images/teamFormation/ChelseaForm.jpg" alt="Team Formation">
         </div>
         <div class="teamDesc">
-            <p class="title">About Chelsea F.C</p>
+            <p class="title">About Chelsea FC</p>
             <p class="wikipedia">Chelsea Football Club is an English professional football club based in Fulham, West London. Founded in 1905, the team play their home games at Stamford Bridge.[5] The club competes in the Premier League, the top division of English football. It won its first major honour, the League championship, in 1955. The club won the FA Cup for the first time in 1970, their first European honour, the Cup Winners' Cup, in 1971, and became the third English club to win the Club World Cup in 2022.</p>
             <div class="teamGallery">
                 <h2 class="text">Gallery</h2>
@@ -91,8 +83,7 @@ export default {
     }
     </div>
     </section>
-</body>
-</html>
+
     `;
   },
 };
