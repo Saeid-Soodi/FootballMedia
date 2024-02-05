@@ -21,8 +21,8 @@ export default {
     }
     await fetchAuth();
 
-    let firstTeam = 'Chelsea';
-    let secondTeam = 'Liverpool';
+    let firstTeam = 'FcBarcelona';
+    let secondTeam = 'Chelsea';
     window.predictionHandler = async function () {
       const firstTeamPrediction = document.getElementById(
         'firstTeamPrediction'
@@ -72,7 +72,7 @@ export default {
     <img class="imageContainer" draggable="false" src="../assets/images/footballGround.jpg" alt="footballGround" />
     <div class="content">
     <div class="upComingMatch">UpComing Match</div>
-    <div class="teams"><img draggable="false" src="../assets/images/Team Logo/Chelsea.svg" alt="Chelsea" /> <span>VS</span> <img draggable="false" src="../assets/images/Team Logo/Liverpool.svg" alt="Liverpool" /></div>
+    <div class="teams"><img draggable="false" src="../assets/images/teamLogo/FcBarcelona.svg" alt="FcBarcelona" /> <span>VS</span> <img draggable="false" src="../assets/images/teamLogo/Chelsea.svg" alt="Chelsea" /></div>
     <div class="predictions"><div><input value="0" min="0" max="20" type="number" id="firstTeamPrediction" /><input value="0"  min="0" max="20" type="number" id="secondTeamPrediction" /></div> <button class="predictBtn" onclick="predictionHandler()">Predict</button></div>
     </div>
     </div>
