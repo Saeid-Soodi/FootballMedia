@@ -109,7 +109,9 @@ export default {
                 if (User._id === user.userId) {
                   return;
                 }
-                return `<div class="suggestionsUser">
+                return `<a href="/usersProfile#${
+                  User._id
+                } " class="suggestionsUser">
                 <span class="details">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
@@ -133,7 +135,7 @@ export default {
             </button>`
         }
         
-      </div>`;
+      </a>`;
               })
               .join(' ')
           : '<div>no User Found!</div>'
@@ -169,10 +171,14 @@ export default {
                 
             </div>
             <div class="desc">
-                <p class="text"><span><i class="bi bi-card-text"> </i>${
-                  userData.bio
-                } </span></p>
-                <a href="" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
+                ${
+                  userData.bio != ''
+                    ? `
+                <p class="text"><span><i class="bi bi-card-text"> </i>${userData.bio} </span></p>
+                `
+                    : ''
+                }
+            <a href="${window.location.toString()}" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
             </div>
         </div>
         </div>

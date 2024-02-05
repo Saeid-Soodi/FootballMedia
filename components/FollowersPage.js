@@ -53,8 +53,9 @@ export default {
     <h3>Followers</h3>
     ${
       listData.length >= 1
-        ? listData.map((user) => {
-            return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails">
+        ? listData
+            .map((user) => {
+              return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails">
             <span class="detailName">${user.name + ' ' + user.familyName}</span>
              <span class="detailId">@${user.userName}</span>
             </span>
@@ -63,7 +64,8 @@ export default {
              <button class="unFollowBtn" onclick="removeHandler('${
                user.id
              }')">Remove</button> </div>`;
-          })
+            })
+            .join('')
         : '<div>you do not have any followers! </div>'
     }
     </div>

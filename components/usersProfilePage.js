@@ -1,6 +1,7 @@
 // Component for not found Page
 export default {
   content: async function () {
+    let id = window.location.toString().split('#')[1];
     const title = 'Football Media | Profile';
     document.title = title;
 
@@ -27,9 +28,7 @@ export default {
       const res = await fetch('http://localhost:8080/api/user');
       users = await res.json();
 
-      const resUser = await fetch(
-        `http://localhost:8080/api/user/${user.userId}`
-      );
+      const resUser = await fetch(`http://localhost:8080/api/user/${id}`);
       userData = await resUser.json();
 
       // list of followings
@@ -43,13 +42,10 @@ export default {
       listData = await followings.json();
 
       // list of tweets
-      const tweets = await fetch(
-        `http://localhost:8080/api/tweet/${user.userId}`,
-        {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      const tweets = await fetch(`http://localhost:8080/api/tweet/${id}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
       tweetsList = await tweets.json();
     }
     await fetchAuth();
@@ -87,10 +83,10 @@ export default {
     };
 
     window.followerLinkHandler = function () {
-      window.location.href = `/followers#${user.userId}`;
+      window.location.href = `/followers#${id}`;
     };
     window.followingLinkHandler = function () {
-      window.location.href = `/followings#${user.userId}`;
+      window.location.href = `/followings#${id}`;
     };
 
     return `
@@ -109,7 +105,9 @@ export default {
                 if (User._id === user.userId) {
                   return;
                 }
-                return `<div class="suggestionsUser">
+                return `<a href="/usersProfile#${
+                  User._id
+                } " class="suggestionsUser">
                 <span class="details">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
@@ -133,7 +131,7 @@ export default {
             </button>`
         }
         
-      </div>`;
+      </a>`;
               })
               .join(' ')
           : '<div>no User Found!</div>'
@@ -167,12 +165,15 @@ export default {
                   userData.followings.length
                 } Following</span></button>
                 
-            </div>
-            <div class="desc">
-                <p class="text"><span><i class="bi bi-card-text"> </i>${
-                  userData.bio
-                } </span></p>
-                <a href="" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
+            </div><div class="desc">
+            ${
+              userData.bio != ''
+                ? `
+                <p class="text"><span><i class="bi bi-card-text"> </i>${userData.bio} </span></p>
+                `
+                : ''
+            }
+            <a href="${window.location.toString()}" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
             </div>
         </div>
         </div>
