@@ -1,1 +1,420 @@
 /* CSS for Users Profile Page */
+
+/* CSS for Profile Page */
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 100px;
+    margin: 40px auto;
+    padding: 0px 20px;
+  }
+  
+  .container .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 25%;
+  }
+  
+  .container .right .image {
+    width: 257px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+  }
+  
+  .container .right .suggestions {
+    background-color: #fff;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 30px 20px;
+    gap: 15px;
+  }
+  
+  .container .right .suggestions h3 {
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .container .right .suggestions .suggestionsUser {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .container .right .suggestions .suggestionsUser .userDetails {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+  
+  .details {
+    display: flex;
+  }
+  
+  .detailName {
+    font-weight: bold;
+  }
+  
+  .detailId {
+    font-size: 0.65rem;
+    opacity: 70%;
+  }
+  
+  .container .right .suggestions .suggestionsUser .userImage {
+    width: 50px;
+  }
+  
+  .followBtn {
+    margin-left: 10px;
+    min-width: 60px;
+    height: 25px;
+    color: #fff;
+    padding: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #212529;
+    background: #212529;
+  }
+  
+  .followBtn:hover {
+    background: #fff;
+    color: #212529;
+  }
+  
+  .unFollowBtn {
+    margin-left: 10px;
+    min-width: 60px;
+    height: 25px;
+    color: #fff;
+    padding: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #d61313;
+    background: #ca3232;
+  }
+  
+  .unFollowBtn:hover {
+    background: #fff;
+    color: #be4242;
+  }
+  /* Share Profile Section Right */
+  
+  .right .shareProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 257px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 16px;
+    padding-left: 15px;
+  }
+  .right .shareProfile span {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--text-main);
+    cursor: pointer;
+  }
+  
+  .right .shareProfile img {
+    width: 150px;
+    cursor: pointer;
+  }
+  /* Bio Section */
+  
+  .container .left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    max-width: 75%;
+  }
+  .left .bio {
+    display: flex;
+    gap: 40px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  .left .bio .profileImg {
+  }
+  
+  .left .bio .profileImg img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #fc4308;
+    object-fit: cover;
+  }
+  
+  .left .bio .profileDesc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .left .bio .profileDesc .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .left .bio .profileDesc .text .name {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: black;
+  }
+  .left .bio .profileDesc .text .id {
+    margin-top: -5px;
+    color: rgb(148, 148, 148);
+  }
+  .left .bio .profileDesc .stats {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    margin-top: 10px;
+    color: black;
+    gap: 20px;
+  }
+  .left .bio .profileDesc .stats button {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .left .bio .profileDesc .desc {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  
+  .left .bio .profileDesc .desc p {
+    display: flex;
+    width: 400px;
+    color: #212529;
+    margin-top: 10px;
+    text-align: justify;
+  }
+  
+  .left .bio .profileDesc .desc a {
+    color: rgb(241, 92, 38);
+    text-decoration: none;
+  }
+  .left .bio .profileDesc .desc a:active {
+    color: rgb(190, 190, 226);
+  }
+  
+  /* Tweet Section */
+  
+  .tweets {
+    width: 700px;
+    height: 305px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .tweets .tweetName {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: start;
+  }
+  
+  .tweets .tweetName img {
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .tweets .tweetName .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+  }
+  
+  .tweets .tweetName .text .name {
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+  
+  .tweets .tweetName .text .id {
+    margin-top: -5px;
+    font-size: 0.9rem;
+  }
+  
+  
+  .userTweet .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .userTweet .userInfo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .userTweet .userInfo .text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    color: var(--text-secondary);
+  }
+  
+  .userTweet .userInfo .text .name {
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+  
+  .userTweet .userInfo .text .id {
+    margin-top: -5px;
+    font-size: 0.9rem;
+  }
+  
+  .userTweet .userLastTweet {
+    width: 550px;
+    margin-top: 25px;
+    background-color: #b67a66;
+    color: var(--text-secondary);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .userTweet .userIntract {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .userTweet .userIntract .likes {
+    color: var(--text-secondary);
+  }
+  .userTweet .userIntract .comments {
+    margin-left: 20px;
+    color: var(--text-secondary);
+  }
+  .userTweet .userIntract .likes,
+  .userTweet .userIntract .comments {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .userIntract .likes i {
+    color: rgb(193, 2, 2);
+  }
+  
+  .userTweet .userIntract .time {
+    font-size: 0.9rem;
+    font-weight: 900;
+  }
+  
+  /* Comments Section */
+  
+  .userComments {
+    background: rgba(61, 81, 56, 0.38);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(180, 163, 163, 0.1);
+    backdrop-filter: blur(11px);
+    -webkit-backdrop-filter: blur(11px);
+    border: 1px solid rgba(195, 167, 28, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 700px;
+    padding: 30px;
+  }
+  .userComments .userInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .userComments .userInfo input {
+    width: 450px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 16px;
+    padding-left: 50px;
+    padding-right: 5px;
+    background: url('../images/profile.png') no-repeat left center;
+    background-size: 50px;
+    position: relative;
+    background-color: #ffffff33;
+    color: var(--text-secondary);
+    backdrop-filter: blur(11px);
+    -webkit-backdrop-filter: blur(11px);
+  }
+  
+  .userComments .userInfo input::placeholder {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #afabab;
+    color: var(--text-secondary);
+  }
+  
+  .userComments .comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  .userComments .comments p {
+    width: 600px;
+    padding-left: 30px;
+    margin-top: 5px;
+    color: var(--text-secondary);
+  }
+  

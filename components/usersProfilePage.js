@@ -184,10 +184,7 @@ export default {
              <span class="id">@Saeedsi</span>
          </div>
         </div>
-        <div class="tweeting"">
-         <textarea placeholder="What's happening?" cols="65" rows="5"></textarea>
-       <button>Tweet &nbsp; <i class="bi bi-send-fill"></i></button>
-         </div>
+      
         </div>
         <div class="userTweet">
             <div class="userInfo">
