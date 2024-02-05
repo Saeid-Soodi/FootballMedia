@@ -77,6 +77,10 @@ export default {
       
     </div>
     <div class="predictions"></div>
+    <div class="shareProfile">
+            <span><i class="bi bi-share-fill"></i> Share</span>
+            <img src="../assets/images/qrCode.png" alt="">
+        </div>
     </div>
     <div class="left">
     <div class="bio">

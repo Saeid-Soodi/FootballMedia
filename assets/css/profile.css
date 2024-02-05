@@ -93,7 +93,29 @@
     background: #fff;
     color: #212529;
   }
+/* Share Profile Section Right */
 
+.right .shareProfile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 257px;
+  background-color: white;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 16px;
+  padding-left: 15px;
+  }
+    .right .shareProfile span{
+      font-size: 1.3rem;
+      font-weight: 900;
+      color:var(--text-main);
+    }
+  
+    .right .shareProfile img{
+      width: 150px;
+    }
 /* Bio Section */
 
 .container .left {
