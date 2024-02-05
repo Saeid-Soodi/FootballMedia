@@ -5,6 +5,7 @@ export default {
     const title = 'Soccer Media | Followers';
     document.title = title;
 
+    let user;
     let listData;
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/api/auth', {
