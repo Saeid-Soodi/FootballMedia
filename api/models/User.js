@@ -45,6 +45,10 @@ const userSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  predictions: {
+    type: Array,
+    default: [],
+  },
   bio: {
     type: String,
     default: '',
