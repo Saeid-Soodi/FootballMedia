@@ -39,7 +39,7 @@ export default {
     <div class="teamInfo">
         <div class="teamFormation">
             <span class="text">Team Formation</span>
-            <img src="./ChelseaForm.jpg" alt="Team Formation">
+            <img src="../assets/images/teamFormation/ChelseaForm.jpg" alt="Team Formation">
         </div>
         <div class="teamDesc">
             <p class="title">About Chelsea F.C</p>
@@ -48,19 +48,19 @@ export default {
                 <h2 class="text">Gallery</h2>
                 <div class="images">
                     <div class="up">
-                        <img src="./teamImage1.jpg" alt="">
-                        <img src="./teamImage2.jpg" alt="">
+                        <img src="../assets/images/teamImages/Chelsea1.jpg" alt="">
+                        <img src="../assets/images/teamImages/Chelsea2.jpg" alt="">
                     </div>
                     <div class="down">
-                        <img src="./teamImage3.jpg" alt="">
-                        <img src="./teamImage4.jpg" alt="">
+                        <img src="../assets/images/teamImages/Chelsea3.jpg" alt="">
+                        <img src="../assets/images/teamImages/Chelsea4.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
         <div class="teamSummery">
             <div class="teamLogo">
-                <img src="./Chelsea.svg" alt="">
+                <img src="../assets/images/teamLogo/Chelsea.svg" alt="">
             </div>
             <div class="teamShortInfo">
                <div class="title">
@@ -80,7 +80,7 @@ export default {
             </div>
             <div class="teamPredictPage">
                 <span class="text">Want to predict Match?</span>
-                <a href=""><img src="./predictImage.jpg" alt="" class="clickHere"></a>
+                <a href=""><img src="../assets/images/predictImage.jpg" alt="" class="clickHere"></a>
             </div>
 
         </div>
