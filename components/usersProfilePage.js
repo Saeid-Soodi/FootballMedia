@@ -139,10 +139,10 @@ export default {
       
     </div>
     <div class="predictions"></div>
-    <div class="shareProfile">
+    <a href="${window.location.toString()}" class="shareProfile">
             <span><i class="bi bi-share-fill"></i> Share</span>
-            <img src="../assets/images/qrCode.png" alt="">
-        </div>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${window.location.toString()}" alt="qrCode">
+        </a>
     </div>
     <div class="left">
     <div class="bio">
