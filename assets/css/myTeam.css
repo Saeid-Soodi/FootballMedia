@@ -46,7 +46,7 @@ backdrop-filter: blur(9.2px);
 -webkit-backdrop-filter: blur(9.2px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 padding: 20px;
-height: 520px;
+height: 550px;
 color: white;
 }
 .container .teamInfo .teamFormation .text{
@@ -150,7 +150,7 @@ backdrop-filter: blur(9.2px);
 -webkit-backdrop-filter: blur(9.2px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 padding: 20px;
-height: 220px;
+height: 250px;
 }
 
 .teamInfo .teamSummery .teamShortInfo .title .titleItem{
@@ -163,8 +163,8 @@ height: 220px;
     flex-direction: column;
     color: aliceblue;
     justify-content: start;
-    gap: 20px;
-    font-size: 0.9rem;
+    gap: 15px;
+    font-size: 0.8rem;
 }
 
 .teamInfo .teamSummery .teamPredictPage{
