@@ -5,7 +5,7 @@ export default {
 
     let userLogin;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -83,7 +83,7 @@ window.handleSignIn = async function () {
     alert('Repeat Password does not Match');
   } else {
     try {
-      const res = await fetch('http://localhost:8080/api/user', {
+      const res = await fetch('http://localhost:8080/M00872834/user', {
         method: 'POST',
         body: JSON.stringify({
           name: name.value,
@@ -101,7 +101,7 @@ window.handleSignIn = async function () {
       const data = await res.json();
       console.log(data);
 
-      const logInAuth = await fetch('http://localhost:8080/api/auth', {
+      const logInAuth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'POST',
         body: JSON.stringify({
           email: email.value,

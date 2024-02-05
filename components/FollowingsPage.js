@@ -10,7 +10,7 @@ export default {
     let user;
     let listData;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -24,7 +24,7 @@ export default {
       }
 
       // list of followers
-      const res = await fetch(`http://localhost:8080/api/followingList/${id}`, {
+      const res = await fetch(`http://localhost:8080/M00872834/followingList/${id}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -35,7 +35,7 @@ export default {
 
     window.unFollowHandler = async function (reqId) {
       // unFollow user
-      const up = await fetch('http://localhost:8080/api/unFollow', {
+      const up = await fetch('http://localhost:8080/M00872834/unFollow', {
         method: 'POST',
         body: JSON.stringify({
           reqId,

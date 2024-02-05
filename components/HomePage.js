@@ -8,7 +8,7 @@ export default {
       let data;
       let authData;
       async function fetchContent() {
-        const auth = await fetch('http://localhost:8080/api/auth', {
+        const auth = await fetch('http://localhost:8080/M00872834/auth', {
           method: 'Get',
           credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
@@ -17,7 +17,7 @@ export default {
         console.log(authData);
         // ... do something with the data
 
-        const res = await fetch('http://localhost:8080/api/user');
+        const res = await fetch('http://localhost:8080/M00872834/user');
         data = await res.json();
         console.log(data);
       }

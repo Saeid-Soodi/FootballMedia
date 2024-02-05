@@ -5,7 +5,7 @@ export default {
 
     let userLogin;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -42,7 +42,7 @@ window.handleSignIn = async function () {
     alert('You must fill the form before signing In');
   } else {
     try {
-      const res = await fetch('http://localhost:8080/api/auth', {
+      const res = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'POST',
         body: JSON.stringify({
           email: email.value,

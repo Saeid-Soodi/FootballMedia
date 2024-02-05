@@ -5,7 +5,7 @@ export default {
     let user;
     async function fetchAuth() {
   
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -26,7 +26,7 @@ export default {
     };
 
     window.logOutHandler = async function () {
-      const resSignOut = await fetch('http://localhost:8080/api/signOut', {
+      const resSignOut = await fetch('http://localhost:8080/M00872834/signOut', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

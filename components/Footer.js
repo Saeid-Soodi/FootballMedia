@@ -4,7 +4,7 @@ export default {
     let userLogin;
     let user;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

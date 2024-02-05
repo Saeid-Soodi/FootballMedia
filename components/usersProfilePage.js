@@ -12,7 +12,7 @@ export default {
     let tweetsList;
 
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -25,15 +25,15 @@ export default {
         const userLogin = true;
       }
 
-      const res = await fetch('http://localhost:8080/api/user');
+      const res = await fetch('http://localhost:8080/M00872834/user');
       users = await res.json();
 
-      const resUser = await fetch(`http://localhost:8080/api/user/${id}`);
+      const resUser = await fetch(`http://localhost:8080/M00872834/user/${id}`);
       userData = await resUser.json();
 
       // list of followings
       const followings = await fetch(
-        `http://localhost:8080/api/followingList/${user.userId}`,
+        `http://localhost:8080/M00872834/followingList/${user.userId}`,
         {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
@@ -42,7 +42,7 @@ export default {
       listData = await followings.json();
 
       // list of tweets
-      const tweets = await fetch(`http://localhost:8080/api/tweet/${id}`, {
+      const tweets = await fetch(`http://localhost:8080/M00872834/tweet/${id}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -52,7 +52,7 @@ export default {
 
     window.followHandler = async function (reqId) {
       // follow user
-      const up = await fetch('http://localhost:8080/api/follow', {
+      const up = await fetch('http://localhost:8080/M00872834/follow', {
         method: 'POST',
         body: JSON.stringify({
           reqId,
@@ -68,7 +68,7 @@ export default {
 
     window.unFollowHandler = async function (reqId) {
       // unFollow user
-      const up = await fetch('http://localhost:8080/api/unFollow', {
+      const up = await fetch('http://localhost:8080/M00872834/unFollow', {
         method: 'POST',
         body: JSON.stringify({
           reqId,
