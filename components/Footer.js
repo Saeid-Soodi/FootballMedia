@@ -7,7 +7,7 @@ export default {
       <div>
         <div class='footer-flex-h1'>
         <h1 class='footer-h1'>
-        no limit to share your emotion and discus about soccer here fill free
+        No limit to share your emotion and discuss about soccer here feel free
         </h1>
         </div>
         <div class='footer-line'></div>
