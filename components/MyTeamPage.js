@@ -33,10 +33,12 @@ export default {
 <body>
     <section class="container">
     <div class="head">
-        <h1 class="teamName">Chelsea FC</h1>
+    ${userLogin ? '<h1 class="teamName">Chelsea FC</h1>' : ''}
         <span class="logo">Football Media</span>
-    </div>
-    <div class="teamInfo">
+    </div><div class="teamInfo">${
+      userLogin
+        ? `
+    
         <div class="teamFormation">
             <span class="text">Team Formation</span>
             <img src="../assets/images/teamFormation/ChelseaForm.jpg" alt="Team Formation">
@@ -78,13 +80,15 @@ export default {
                 <span class="titleValue">Premier League</span>
                </div>
             </div>
-            <div class="teamPredictPage">
+            <a href="/predict" class="teamPredictPage">
                 <span class="text">Want to predict Match?</span>
-                <a href=""><img src="../assets/images/predictImage.jpg" alt="" class="clickHere"></a>
-            </div>
+                <img src="../assets/images/predictImage.jpg" alt="" class="clickHere">
+            </a>
 
         </div>
-
+`
+        : 'you must login before see your favorite team!'
+    }
     </div>
     </section>
 </body>
