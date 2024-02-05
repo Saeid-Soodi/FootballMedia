@@ -145,6 +145,15 @@ export default {
             <span class="time"><i class="bi bi-clock"></i> 2 Hours ago</span>
            </div>
            </div>
+           <div class="userComments">
+            <div class="userInfo">
+                <input type="text" class="comment" placeholder="What do you think?">
+            </div>
+            <div class="comments">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+           </div>
     </div>
     </div>
     `;

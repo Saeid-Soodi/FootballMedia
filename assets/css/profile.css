@@ -111,10 +111,12 @@
       font-size: 1.3rem;
       font-weight: 900;
       color:var(--text-main);
+      cursor: pointer;
     }
   
     .right .shareProfile img{
       width: 150px;
+      cursor: pointer;
     }
 /* Bio Section */
 
@@ -400,4 +402,67 @@ border: 1px solid rgba(252, 67, 8, 0.2);
       font-weight: 900;
     }
   
+/* Comments Section */
 
+.userComments{
+  background: rgba(61, 81, 56, 0.38);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(180, 163, 163, 0.1);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border: 1px solid rgba(195, 167, 28, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 700px;
+  padding: 30px;
+    }
+.userComments .userInfo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+  
+.userComments .userInfo input {
+      width: 450px;
+      height: 40px;
+      outline: none;
+      border:none;
+      border-radius: 16px;
+      padding-left: 50px; 
+      padding-right: 5px;
+      background: url('../images/profile.png') no-repeat left center;
+      background-size: 50px ; 
+      position: relative;
+      background-color:#FFFFFF33;
+      color: var(--text-secondary);
+      backdrop-filter: blur(11px);
+      -webkit-backdrop-filter: blur(11px);
+    }
+    
+.userComments .userInfo input::placeholder {
+      position: absolute;
+      left: 50px; 
+      top: 50%;
+      transform: translateY(-50%);
+      color: #afabab;
+      color: var(--text-secondary);
+    }
+    
+.userComments .comments{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+    }
+.userComments .comments p{
+  width:600px;
+  padding-left: 30px;
+  margin-top: 5px;
+  color: var(--text-secondary);
+    }
+  
