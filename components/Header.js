@@ -40,8 +40,8 @@ export default {
     return `<div>
     <nav>
     <div class="left">
-        <img src="../assets/images/SoccerMediaLogo.png" alt="SoccerMediaLogo">
-        <span class="text displayNone">Soccer Media</span>
+        <img src="../assets/images/FootballMediaLogo.png" alt="FootballMediaLogo">
+        <span class="text displayNone">Football Media</span>
       
     </div>
     <ul class="center">

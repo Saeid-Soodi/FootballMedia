@@ -7,13 +7,13 @@ export default {
       <div>
         <div class='footer-flex-h1'>
         <h1 class='footer-h1'>
-        No limit to share your emotion and discuss about soccer here feel free
+        No limit to share your emotion and discuss about Football here feel free
         </h1>
         </div>
         <div class='footer-line'></div>
         <div class='footer-logo'>
-         <h1 class='footer-h1-brand'>Soccer Media</h1>
-         <img  src='../assets/images/SoccerMediaLogo.png'></img>
+         <h1 class='footer-h1-brand'>Football Media</h1>
+         <img  src='../assets/images/FootballMediaLogo.png'></img>
         </div>
         <ul class='footer-ul'>
         <li><a href="/">Home</a></li>

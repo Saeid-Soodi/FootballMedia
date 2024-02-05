@@ -1,7 +1,7 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Soccer Media | Not Found';
+    const title = 'Football Media | Not Found';
     document.title = title;
 
     let userLogin;

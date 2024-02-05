@@ -2,7 +2,7 @@
 export default {
   content: async function () {
     var id = window.location.toString().split('#')[1];
-    const title = 'Soccer Media | Followers';
+    const title = 'Football Media | Followers';
     document.title = title;
 
     let user;
