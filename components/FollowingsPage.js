@@ -33,6 +33,23 @@ export default {
     }
     await fetchAuth();
 
+    window.unFollowHandler = async function (reqId) {
+      // unFollow user
+      const up = await fetch('http://localhost:8080/api/unFollow', {
+        method: 'POST',
+        body: JSON.stringify({
+          reqId,
+          userId: id,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      console.log(data);
+      if (up.status === 200) {
+        window.location.reload();
+      }
+    };
+
     return `
     <div class="container">
     <div class="backBtnContainer">
@@ -41,13 +58,17 @@ export default {
     <h3>Followings</h3>
     ${
       listData.length >= 1
-        ? listData.map((user) => {
-            return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails"><span class="detailName"">${
-              user.name + ' ' + user.familyName
-            }</span> <span class="detailId">@${
-              user.userName
-            }</span></span> </span><button class="unFollowBtn">unFollow</button> </div>`;
-          })
+        ? listData
+            .map((user) => {
+              return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails"><span class="detailName"">${
+                user.name + ' ' + user.familyName
+              }</span> <span class="detailId">@${
+                user.userName
+              }</span></span> </span><button class="unFollowBtn" onclick="unFollowHandler('${
+                user.id
+              }')">unFollow</button> </div>`;
+            })
+            .join('')
         : '<div>you have not follow any User </div>'
     }
     </div>
