@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
       tweetContent,
     });
 
-    res.status(201).json({ message: 'Tweet created' });
+    res.status(200).json({ message: 'Tweet created' });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
