@@ -20,7 +20,7 @@ export default {
         <li><a href="/Profile">Profile</a></li>
         <li><a href="/Predict">Predict</a></li>
         <li><a href="/myTeam">My Team</a></li>
-        <li><a href="/Settings">Settings & Privacy</a></li>
+        <li><a href="/Settings">Settings</a></li>
         </ul>
   </div>
   <div class='footer-gif-container-margin'>
