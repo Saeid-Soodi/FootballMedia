@@ -42,10 +42,13 @@ export default {
       listData = await followings.json();
 
       // list of tweets
-      const tweets = await fetch(`http://localhost:8080/M00872834/tweet/${id}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const tweets = await fetch(
+        `http://localhost:8080/M00872834/tweet/${id}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       tweetsList = await tweets.json();
     }
     await fetchAuth();
@@ -178,33 +181,72 @@ export default {
         </div>
         </div>
       
+        ${
+          tweetsList.length === 0
+            ? `<div>user has not tweet anything</div>`
+            : tweetsList
+                .map((tweet) => {
+                  return `
         <div class="userTweet">
             <div class="userInfo">
                 <img src="../assets/images/profile.png" alt="">
                 <div class="text">
-                    <span class="name">Saeed</span>
-                    <span class="id">@Saeedsi</span>
+                    <span class="name">${
+                      userData.name + ' ' + userData.familyName
+                    }</span>
+                    <span class="id">@${userData.userName}</span>
                 </div>
             </div>
-            <p class="userLastTweet">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, iste
+            <p class="userLastTweet">${tweet.tweetContent}
            </p>
            <div class="userIntract">
             <div>
-            <button class="likes"><i class="bi bi-heart-fill"></i> 100</button>
-            <button class="comments"><i class="bi bi-chat-right-text"></i> 346</button>
+            <button class="likes"><i class="bi bi-heart-fill"></i> ${
+              tweet.likes.length
+            }</button>
+            <button class="comments"><i class="bi bi-chat-right-text"></i> ${
+              tweet.comments.length
+            }</button>
              </div>
-            <span class="time"><i class="bi bi-clock"></i> 2 Hours ago</span>
+            <span class="time"><i class="bi bi-clock"></i> ${
+              tweet.createdAt
+            }</span>
            </div>
-           </div>
-           <div class="userComments">
-            <div class="userInfo">
-                <input type="text" class="comment" placeholder="What do you think?">
+           <div class="commentsSection">
+            ${
+              tweet.comments != 0
+                ? `<h4>Comments: </h4>
+           `
+                : ''
+            }
+           ${tweet.comments
+             .map((comment) => {
+               return `<div class="comment">
+               <div class="userInfo">
+                <img src="../assets/images/profile.png" alt="">
+                <div class="text">
+                    <span class="name">${comment.userNameAndFamilyName}</span>
+                    <span class="id">@${comment.userName}</span>
+                </div>
             </div>
-            <div class="comments">
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
+                <p>${comment.commentContent}</p>
+                <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
+                </div>`;
+             })
+             .join('')}
+
            </div>
+           <div class="userInfo" >
+                       <input type="text" class="comment" placeholder="What do you think?">
+                       <button>comment</button>
+                   </div>
+           </div>
+           `;
+                })
+                .join('')
+        }
+        
+            
     </div>
     </div>
     `;
