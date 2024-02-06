@@ -28,6 +28,8 @@ router.post('/', async (req, res) => {
       aboutTeam,
       gallery,
       teamFormation,
+      players,
+      teamLogo,
     } = req.body;
 
     if (
@@ -39,6 +41,8 @@ router.post('/', async (req, res) => {
       !league ||
       !aboutTeam ||
       !gallery ||
+      !players ||
+      !teamLogo ||
       !teamFormation
     ) {
       console.log(req.body);
@@ -56,6 +60,8 @@ router.post('/', async (req, res) => {
       aboutTeam,
       gallery,
       teamFormation,
+      players,
+      teamLogo,
     });
 
     res.status(201).json({ message: 'Team created' });

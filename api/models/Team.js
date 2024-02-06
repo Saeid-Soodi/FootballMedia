@@ -35,7 +35,7 @@ const teamSchema = new mongoose.Schema({
   },
   players: {
     type: Array,
-    default: [],
+    required: true,
   },
   gallery: {
     type: Array,

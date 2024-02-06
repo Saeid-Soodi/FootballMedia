@@ -83,15 +83,17 @@ Content-Type: "application/json",
 POST http://localhost:8080/M00872834/team
 content-type: application/json
 
-{
-      "teamName": "Chelsea FC",
-      "teamFullName": "Chelsea Football Club",
-      "nickName": "The Blues",
-      "founded": "10 March 1905",
-      "ground": "Stamford Bridge",
-      "league": "Premier League",
-      "aboutTeam": "Chelsea Football Club is an English professional football club based in Fulham, West London. Founded in 1905, the team play their home games at Stamford Bridge.The club competes in the Premier League, the top division of English football. It won its first major honour, the League championship, in 1955. The club won the FA Cup for the first time in 1970, their first European honour, the Cup Winners' Cup, in 1971, and became the third English club to win the Club World Cup in 2022.",
-      "gallery": ["assets/images/teamImages/Chelsea/Chelsea1.jpg","assets/images/teamImages/Chelsea/Chelsea2.jpg","assets/images/teamImages/Chelsea/Chelsea3.jpg","assets/images/teamImages/Chelsea/Chelsea4.jpg"],
-      "teamFormation": "assets/images/teamFormation/ChelseaForm.jpg"
+{"teamLogo": "assets/images/teamLogo/realMadrid.svg",
+      "teamName": "Real Madrid CF",
+      "teamFullName": "Real Madrid Club de Fútbol",
+      "nickName": "Los Blancos",
+      "founded": "6 March 1902",
+      "ground": "Estadio Santiago Bernabéu",
+      "league": "La Liga",
+      "aboutTeam": "Being one of the three founding members of La Liga that have never been relegated from the top division since its inception in 1929 (along with Athletic Bilbao and Barcelona), Real Madrid holds many long-standing rivalries, most notably El Clásico with Barcelona and El Derbi Madrileño with Atlético Madrid. The club established itself as a major force in both Spanish and European football during the 1950s and 60s, winning five consecutive and six overall European Cups and reaching a further two finals. This success was replicated on the domestic front, with Madrid winning twelve league titles in the span of 16 years. This team, which included Alfredo Di Stéfano, Ferenc Puskás, Paco Gento and Raymond Kopa is considered by some in the sport to be the greatest of all time. Real Madrid is known for its Galácticos policy, which involves signing the world's best players, such as Ronaldo, Zidane and David Beckham to create a superstar team. The term 'Galácticos policy' generally refers to the two eras of Florentino Pérez's presidency of the club (2000_2006 and 2009_2018), however, players brought in just before his tenure are sometimes considered to be part of the Galácticos legacy. A notable example is Steve McManaman, who like many other players also succeeded under the policy. On 26 June 2009, Madrid signed Cristiano Ronaldo for a record breaking £80 million (€94 million); he became both the club and history's all-time top goalscorer. Madrid have recently relaxed the Galácticos policy, instead focusing on signing young talents such as Vinícius Júnior, Rodrygo and Jude Bellingham.",
+      "gallery": ["assets/images/teamImages/realMadrid/realMadrid1.webp","assets/images/teamImages/realMadrid/realMadrid2.jpg","assets/images/teamImages/realMadrid/realMadrid3.jpg","assets/images/teamImages/realMadrid/realMadrid4.jpg"],
+      "teamFormation": "assets/images/teamFormation/RealForm.jpg",
+      "players": []
+      
 
 }
