@@ -51,9 +51,12 @@ window.handleSignIn = async function () {
         headers: { 'Content-Type': 'application/json' },
       });
       const data = await res.json();
-
-      alert('You are Logged In!');
-      window.location.href = '/';
+      if (res.status === 400) {
+        return alert(data.message);
+      } else {
+        alert('You are Logged In!');
+        window.location.href = '/';
+      }
     } catch (error) {
       console.error('Error:', error);
     }

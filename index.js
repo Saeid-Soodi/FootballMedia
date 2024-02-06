@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     { path: '/signIn', component: 'SignInPage', css: 'signIn' },
     { path: '/signUp', component: 'SignUpPage', css: 'signUp' },
     {
+      path: '/changePassword',
+      component: 'ChangePasswordPage',
+      css: 'changePassword',
+    },
+    {
       path: '/usersProfile',
       component: 'usersProfilePage',
       css: 'usersProfile',
