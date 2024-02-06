@@ -3,14 +3,14 @@ export default {
   content: async function () {
     var id = window.location.toString().split('#')[1];
 
-    const title = 'Soccer Media | Followings';
+    const title = 'Followings | Football Media';
     document.title = title;
 
     let userLogin;
     let user;
     let listData;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -24,18 +24,20 @@ export default {
       }
 
       // list of followers
-      const res = await fetch(`http://localhost:8080/api/followingList/${id}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const res = await fetch(
+        `http://localhost:8080/M00872834/followingList/${id}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       listData = await res.json();
-      console.log('data:', listData);
     }
     await fetchAuth();
 
     window.unFollowHandler = async function (reqId) {
       // unFollow user
-      const up = await fetch('http://localhost:8080/api/unFollow', {
+      const up = await fetch('http://localhost:8080/M00872834/unFollow', {
         method: 'POST',
         body: JSON.stringify({
           reqId,
@@ -44,7 +46,6 @@ export default {
         headers: { 'Content-Type': 'application/json' },
       });
       const data = await up.json();
-      console.log(data);
       if (up.status === 200) {
         window.location.reload();
       }

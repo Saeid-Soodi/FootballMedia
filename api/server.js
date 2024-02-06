@@ -35,41 +35,45 @@ app.use(cookieParser());
 app.set('trust proxy', true);
 // import routes from other files
 
-// url is like localhost:8080/api/user
+// url is like localhost:8080/M00872834/user
 const userRouter = require('./routes/user');
-app.use('/api/user', userRouter);
+app.use('/M00872834/user', userRouter);
 
-// url is like localhost:8080/api/user/auth
+// url is like localhost:8080/M00872834/user/auth
 const authRouter = require('./routes/auth');
-app.use('/api/auth', authRouter);
+app.use('/M00872834/auth', authRouter);
 
-// url is like localhost:8080/api/signOut
+// url is like localhost:8080/M00872834/signOut
 const signOutRouter = require('./routes/signOut');
-app.use('/api/signOut', signOutRouter);
+app.use('/M00872834/signOut', signOutRouter);
 
-// url is like localhost:8080/api/follow
+// url is like localhost:8080/M00872834/follow
 const followRouter = require('./routes/follow');
-app.use('/api/follow', followRouter);
+app.use('/M00872834/follow', followRouter);
 
-// url is like localhost:8080/api/follow
+// url is like localhost:8080/M00872834/follow
 const unFollowRouter = require('./routes/unFollow');
-app.use('/api/unFollow', unFollowRouter);
+app.use('/M00872834/unFollow', unFollowRouter);
 
-// url is like localhost:8080/api/followerList
+// url is like localhost:8080/M00872834/followerList
 const followerListRouter = require('./routes/followerList');
-app.use('/api/followerList', followerListRouter);
+app.use('/M00872834/followerList', followerListRouter);
 
-// url is like localhost:8080/api/followingList
+// url is like localhost:8080/M00872834/followingList
 const followingListRouter = require('./routes/followingList');
-app.use('/api/followingList', followingListRouter);
+app.use('/M00872834/followingList', followingListRouter);
 
-// url is like localhost:8080/api/tweet
+// url is like localhost:8080/M00872834/tweet
 const tweetRouter = require('./routes/tweet');
-app.use('/api/tweet', tweetRouter);
+app.use('/M00872834/tweet', tweetRouter);
 
-// url is like localhost:8080/api/comment
+// url is like localhost:8080/M00872834/comment
 const commentRouter = require('./routes/comment');
-app.use('/api/comment', commentRouter);
+app.use('/M00872834/comment', commentRouter);
+
+// url is like localhost:8080/M00872834/team
+const teamRouter = require('./routes/team');
+app.use('/M00872834/team', teamRouter);
 
 const PORT = 8080;
 // server port

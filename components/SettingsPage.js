@@ -1,13 +1,13 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Soccer Media | Settings and Privacy';
+    const title = 'Settings | Football Media';
     document.title = title;
 
     let userLogin;
     let user;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -67,10 +67,9 @@ export default {
       </div>
    
       <button class="settingBtn"  onclick="handleSignIn()">Change</button>
-        <p>Do You Change Your Password ?  <a href="">Click Here</a></p>
+        <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
       </div>
 
     `;
   },
 };
-

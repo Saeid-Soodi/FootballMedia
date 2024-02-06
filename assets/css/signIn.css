@@ -61,7 +61,7 @@ main input:focus {
   width: 100%;
 }
 .signInBtn:after {
-  content: "";
+  content: '';
   position: absolute;
   z-index: -1;
   transition: all 0.3s ease;
@@ -72,8 +72,7 @@ main input:focus {
   background: #fc4308;
 }
 
-
-main .dontHaveAccount{
+main .dontHaveAccount {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +82,7 @@ main .dontHaveAccount{
   user-select: none;
 }
 
-main .dontHaveAccount a:hover{
+main .dontHaveAccount a:hover {
   opacity: 70%;
   transition: all 0.5s ease;
 }

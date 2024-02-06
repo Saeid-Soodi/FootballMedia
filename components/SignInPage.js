@@ -1,18 +1,17 @@
 export default {
   content: async function () {
-    const title = 'Soccer Media | SignIn';
+    const title = 'SignIn | Football Media';
     document.title = title;
 
     let userLogin;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
       });
       if (auth.status === 500) {
         userLogin = false;
-        console.log('userLogin', userLogin);
       } else if (auth.status === 200) {
         userLogin = true;
         window.location.href = '/';
@@ -42,7 +41,7 @@ window.handleSignIn = async function () {
     alert('You must fill the form before signing In');
   } else {
     try {
-      const res = await fetch('http://localhost:8080/api/auth', {
+      const res = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'POST',
         body: JSON.stringify({
           email: email.value,
@@ -52,10 +51,12 @@ window.handleSignIn = async function () {
         headers: { 'Content-Type': 'application/json' },
       });
       const data = await res.json();
-
-      console.log(data);
-      alert('You are Logged In!');
-      window.location.href = '/';
+      if (res.status === 400) {
+        return alert(data.message);
+      } else {
+        alert('You are Logged In!');
+        window.location.href = '/';
+      }
     } catch (error) {
       console.error('Error:', error);
     }

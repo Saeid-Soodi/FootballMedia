@@ -1,25 +1,23 @@
 // Component for Home Page
 export default {
   content: async function () {
-    const title = 'Soccer Media | Home';
+    const title = 'Home | Football Media';
     document.title = title;
 
     try {
       let data;
       let authData;
       async function fetchContent() {
-        const auth = await fetch('http://localhost:8080/api/auth', {
+        const auth = await fetch('http://localhost:8080/M00872834/auth', {
           method: 'Get',
           credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
         });
         authData = await auth.json();
-        console.log(authData);
         // ... do something with the data
 
-        const res = await fetch('http://localhost:8080/api/user');
+        const res = await fetch('http://localhost:8080/M00872834/user');
         data = await res.json();
-        console.log(data);
       }
       await fetchContent();
 

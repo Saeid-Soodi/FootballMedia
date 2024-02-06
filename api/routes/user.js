@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
       pass,
       gender,
       phone,
-      bio,
+      favoriteTeam,
     } = req.body;
 
     if (
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
       !birthDate ||
       !pass ||
       !gender ||
-      !bio ||
+      !favoriteTeam ||
       !phone
     ) {
       // handel if data is empty
@@ -84,7 +84,7 @@ router.post('/', async (req, res) => {
       pass: hashPass,
       gender,
       phone,
-      bio,
+      favoriteTeam,
     });
 
     res.status(201).json({ message: 'user created' });
@@ -121,6 +121,10 @@ router.patch('/:id', async (req, res) => {
       user.birthDate = req.body.birthDate;
     }
     if (req.body.pass) {
+      const isValid = await bcrypt.compare(req.body.oldPass, user.pass);
+      if (!isValid) {
+        return res.status(400).json({ message: 'Old password is wrong!' });
+      }
       const hashPass = await hashPassword(req.body.pass);
       user.pass = hashPass;
     }
@@ -160,7 +164,7 @@ router.patch('/:id', async (req, res) => {
     }
 
     const updatedUser = await user.save();
-    res.json(updatedUser);
+    res.status(201).json(updatedUser);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

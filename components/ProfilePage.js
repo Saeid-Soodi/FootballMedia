@@ -1,17 +1,15 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Soccer Media | Profile';
-    document.title = title;
-
     let user;
     let users;
     let userData;
     let listData;
     let tweetsList;
+    let favoriteTeamData;
 
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -24,17 +22,17 @@ export default {
         const userLogin = true;
       }
 
-      const res = await fetch('http://localhost:8080/api/user');
+      const res = await fetch('http://localhost:8080/M00872834/user');
       users = await res.json();
 
       const resUser = await fetch(
-        `http://localhost:8080/api/user/${user.userId}`
+        `http://localhost:8080/M00872834/user/${user.userId}`
       );
       userData = await resUser.json();
 
       // list of followings
       const followings = await fetch(
-        `http://localhost:8080/api/followingList/${user.userId}`,
+        `http://localhost:8080/M00872834/followingList/${user.userId}`,
         {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
@@ -44,19 +42,30 @@ export default {
 
       // list of tweets
       const tweets = await fetch(
-        `http://localhost:8080/api/tweet/${user.userId}`,
+        `http://localhost:8080/M00872834/tweet/${user.userId}`,
         {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         }
       );
       tweetsList = await tweets.json();
+
+      // favorite team data
+      const favoriteTeam = await fetch(
+        `http://localhost:8080/M00872834/team/${user.userId}`,
+        {
+          method: 'Get',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+      favoriteTeamData = await favoriteTeam.json();
     }
     await fetchAuth();
 
     window.followHandler = async function (reqId) {
       // follow user
-      const up = await fetch('http://localhost:8080/api/follow', {
+      const up = await fetch('http://localhost:8080/M00872834/follow', {
         method: 'POST',
         body: JSON.stringify({
           reqId,
@@ -72,7 +81,7 @@ export default {
 
     window.unFollowHandler = async function (reqId) {
       // unFollow user
-      const up = await fetch('http://localhost:8080/api/unFollow', {
+      const up = await fetch('http://localhost:8080/M00872834/unFollow', {
         method: 'POST',
         body: JSON.stringify({
           reqId,
@@ -86,6 +95,57 @@ export default {
       }
     };
 
+    window.tweetHandler = async function () {
+      const tweetContent = document.getElementById('tweetContent').value;
+      if (tweetContent === '') {
+        return alert('tweet can not be empty');
+      }
+      // tweet user
+      const up = await fetch('http://localhost:8080/M00872834/tweet', {
+        method: 'POST',
+        body: JSON.stringify({
+          userId: user.userId,
+          userNameAndFamilyName: userData.name + ' ' + userData.familyName,
+          userName: userData.userName,
+          tweetContent,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 200) {
+        alert('tweet added!');
+        window.location.reload();
+      }
+    };
+
+    window.commentHandler = async function (index, tweetId) {
+      const commentContent = document.getElementById(
+        `commentInput_${index}`
+      ).value;
+      if (commentContent === '') {
+        return alert('comment can not be empty');
+      }
+      // comment on tweet
+      const up = await fetch('http://localhost:8080/M00872834/comment', {
+        method: 'POST',
+        body: JSON.stringify({
+          tweetId,
+          userId: userData._id,
+          userNameAndFamilyName: userData.name + ' ' + userData.familyName,
+          userName: userData.userName,
+          commentContent,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 201) {
+        alert('comment added!');
+        window.location.reload();
+      } else {
+        alert(data);
+      }
+    };
+
     window.followerLinkHandler = function () {
       window.location.href = `/followers#${user.userId}`;
     };
@@ -93,6 +153,10 @@ export default {
       window.location.href = `/followings#${user.userId}`;
     };
 
+    const title = `${
+      userData.name + ' ' + userData.familyName
+    } | Football Media`;
+    document.title = title;
     return `
     <div class="container">
     <div class="right">
@@ -109,7 +173,9 @@ export default {
                 if (User._id === user.userId) {
                   return;
                 }
-                return `<div class="suggestionsUser">
+                return `<a href="/usersProfile#${
+                  User._id
+                } " class="suggestionsUser">
                 <span class="details">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
@@ -133,7 +199,7 @@ export default {
             </button>`
         }
         
-      </div>`;
+      </a>`;
               })
               .join(' ')
           : '<div>no User Found!</div>'
@@ -141,10 +207,10 @@ export default {
       
     </div>
     <div class="predictions"></div>
-    <div class="shareProfile">
+    <a href="${window.location.toString()}" class="shareProfile">
             <span><i class="bi bi-share-fill"></i> Share</span>
-            <img src="../assets/images/qrCode.png" alt="">
-        </div>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${window.location.toString()}" alt="qrCode">
+        </a>
     </div>
     <div class="left">
     <div class="bio">
@@ -166,13 +232,21 @@ export default {
                 <button onclick="followingLinkHandler()"><span>${
                   userData.followings.length
                 } Following</span></button>
-                
+                <div class="favoriteTeam"><img src="${
+                  favoriteTeamData.teamLogo
+                }" alt="${favoriteTeamData.teamName}" /> <span>${
+      favoriteTeamData.teamName
+    }</span></div>
             </div>
             <div class="desc">
-                <p class="text"><span><i class="bi bi-card-text"> </i>${
-                  userData.bio
-                } </span></p>
-                <a href="" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
+                ${
+                  userData.bio != ''
+                    ? `
+                <p class="text"><span><i class="bi bi-card-text"> </i>${userData.bio} </span></p>
+                `
+                    : ''
+                }
+            <a href="${window.location.toString()}" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
             </div>
         </div>
         </div>
@@ -180,42 +254,84 @@ export default {
         <div class="tweetName">
          <img src="../assets/images/profile.png" alt="img">
          <div class="text">
-             <span class="name">Saeed</span>
-             <span class="id">@Saeedsi</span>
+             <span class="name">${
+               userData.name + ' ' + userData.familyName
+             }</span>
+             <span class="id">@${userData.userName}</span>
          </div>
         </div>
         <div class="tweeting"">
-         <textarea placeholder="What's happening?" cols="65" rows="5"></textarea>
-       <button>Tweet &nbsp; <i class="bi bi-send-fill"></i></button>
+         <textarea placeholder="What's happening?" cols="65" rows="5" id="tweetContent"></textarea>
+       <button onclick="tweetHandler()">Tweet &nbsp; <i class="bi bi-send-fill"></i></button>
          </div>
-        </div>
+        </div>${
+          tweetsList.length === 0
+            ? `<div>You has not tweet anything</div>`
+            : tweetsList
+                .reverse()
+                .map((tweet, index) => {
+                  return `
         <div class="userTweet">
             <div class="userInfo">
                 <img src="../assets/images/profile.png" alt="">
                 <div class="text">
-                    <span class="name">Saeed</span>
-                    <span class="id">@Saeedsi</span>
+                    <span class="name">${
+                      userData.name + ' ' + userData.familyName
+                    }</span>
+                    <span class="id">@${userData.userName}</span>
                 </div>
             </div>
-            <p class="userLastTweet">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, iste
+            <p class="userLastTweet">${tweet.tweetContent}
            </p>
            <div class="userIntract">
             <div>
-            <button class="likes"><i class="bi bi-heart-fill"></i> 100</button>
-            <button class="comments"><i class="bi bi-chat-right-text"></i> 346</button>
+            <button class="likes"><i class="bi bi-heart-fill"></i> ${
+              tweet.likes.length
+            }</button>
+            <button class="comments"><i class="bi bi-chat-right-text"></i> ${
+              tweet.comments.length
+            }</button>
              </div>
-            <span class="time"><i class="bi bi-clock"></i> 2 Hours ago</span>
+            <span class="time"><i class="bi bi-clock"></i> ${
+              tweet.createdAt
+            }</span>
            </div>
-           </div>
-           <div class="userComments">
-            <div class="userInfo">
-                <input type="text" class="comment" placeholder="What do you think?">
+           <div class="commentsSection">
+           ${
+             tweet.comments != 0
+               ? `<h4>Comments: </h4>
+           `
+               : ''
+           }
+           
+           ${tweet.comments
+             .map((comment) => {
+               return `<div class="comment">
+               <div class="userInfo">
+                <img src="../assets/images/profile.png" alt="">
+                <div class="text">
+                    <span class="name">${comment.userNameAndFamilyName}</span>
+                    <span class="id">@${comment.userName}</span>
+                </div>
             </div>
-            <div class="comments">
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
+                <p>${comment.commentContent}</p>
+                <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
+                </div>`;
+             })
+             .join('')}
+
            </div>
+           <div class="userInfo" >
+                       <input type="text" id="commentInput_${index}" class="comment" placeholder="add a comment for yourself">
+                       <button onclick='commentHandler(${index}, "${
+                    tweet._id
+                  }")'>comment</button>
+                   </div>
+           </div>`;
+                })
+                .join('')
+        }
+          
     </div>
     </div>
     `;

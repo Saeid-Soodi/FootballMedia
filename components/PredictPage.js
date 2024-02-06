@@ -1,13 +1,13 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Soccer Media | Predict';
+    const title = 'Predict | Football Media';
     document.title = title;
 
     let userLogin;
     let user;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,7 @@ export default {
 
       try {
         const res = await fetch(
-          `http://localhost:8080/api/user/${user.userId}`,
+          `http://localhost:8080/M00872834/user/${user.userId}`,
           {
             method: 'PATCH',
             body: JSON.stringify({
@@ -51,7 +51,6 @@ export default {
         );
         const data = await res.json();
 
-        console.log(data);
         if (res.status === 200) {
           alert('Prediction Submitted!');
           window.location.reload();
@@ -75,8 +74,13 @@ export default {
     <div class="content">
     <div class="upComingMatch">UpComing Match</div>
     <div class="teams"><img draggable="false" src="../assets/images/teamLogo/FcBarcelona.svg" alt="FcBarcelona" /> <span>VS</span> <img draggable="false" src="../assets/images/teamLogo/Chelsea.svg" alt="Chelsea" /></div>
-    <div class="predictions"><div><input value="0" min="0" max="20" type="number" id="firstTeamPrediction" /><input value="0"  min="0" max="20" type="number" id="secondTeamPrediction" /></div> <button class="predictBtn" onclick="predictionHandler()">Predict</button></div>
-    </div>
+    ${
+      userLogin
+        ? `<div class="predictions"><div><input value="0" min="0" max="20" type="number" id="firstTeamPrediction" /><input value="0"  min="0" max="20" type="number" id="secondTeamPrediction" /></div> <button class="predictBtn" onclick="predictionHandler()">Predict</button></div>
+    </div>`
+        : `<div class="upComingMatch">you must login before prediction!</div>`
+    }
+    
     </div>
     `;
   },

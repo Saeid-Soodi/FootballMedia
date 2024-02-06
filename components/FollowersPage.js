@@ -2,13 +2,13 @@
 export default {
   content: async function () {
     var id = window.location.toString().split('#')[1];
-    const title = 'Soccer Media | Followers';
+    const title = 'Followers | Football Media';
     document.title = title;
 
     let user;
     let listData;
     async function fetchAuth() {
-      const auth = await fetch('http://localhost:8080/api/auth', {
+      const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -21,17 +21,20 @@ export default {
         const userLogin = true;
       }
       // list of followers
-      const res = await fetch(`http://localhost:8080/api/followerList/${id}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const res = await fetch(
+        `http://localhost:8080/M00872834/followerList/${id}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       listData = await res.json();
     }
     await fetchAuth();
 
     window.removeHandler = async function (userId) {
       // remove user
-      const up = await fetch('http://localhost:8080/api/unFollow', {
+      const up = await fetch('http://localhost:8080/M00872834/unFollow', {
         method: 'POST',
         body: JSON.stringify({
           reqId: id,
@@ -53,8 +56,9 @@ export default {
     <h3>Followers</h3>
     ${
       listData.length >= 1
-        ? listData.map((user) => {
-            return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails">
+        ? listData
+            .map((user) => {
+              return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails">
             <span class="detailName">${user.name + ' ' + user.familyName}</span>
              <span class="detailId">@${user.userName}</span>
             </span>
@@ -63,7 +67,8 @@ export default {
              <button class="unFollowBtn" onclick="removeHandler('${
                user.id
              }')">Remove</button> </div>`;
-          })
+            })
+            .join('')
         : '<div>you do not have any followers! </div>'
     }
     </div>
