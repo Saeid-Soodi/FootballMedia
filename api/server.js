@@ -71,6 +71,10 @@ app.use('/M00872834/tweet', tweetRouter);
 const commentRouter = require('./routes/comment');
 app.use('/M00872834/comment', commentRouter);
 
+// url is like localhost:8080/M00872834/like
+const likeRouter = require('./routes/like');
+app.use('/M00872834/like', likeRouter);
+
 // url is like localhost:8080/M00872834/team
 const teamRouter = require('./routes/team');
 app.use('/M00872834/team', teamRouter);

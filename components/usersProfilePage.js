@@ -135,6 +135,25 @@ export default {
       window.location.href = `/followings#${id}`;
     };
 
+    window.likeHandler = async function (button) {
+      const tweetId = button.getAttribute('data-tweet-id');
+      // like tweet
+      const up = await fetch('http://localhost:8080/M00872834/like', {
+        method: 'POST',
+        body: JSON.stringify({
+          tweetId,
+          userId: user.userId,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 201) {
+        window.location.reload();
+      } else {
+        alert(data.message);
+      }
+    };
+
     const title = `${
       userData.name + ' ' + userData.familyName
     } | Football Media`;
@@ -255,12 +274,16 @@ export default {
            </p>
            <div class="userIntract">
             <div>
-            <button class="likes"><i class="bi bi-heart-fill"></i> ${
-              tweet.likes.length
-            }</button>
-            <button class="comments"><i class="bi bi-chat-right-text"></i> ${
+            <button onclick="likeHandler(this)" data-tweet-id="${
+              tweet._id
+            }" class="likes">${
+                    tweet.likes.includes(user.userId)
+                      ? '<i class="bi bi-heart-fill"></i>'
+                      : '<i class="bi bi-heart"></i>'
+                  } ${tweet.likes.length}</button>
+            <span class="comments"><i class="bi bi-chat-right-text"></i> ${
               tweet.comments.length
-            }</button>
+            }</span>
              </div>
             <span class="time"><i class="bi bi-clock"></i> ${
               tweet.createdAt
