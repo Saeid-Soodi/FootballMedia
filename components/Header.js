@@ -58,6 +58,7 @@ export default {
             ? '<li><a href="/settings"><i class="bi bi-gear-fill"></i> Settings</a></li>'
             : ''
         }
+          <li><a href="/termsAndConditions"><i class="bi bi-book-half"></i> Terms and Conditions</a></li>
     </ul>
     ${
       !userLogin

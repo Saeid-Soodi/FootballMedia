@@ -12,15 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
     { path: '/predict', component: 'PredictPage', css: 'predict' },
     { path: '/myTeam', component: 'MyTeamPage', css: 'myTeam' },
     { path: '/settings', component: 'SettingsPage', css: 'settings' },
+    {
+      path: '/termsAndConditions',
+      component: 'TermsAndConditionsPage',
+      css: 'termsAndConditions',
+    },
     { path: '/signIn', component: 'SignInPage', css: 'signIn' },
     { path: '/signUp', component: 'SignUpPage', css: 'signUp' },
-    { path: '/followers', component: 'FollowersPage', css: 'followers' },
-    { path: '/followings', component: 'FollowingsPage', css: 'followings' },
     {
       path: '/usersProfile',
       component: 'usersProfilePage',
       css: 'usersProfile',
     },
+    { path: '/followers', component: 'FollowersPage', css: 'followers' },
+    { path: '/followings', component: 'FollowingsPage', css: 'followings' },
   ];
 
   // Initial load of the content based on the current URL path
