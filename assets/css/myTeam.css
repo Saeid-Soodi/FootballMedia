@@ -28,6 +28,9 @@
   font-size: 1.9rem;
   font-weight: 900;
 }
+.container .head .logo span{
+  color: var(--text-secondary);
+}
 .container .teamInfo {
   display: flex;
   justify-content: space-between;
@@ -156,6 +159,7 @@
 }
 .container .teamSummery .teamLogo img {
   width: 200px;
+  height: 200px;
 }
 .teamInfo .teamSummery .teamShortInfo {
   display: flex;
