@@ -46,50 +46,14 @@ export default {
             <span class="text">Team Formation</span>
             <img src="${team.teamFormation}" alt="Team Formation">
             <div class="teamPlayers">
-  <div class="player">
-    <span class="playerNumber">18</span>
-    <span class="playerName">Christopher Nkunku</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">7</span>
-    <span class="playerName">Raheem Sterling</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">20</span>
-    <span class="playerName">Cole Palmer</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">21</span>
-    <span class="playerName">Ben Chilwell</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">8</span>
-    <span class="playerName">Enzo Fernández</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">23</span>
-    <span class="playerName">Conor Gallagher</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">27</span>
-    <span class="playerName">Malo Gusto</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">6</span>
-    <span class="playerName">Thiago Silva</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">25</span>
-    <span class="playerName">Moisés Caicedo</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">2</span>
-    <span class="playerName">Axel Disasi</span>
-  </div>
-  <div class="player">
-    <span class="playerNumber">28</span>
-    <span class="playerName">Đorđe Petrović</span>
-  </div>
+            ${team.players
+              .map((player) => {
+                return `<div class="player">
+    
+    <span class="playerName">${player}</span>
+  </div>`;
+              })
+              .join('')}
 </div>
         </div>
         <div class="teamDesc">
