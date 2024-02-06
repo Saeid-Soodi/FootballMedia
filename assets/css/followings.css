@@ -99,7 +99,7 @@
   color: #d90429;
 }
 
-.details{
+.details {
   display: flex;
 }
 
@@ -108,13 +108,12 @@
   flex-direction: column;
 }
 
-.userDetails .detailName{
+.userDetails .detailName {
   font-weight: bold;
   margin: 0px;
 }
 
-.userDetails .detailId{
-  font-size: 0.80rem;
+.userDetails .detailId {
+  font-size: 0.8rem;
   opacity: 70%;
- 
 }
