@@ -9,6 +9,7 @@ export default {
     let userData;
     let listData;
     let tweetsList;
+    let favoriteTeamData;
 
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/M00872834/auth', {
@@ -51,6 +52,17 @@ export default {
         }
       );
       tweetsList = await tweets.json();
+
+      // favorite team data
+      const favoriteTeam = await fetch(
+        `http://localhost:8080/M00872834/team/${user.userId}`,
+        {
+          method: 'Get',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+      favoriteTeamData = await favoriteTeam.json();
     }
     await fetchAuth();
 
@@ -218,7 +230,11 @@ export default {
                 <button onclick="followingLinkHandler()"><span>${
                   userData.followings.length
                 } Following</span></button>
-                
+                <div class="favoriteTeam"><img src="${
+                  favoriteTeamData.teamLogo
+                }" alt="${favoriteTeamData.teamName}" /> <span>${
+      favoriteTeamData.teamName
+    }</span></div>
             </div>
             <div class="desc">
                 ${
