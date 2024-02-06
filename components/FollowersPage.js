@@ -21,10 +21,13 @@ export default {
         const userLogin = true;
       }
       // list of followers
-      const res = await fetch(`http://localhost:8080/M00872834/followerList/${id}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const res = await fetch(
+        `http://localhost:8080/M00872834/followerList/${id}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       listData = await res.json();
     }
     await fetchAuth();

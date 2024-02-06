@@ -25,7 +25,6 @@ export default {
       } else if (auth.status === 200) {
         const userLogin = true;
       }
-      console.log(user);
       const res = await fetch('http://localhost:8080/M00872834/user');
       users = await res.json();
 
@@ -95,7 +94,6 @@ export default {
         `commentInput_${index}`
       ).value;
       if (commentContent === '') {
-        console.log(index);
         return alert('comment can not be empty');
       }
       // comment on tweet

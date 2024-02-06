@@ -12,7 +12,6 @@ export default {
       });
       if (auth.status === 500) {
         userLogin = false;
-        console.log('userLogin', userLogin);
       } else if (auth.status === 200) {
         userLogin = true;
         window.location.href = '/';
@@ -117,7 +116,6 @@ window.handleSignIn = async function () {
         headers: { 'Content-Type': 'application/json' },
       });
       const data = await res.json();
-      console.log(data);
       if (res.status === 201) {
         const logInAuth = await fetch('http://localhost:8080/M00872834/auth', {
           method: 'POST',
@@ -129,7 +127,6 @@ window.handleSignIn = async function () {
           headers: { 'Content-Type': 'application/json' },
         });
         const logInAuthData = await logInAuth.json();
-        console.log(logInAuthData);
 
         alert(
           'Your Account has been successfully created and You are Logged In!'

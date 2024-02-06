@@ -29,7 +29,6 @@ export default {
         }
       );
       team = await res.json();
-      console.log(team);
     }
     await fetchAuth();
 

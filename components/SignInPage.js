@@ -12,7 +12,6 @@ export default {
       });
       if (auth.status === 500) {
         userLogin = false;
-        console.log('userLogin', userLogin);
       } else if (auth.status === 200) {
         userLogin = true;
         window.location.href = '/';
@@ -53,7 +52,6 @@ window.handleSignIn = async function () {
       });
       const data = await res.json();
 
-      console.log(data);
       alert('You are Logged In!');
       window.location.href = '/';
     } catch (error) {

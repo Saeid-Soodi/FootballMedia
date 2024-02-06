@@ -45,7 +45,6 @@ router.post('/', async (req, res) => {
       !teamLogo ||
       !teamFormation
     ) {
-      console.log(req.body);
       // handel if data is empty
       return res.status(400).json({ message: 'please enter valid data' });
     }

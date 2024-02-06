@@ -114,7 +114,6 @@ export default {
         `commentInput_${index}`
       ).value;
       if (commentContent === '') {
-        console.log(index);
         return alert('comment can not be empty');
       }
       // comment on tweet

@@ -14,12 +14,10 @@ export default {
           headers: { 'Content-Type': 'application/json' },
         });
         authData = await auth.json();
-        console.log(authData);
         // ... do something with the data
 
         const res = await fetch('http://localhost:8080/M00872834/user');
         data = await res.json();
-        console.log(data);
       }
       await fetchContent();
 

@@ -53,7 +53,6 @@ router.post('/', async (req, res) => {
     const token = jsonwebtoken.sign({ email, role: user.role }, secretKey, {
       expiresIn: expiration,
     });
-    console.log('tokenBack: ', token);
     res
       .status(200)
       .setHeader(
