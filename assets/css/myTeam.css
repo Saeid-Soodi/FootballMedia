@@ -104,11 +104,9 @@
 }
 .teamGallery .images .up {
   display: flex;
-  gap: 4px;
-}
-.teamGallery .images .down {
-  display: flex;
-  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .teamGallery .images img {

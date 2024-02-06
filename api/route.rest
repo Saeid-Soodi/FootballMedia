@@ -1,16 +1,16 @@
-GET http://localhost:8080/api/validate
+GET http://localhost:8080/M00872834/validate
 
 ###
-GET http://localhost:8080/api/user
-
-###
-
-GET http://localhost:8080/api/user/65bc8e9b713548d1be5f9fbc
+GET http://localhost:8080/M00872834/user
 
 ###
 
-POST http://localhost:8080/api/user
-Content-Type: application/json
+GET http://localhost:8080/M00872834/user/65bc8e9b713548d1be5f9fbc
+
+###
+
+POST http://localhost:8080/M00872834/user
+Content-Type: "application/json",
 
 {
   "name":"kiarsh",
@@ -29,8 +29,8 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/api/user/65bf221269865bfec3e8482d
-Content-Type: application/json
+PATCH http://localhost:8080/M00872834/user/65bf221269865bfec3e8482d
+Content-Type: "application/json",
 
 {
   
@@ -39,10 +39,10 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/api/user/65bc8e9b713548d1be5f8fbc
+DELETE http://localhost:8080/M00872834/user/65bc8e9b713548d1be5f8fbc
 ###
 
-post http://localhost:8080/api/user/auth
+post http://localhost:8080/M00872834/user/auth
 {
   "email":"ahmad@gmail.com",
   "pass":"123",
@@ -50,8 +50,8 @@ post http://localhost:8080/api/user/auth
 
 ###
 
-POST http://localhost:8080/api/tweet
-Content-Type: application/json
+POST http://localhost:8080/M00872834/tweet
+Content-Type: "application/json",
 
 {
   "userId" : "65bdeb1c1b2590e9e29f0551", 
@@ -62,12 +62,12 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/tweet
+GET http://localhost:8080/M00872834/tweet
 
 ###
 
-POST http://localhost:8080/api/comment
-Content-Type: application/json
+POST http://localhost:8080/M00872834/comment
+Content-Type: "application/json",
 
 {
   "tweetId" : "65bfd6352a308af1267fbd3b", 
@@ -75,5 +75,23 @@ Content-Type: application/json
   "userNameAndFamilyName" : "kiarash alizadeh", 
   "userName" : "kiarash_alizadeh", 
   "commentContent" : "my seccond comment."
+
+}
+
+###
+
+POST http://localhost:8080/M00872834/team
+content-type: application/json
+
+{
+      "teamName": "Chelsea FC",
+      "teamFullName": "Chelsea Football Club",
+      "nickName": "The Blues",
+      "founded": "10 March 1905",
+      "ground": "Stamford Bridge",
+      "league": "Premier League",
+      "aboutTeam": "Chelsea Football Club is an English professional football club based in Fulham, West London. Founded in 1905, the team play their home games at Stamford Bridge.The club competes in the Premier League, the top division of English football. It won its first major honour, the League championship, in 1955. The club won the FA Cup for the first time in 1970, their first European honour, the Cup Winners' Cup, in 1971, and became the third English club to win the Club World Cup in 2022.",
+      "gallery": ["assets/images/teamImages/Chelsea/Chelsea1.jpg","assets/images/teamImages/Chelsea/Chelsea2.jpg","assets/images/teamImages/Chelsea/Chelsea3.jpg","assets/images/teamImages/Chelsea/Chelsea4.jpg"],
+      "teamFormation": "assets/images/teamFormation/ChelseaForm.jpg"
 
 }

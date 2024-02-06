@@ -71,6 +71,10 @@ app.use('/M00872834/tweet', tweetRouter);
 const commentRouter = require('./routes/comment');
 app.use('/M00872834/comment', commentRouter);
 
+// url is like localhost:8080/M00872834/team
+const teamRouter = require('./routes/team');
+app.use('/M00872834/team', teamRouter);
+
 const PORT = 8080;
 // server port
 app.listen(PORT, () => {
