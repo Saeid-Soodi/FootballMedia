@@ -59,6 +59,23 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.container .teamInfo .teamFormation .teamPlayers{
+
+}
+.container .teamInfo .teamFormation .teamPlayers .player{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 20px;
+}
+.container .teamInfo .teamFormation .teamPlayers .player .playerNumber{
+    color:var(--text-main)
+    font-size: 1.1rem;
+    text-align: center;
+}
+.container .teamInfo .teamFormation .teamPlayers .player .playerName{
+    
+}
 
 .container .teamInfo .teamDesc {
   max-width: 670px;
