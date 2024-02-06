@@ -8,6 +8,7 @@ export default {
     let user;
     let users;
     let userData;
+    let loggedInUser;
     let listData;
     let tweetsList;
 
@@ -24,10 +25,14 @@ export default {
       } else if (auth.status === 200) {
         const userLogin = true;
       }
-
+      console.log(user);
       const res = await fetch('http://localhost:8080/M00872834/user');
       users = await res.json();
 
+      const resLoggedInUser = await fetch(
+        `http://localhost:8080/M00872834/user/${user.userId}`
+      );
+      loggedInUser = await resLoggedInUser.json();
       const resUser = await fetch(`http://localhost:8080/M00872834/user/${id}`);
       userData = await resUser.json();
 
@@ -82,6 +87,36 @@ export default {
       const data = await up.json();
       if (up.status === 200) {
         window.location.reload();
+      }
+    };
+
+    window.commentHandler = async function (index, tweetId) {
+      const commentContent = document.getElementById(
+        `commentInput_${index}`
+      ).value;
+      if (commentContent === '') {
+        console.log(index);
+        return alert('comment can not be empty');
+      }
+      // comment on tweet
+      const up = await fetch('http://localhost:8080/M00872834/comment', {
+        method: 'POST',
+        body: JSON.stringify({
+          tweetId,
+          userId: loggedInUser._id,
+          userNameAndFamilyName:
+            loggedInUser.name + ' ' + loggedInUser.familyName,
+          userName: loggedInUser.userName,
+          commentContent,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 201) {
+        alert('comment added!');
+        window.location.reload();
+      } else {
+        alert(data);
       }
     };
 
@@ -185,7 +220,8 @@ export default {
           tweetsList.length === 0
             ? `<div>user has not tweet anything</div>`
             : tweetsList
-                .map((tweet) => {
+                .reverse()
+                .map((tweet, index) => {
                   return `
         <div class="userTweet">
             <div class="userInfo">
@@ -237,8 +273,12 @@ export default {
 
            </div>
            <div class="userInfo" >
-                       <input type="text" class="comment" placeholder="What do you think?">
-                       <button>comment</button>
+                       <input type="text" id="commentInput_${index}" class="comment" placeholder="add a comment for ${
+                    userData.name
+                  }">
+                       <button onclick='commentHandler(${index}, "${
+                    tweet._id
+                  }")'>comment</button>
                    </div>
            </div>
            `;
