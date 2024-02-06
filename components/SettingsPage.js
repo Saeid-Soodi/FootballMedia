@@ -66,7 +66,7 @@ export default {
       </span>
       </div>
    
-      <button class="settingBtn"  onclick="handleSignIn()">Sign Up</button>
+      <button class="settingBtn"  onclick="handleSignIn()">Change</button>
         <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
       </div>
 
