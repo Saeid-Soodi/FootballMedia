@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
       pass,
       gender,
       phone,
-      bio,
+      favoriteTeam,
     } = req.body;
 
     if (
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
       !birthDate ||
       !pass ||
       !gender ||
-      !bio ||
+      !favoriteTeam ||
       !phone
     ) {
       // handel if data is empty
@@ -84,7 +84,7 @@ router.post('/', async (req, res) => {
       pass: hashPass,
       gender,
       phone,
-      bio,
+      favoriteTeam,
     });
 
     res.status(201).json({ message: 'user created' });

@@ -43,6 +43,21 @@ export default {
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option>
           </select>
+
+      <label>Favorite Team: </label>
+      <select
+            id="favoriteTeamInput"
+          >
+            <option value=""  disabled selected>
+              Select your Favorite Team
+            </option>
+            <option value="65c1fe6be3d6499b5031b39e">Chelsea FC</option>
+            <option value="65c2120026908c0b6257c183">FC Bayern Munich</option>
+            <option value="65c2138b26908c0b6257c18b">FC Barcelona</option>
+            <option value="65c2151d26908c0b6257c19c">Juventus FC</option>
+            <option value="65c2166226908c0b6257c1a3">Manchester United F.C.</option>
+            <option value="65c2186326908c0b6257c1aa">Real Madrid CF</option>
+          </select>
       
       <button class="signUpBtn"  onclick="handleSignIn()">Sign Up</button>
 
@@ -64,6 +79,7 @@ window.handleSignIn = async function () {
   const email = document.getElementById('emailInput');
   const birthDate = document.getElementById('birthDateInput');
   const gender = document.getElementById('genderInput');
+  const favoriteTeam = document.getElementById('favoriteTeamInput');
   const pass = document.getElementById('passwordInput');
   const repeatPass = document.getElementById('repeatPasswordInput');
 
@@ -75,6 +91,7 @@ window.handleSignIn = async function () {
     email.value === '' ||
     birthDate.value === '' ||
     gender.value === '' ||
+    favoriteTeam.value === '' ||
     repeatPass.value === '' ||
     pass.value === ''
   ) {
@@ -93,6 +110,7 @@ window.handleSignIn = async function () {
           birthDate: birthDate.value,
           pass: pass.value,
           gender: gender.value,
+          favoriteTeam: favoriteTeam.value,
           phone: phone.value,
         }),
         credentials: 'include',
@@ -100,23 +118,26 @@ window.handleSignIn = async function () {
       });
       const data = await res.json();
       console.log(data);
+      if (res.status === 201) {
+        const logInAuth = await fetch('http://localhost:8080/M00872834/auth', {
+          method: 'POST',
+          body: JSON.stringify({
+            email: email.value,
+            pass: pass.value,
+          }),
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const logInAuthData = await logInAuth.json();
+        console.log(logInAuthData);
 
-      const logInAuth = await fetch('http://localhost:8080/M00872834/auth', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: email.value,
-          pass: pass.value,
-        }),
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-      });
-      const logInAuthData = await logInAuth.json();
-      console.log(logInAuthData);
-
-      alert(
-        'Your Account has been successfully created and You are Logged In!'
-      );
-      window.location.href = '/';
+        alert(
+          'Your Account has been successfully created and You are Logged In!'
+        );
+        window.location.href = '/';
+      } else {
+        alert(data);
+      }
     } catch (error) {
       console.error('Error:', error);
     }
