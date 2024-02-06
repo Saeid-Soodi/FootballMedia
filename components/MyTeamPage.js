@@ -1,9 +1,6 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Football Media | My Team';
-    document.title = title;
-
     let userLogin;
     let user;
     let team;
@@ -31,6 +28,9 @@ export default {
       team = await res.json();
     }
     await fetchAuth();
+
+    const title = `${team.teamName} | Football Media`;
+    document.title = title;
 
     return `
     <section class="container">

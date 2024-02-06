@@ -1,9 +1,6 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Football Media | Profile';
-    document.title = title;
-
     let user;
     let users;
     let userData;
@@ -155,6 +152,11 @@ export default {
     window.followingLinkHandler = function () {
       window.location.href = `/followings#${user.userId}`;
     };
+
+    const title = `${
+      userData.name + ' ' + userData.familyName
+    } | Football Media`;
+    document.title = title;
     return `
     <div class="container">
     <div class="right">

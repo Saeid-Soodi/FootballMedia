@@ -1,6 +1,6 @@
 export default {
   content: async function () {
-    const title = 'Football Media | SignIn';
+    const title = 'SignIn | Football Media';
     document.title = title;
 
     let userLogin;

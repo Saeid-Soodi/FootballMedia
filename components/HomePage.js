@@ -1,7 +1,7 @@
 // Component for Home Page
 export default {
   content: async function () {
-    const title = 'Football Media | Home';
+    const title = 'Home | Football Media';
     document.title = title;
 
     try {

@@ -2,8 +2,6 @@
 export default {
   content: async function () {
     let id = window.location.toString().split('#')[1];
-    const title = 'Football Media | Profile';
-    document.title = title;
 
     let user;
     let users;
@@ -136,6 +134,11 @@ export default {
     window.followingLinkHandler = function () {
       window.location.href = `/followings#${id}`;
     };
+
+    const title = `${
+      userData.name + ' ' + userData.familyName
+    } | Football Media`;
+    document.title = title;
 
     return `
     <div class="container">
