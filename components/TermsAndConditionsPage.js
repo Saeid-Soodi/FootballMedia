@@ -1,7 +1,7 @@
 // Component for Home Page
 export default {
   content: async function () {
-    const title = 'Home | Football Media';
+    const title = 'Terms and Conditions | Football Media';
     document.title = title;
 
     try {
@@ -22,13 +22,7 @@ export default {
       await fetchContent();
 
       return `
-      <h2>Welcome to the Home Page</h2><p>${
-        data[0].name + ' ' + data[0].familyName
-      }</p>
-      <div style="display: flex; flex-direction: column;">${data
-        .map((user) => `<span>${user.name} ${user.familyName}</span>`)
-        .join('')}</div>
-
+      <h2>Welcome to the TermsAndConditionsPage Page</h2>
       `;
     } catch (error) {
       console.error('Error fetching home data:', error);

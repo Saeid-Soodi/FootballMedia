@@ -2,14 +2,14 @@
 export default {
   content: async function () {
     let id = window.location.toString().split('#')[1];
-    const title = 'Football Media | Profile';
-    document.title = title;
 
     let user;
     let users;
     let userData;
+    let loggedInUser;
     let listData;
     let tweetsList;
+    let favoriteTeamData;
 
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/M00872834/auth', {
@@ -24,10 +24,13 @@ export default {
       } else if (auth.status === 200) {
         const userLogin = true;
       }
-
       const res = await fetch('http://localhost:8080/M00872834/user');
       users = await res.json();
 
+      const resLoggedInUser = await fetch(
+        `http://localhost:8080/M00872834/user/${user.userId}`
+      );
+      loggedInUser = await resLoggedInUser.json();
       const resUser = await fetch(`http://localhost:8080/M00872834/user/${id}`);
       userData = await resUser.json();
 
@@ -50,6 +53,17 @@ export default {
         }
       );
       tweetsList = await tweets.json();
+
+      // favorite team data
+      const favoriteTeam = await fetch(
+        `http://localhost:8080/M00872834/team/${id}`,
+        {
+          method: 'Get',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+      favoriteTeamData = await favoriteTeam.json();
     }
     await fetchAuth();
 
@@ -85,12 +99,65 @@ export default {
       }
     };
 
+    window.commentHandler = async function (index, tweetId) {
+      const commentContent = document.getElementById(
+        `commentInput_${index}`
+      ).value;
+      if (commentContent === '') {
+        return alert('comment can not be empty');
+      }
+      // comment on tweet
+      const up = await fetch('http://localhost:8080/M00872834/comment', {
+        method: 'POST',
+        body: JSON.stringify({
+          tweetId,
+          userId: loggedInUser._id,
+          userNameAndFamilyName:
+            loggedInUser.name + ' ' + loggedInUser.familyName,
+          userName: loggedInUser.userName,
+          commentContent,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 201) {
+        alert('comment added!');
+        window.location.reload();
+      } else {
+        alert(data);
+      }
+    };
+
     window.followerLinkHandler = function () {
       window.location.href = `/followers#${id}`;
     };
     window.followingLinkHandler = function () {
       window.location.href = `/followings#${id}`;
     };
+
+    window.likeHandler = async function (button) {
+      const tweetId = button.getAttribute('data-tweet-id');
+      // like tweet
+      const up = await fetch('http://localhost:8080/M00872834/like', {
+        method: 'POST',
+        body: JSON.stringify({
+          tweetId,
+          userId: user.userId,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 201) {
+        window.location.reload();
+      } else {
+        alert(data.message);
+      }
+    };
+
+    const title = `${
+      userData.name + ' ' + userData.familyName
+    } | Football Media`;
+    document.title = title;
 
     return `
     <div class="container">
@@ -167,6 +234,11 @@ export default {
                 <button onclick="followingLinkHandler()"><span>${
                   userData.followings.length
                 } Following</span></button>
+                 <div class="favoriteTeam"><img src="${
+                   favoriteTeamData.teamLogo
+                 }" alt="${favoriteTeamData.teamName}" /> <span>${
+      favoriteTeamData.teamName
+    }</span></div>
                 
             </div><div class="desc">
             ${
@@ -185,7 +257,8 @@ export default {
           tweetsList.length === 0
             ? `<div>user has not tweet anything</div>`
             : tweetsList
-                .map((tweet) => {
+                .reverse()
+                .map((tweet, index) => {
                   return `
         <div class="userTweet">
             <div class="userInfo">
@@ -201,12 +274,16 @@ export default {
            </p>
            <div class="userIntract">
             <div>
-            <button class="likes"><i class="bi bi-heart-fill"></i> ${
-              tweet.likes.length
-            }</button>
-            <button class="comments"><i class="bi bi-chat-right-text"></i> ${
+            <button onclick="likeHandler(this)" data-tweet-id="${
+              tweet._id
+            }" class="likes">${
+                    tweet.likes.includes(user.userId)
+                      ? '<i class="bi bi-heart-fill"></i>'
+                      : '<i class="bi bi-heart"></i>'
+                  } ${tweet.likes.length}</button>
+            <span class="comments"><i class="bi bi-chat-right-text"></i> ${
               tweet.comments.length
-            }</button>
+            }</span>
              </div>
             <span class="time"><i class="bi bi-clock"></i> ${
               tweet.createdAt
@@ -237,8 +314,12 @@ export default {
 
            </div>
            <div class="userInfo" >
-                       <input type="text" class="comment" placeholder="What do you think?">
-                       <button>comment</button>
+                       <input type="text" id="commentInput_${index}" class="comment" placeholder="add a comment for ${
+                    userData.name
+                  }">
+                       <button onclick='commentHandler(${index}, "${
+                    tweet._id
+                  }")'>comment</button>
                    </div>
            </div>
            `;

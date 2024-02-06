@@ -1,7 +1,7 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Football Media | Not Found';
+    const title = '404 | Football Media';
     document.title = title;
 
     let userLogin;

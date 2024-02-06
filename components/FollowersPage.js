@@ -2,7 +2,7 @@
 export default {
   content: async function () {
     var id = window.location.toString().split('#')[1];
-    const title = 'Football Media | Followers';
+    const title = 'Followers | Football Media';
     document.title = title;
 
     let user;
@@ -21,10 +21,13 @@ export default {
         const userLogin = true;
       }
       // list of followers
-      const res = await fetch(`http://localhost:8080/M00872834/followerList/${id}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const res = await fetch(
+        `http://localhost:8080/M00872834/followerList/${id}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       listData = await res.json();
     }
     await fetchAuth();

@@ -1,7 +1,7 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Football Media | Settings and Privacy';
+    const title = 'Settings | Football Media';
     document.title = title;
 
     let userLogin;
@@ -66,11 +66,10 @@ export default {
       </span>
       </div>
    
-      <button class="settingBtn"  onclick="handleSignIn()">Sign Up</button>
-        <p>Do You Change Your Password ?  <a href="">Click Here</a></p>
+      <button class="settingBtn"  onclick="handleSignIn()">Change</button>
+        <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
       </div>
 
     `;
   },
 };
-

@@ -1,16 +1,16 @@
-GET http://localhost:8080/api/validate
+GET http://localhost:8080/M00872834/validate
 
 ###
-GET http://localhost:8080/api/user
-
-###
-
-GET http://localhost:8080/api/user/65bc8e9b713548d1be5f9fbc
+GET http://localhost:8080/M00872834/user
 
 ###
 
-POST http://localhost:8080/api/user
-Content-Type: application/json
+GET http://localhost:8080/M00872834/user/65bc8e9b713548d1be5f9fbc
+
+###
+
+POST http://localhost:8080/M00872834/user
+Content-Type: "application/json",
 
 {
   "name":"kiarsh",
@@ -29,8 +29,8 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/api/user/65bf221269865bfec3e8482d
-Content-Type: application/json
+PATCH http://localhost:8080/M00872834/user/65bf221269865bfec3e8482d
+Content-Type: "application/json",
 
 {
   
@@ -39,10 +39,10 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/api/user/65bc8e9b713548d1be5f8fbc
+DELETE http://localhost:8080/M00872834/user/65bc8e9b713548d1be5f8fbc
 ###
 
-post http://localhost:8080/api/user/auth
+post http://localhost:8080/M00872834/user/auth
 {
   "email":"ahmad@gmail.com",
   "pass":"123",
@@ -50,8 +50,8 @@ post http://localhost:8080/api/user/auth
 
 ###
 
-POST http://localhost:8080/api/tweet
-Content-Type: application/json
+POST http://localhost:8080/M00872834/tweet
+Content-Type: "application/json",
 
 {
   "userId" : "65bdeb1c1b2590e9e29f0551", 
@@ -62,12 +62,12 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/tweet
+GET http://localhost:8080/M00872834/tweet
 
 ###
 
-POST http://localhost:8080/api/comment
-Content-Type: application/json
+POST http://localhost:8080/M00872834/comment
+Content-Type: "application/json",
 
 {
   "tweetId" : "65bfd6352a308af1267fbd3b", 
@@ -76,4 +76,56 @@ Content-Type: application/json
   "userName" : "kiarash_alizadeh", 
   "commentContent" : "my seccond comment."
 
+}
+
+###
+
+POST http://localhost:8080/M00872834/team
+content-type: application/json
+
+{"teamLogo": "assets/images/teamLogo/realMadrid.svg",
+      "teamName": "Real Madrid CF",
+      "teamFullName": "Real Madrid Club de Fútbol",
+      "nickName": "Los Blancos",
+      "founded": "6 March 1902",
+      "ground": "Estadio Santiago Bernabéu",
+      "league": "La Liga",
+      "aboutTeam": "Being one of the three founding members of La Liga that have never been relegated from the top division since its inception in 1929 (along with Athletic Bilbao and Barcelona), Real Madrid holds many long-standing rivalries, most notably El Clásico with Barcelona and El Derbi Madrileño with Atlético Madrid. The club established itself as a major force in both Spanish and European football during the 1950s and 60s, winning five consecutive and six overall European Cups and reaching a further two finals. This success was replicated on the domestic front, with Madrid winning twelve league titles in the span of 16 years. This team, which included Alfredo Di Stéfano, Ferenc Puskás, Paco Gento and Raymond Kopa is considered by some in the sport to be the greatest of all time. Real Madrid is known for its Galácticos policy, which involves signing the world's best players, such as Ronaldo, Zidane and David Beckham to create a superstar team. The term 'Galácticos policy' generally refers to the two eras of Florentino Pérez's presidency of the club (2000_2006 and 2009_2018), however, players brought in just before his tenure are sometimes considered to be part of the Galácticos legacy. A notable example is Steve McManaman, who like many other players also succeeded under the policy. On 26 June 2009, Madrid signed Cristiano Ronaldo for a record breaking £80 million (€94 million); he became both the club and history's all-time top goalscorer. Madrid have recently relaxed the Galácticos policy, instead focusing on signing young talents such as Vinícius Júnior, Rodrygo and Jude Bellingham.",
+      "gallery": ["assets/images/teamImages/realMadrid/realMadrid1.webp","assets/images/teamImages/realMadrid/realMadrid2.jpg","assets/images/teamImages/realMadrid/realMadrid3.jpg","assets/images/teamImages/realMadrid/realMadrid4.jpg"],
+      "teamFormation": "assets/images/teamFormation/RealForm.jpg",
+      "players": [
+        "18 Christopher Nkunku",
+        "7 Raheem Sterling",
+        "20 Cole Palmer",
+        "21 Ben Chilwell",
+        "8 Enzo Fernández",
+        "23 Conor Gallagher",
+        "27 Malo Gusto",
+        "6 Thiago Silva",
+        "25 Moisés Caicedo",
+        "2 Axel Disasi",
+        "28 Đorđe Petrović",
+      ]
+}
+
+###
+
+PATCH  http://localhost:8080/M00872834/team/65c2186326908c0b6257c1aa
+content-type: application/json
+
+{
+  "players": [
+    "1 Thibaut Courtois",
+    "2 Dani Carvajal",
+    "3 Eder Militao",
+    "4 David Alaba",
+    "5 Casemiro",
+    "8 Toni Kroos",
+    "9 Karim Benzema",
+    "10 Luka Modrić",
+    "17 Vinicius Junior",
+    "18 Federico Valverde",
+    "23 Ferland Mendy"
+  ]
+  
 }

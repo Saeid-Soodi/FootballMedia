@@ -78,6 +78,7 @@
 }
 
 .container .teamInfo .teamDesc {
+  max-width: 670px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,11 +124,9 @@
 }
 .teamGallery .images .up {
   display: flex;
-  gap: 7px;
-}
-.teamGallery .images .down {
-  display: flex;
-  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .teamGallery .images img {
@@ -176,15 +175,17 @@
 .teamInfo .teamSummery .teamShortInfo .title .titleItem {
   color: black;
   font-weight: 600;
+  text-wrap: nowrap;
 }
 .teamInfo .teamSummery .teamShortInfo .title,
 .teamInfo .teamSummery .teamShortInfo .value {
   display: flex;
   flex-direction: column;
   color: aliceblue;
-  justify-content: start;
+  justify-content: space-between;
   gap: 15px;
   font-size: 0.8rem;
+  height: 100%;
 }
 
 .teamInfo .teamSummery .teamPredictPage {

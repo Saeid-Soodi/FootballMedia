@@ -1,7 +1,7 @@
 // Component for not found Page
 export default {
   content: async function () {
-    const title = 'Football Media | Predict';
+    const title = 'Predict | Football Media';
     document.title = title;
 
     let userLogin;
@@ -51,7 +51,6 @@ export default {
         );
         const data = await res.json();
 
-        console.log(data);
         if (res.status === 200) {
           alert('Prediction Submitted!');
           window.location.reload();

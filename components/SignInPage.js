@@ -1,6 +1,6 @@
 export default {
   content: async function () {
-    const title = 'Football Media | SignIn';
+    const title = 'SignIn | Football Media';
     document.title = title;
 
     let userLogin;
@@ -12,7 +12,6 @@ export default {
       });
       if (auth.status === 500) {
         userLogin = false;
-        console.log('userLogin', userLogin);
       } else if (auth.status === 200) {
         userLogin = true;
         window.location.href = '/';
@@ -52,10 +51,12 @@ window.handleSignIn = async function () {
         headers: { 'Content-Type': 'application/json' },
       });
       const data = await res.json();
-
-      console.log(data);
-      alert('You are Logged In!');
-      window.location.href = '/';
+      if (res.status === 400) {
+        return alert(data.message);
+      } else {
+        alert('You are Logged In!');
+        window.location.href = '/';
+      }
     } catch (error) {
       console.error('Error:', error);
     }

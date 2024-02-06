@@ -4,7 +4,6 @@ export default {
     let userLogin;
     let user;
     async function fetchAuth() {
-  
       const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
         credentials: 'include',
@@ -20,23 +19,23 @@ export default {
 
     await fetchAuth();
 
-  
     window.signInHandler = function () {
       window.location.href = '/signIn';
     };
 
     window.logOutHandler = async function () {
-      const resSignOut = await fetch('http://localhost:8080/M00872834/signOut', {
-        method: 'Get',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const resSignOut = await fetch(
+        'http://localhost:8080/M00872834/signOut',
+        {
+          method: 'Get',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       const ResSignOut = await resSignOut.json();
-      console.log('res:', ResSignOut);
       window.location.href = '/signIn';
     };
 
-    
     return `<div>
     <nav>
     <div class="left">
@@ -46,13 +45,20 @@ export default {
     </div>
     <ul class="center">
         <li><a href="/"><i class="bi bi-house-fill"></i> Home</a></li>
-        ${userLogin ? '<li><a href="/profile"><i class="bi bi-person-lines-fill"></i> Profile</a></li>' : ''}
+        ${
+          userLogin
+            ? '<li><a href="/profile"><i class="bi bi-person-lines-fill"></i> Profile</a></li>'
+            : ''
+        }
         
         <li><a href="/predict"><i class="bi bi-question-circle-fill"></i> Predict</a></li>
         <li><a href="/myTeam"><i class="bi bi-flag-fill"></i> My Team</a></li>
         ${
-          userLogin ? '<li><a href="/settings"><i class="bi bi-gear-fill"></i> Settings</a></li>' : ''
+          userLogin
+            ? '<li><a href="/settings"><i class="bi bi-gear-fill"></i> Settings</a></li>'
+            : ''
         }
+          <li><a href="/termsAndConditions"><i class="bi bi-book-half"></i> Terms and Conditions</a></li>
     </ul>
     ${
       !userLogin
@@ -75,5 +81,3 @@ export default {
 //     TextLogo.classList.add('displayBlock');
 //   });
 // });
-
-
