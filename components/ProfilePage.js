@@ -282,7 +282,7 @@ export default {
          </div>
         </div>${
           tweetsList.length === 0
-            ? `<div>You has not tweet anything</div>`
+            ? `<div style="color:white">You haven't tweeted anything yet.</div>`
             : tweetsList
                 .reverse()
                 .map((tweet, index) => {
