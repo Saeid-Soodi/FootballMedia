@@ -19,20 +19,19 @@ export default {
     }
     await fetchAuth();
 
-    return `<div class="formContainer">
-    <h3>SignUp</h3>
+    return `
+    <div class="background">
+    <div class="container">
+    <div class="formContainer"><h3>SignUp</h3>
+    <div class="form">
       <input type="text" id="nameInput" placeholder="Name"/>
       <input type="text" id="FamilyNameInput" placeholder="Family Name"/>
       <input type="text" id="userNameInput" placeholder="User Name"/>
-      <input type="text" id="phoneInput" placeholder="Phone Number"/>
+      <input placeholder="Birth Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="birthDateInput" />
       <input type="email" id="emailInput" placeholder="Email"/>
+      <input type="text" id="phoneInput" placeholder="Phone Number"/>
       <input type="password" id="passwordInput" placeholder="Password" />
       <input type="password" id="repeatPasswordInput" placeholder="Repeat Password" />
-      
-      <label>Birth Date : </label>
-      <input type="date" id="birthDateInput"/>
-      
-      <label>Gender : </label>
       <select
             id="genderInput"
           >
@@ -42,31 +41,27 @@ export default {
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option>
           </select>
-
-      <label>Favorite Team: </label>
-      <select
-            id="favoriteTeamInput"
-          >
-            <option value=""  disabled selected>
-              Select your Favorite Team
-            </option>
-            <option value="65c1fe6be3d6499b5031b39e">Chelsea FC</option>
-            <option value="65c2120026908c0b6257c183">FC Bayern Munich</option>
-            <option value="65c2138b26908c0b6257c18b">FC Barcelona</option>
-            <option value="65c2151d26908c0b6257c19c">Juventus FC</option>
-            <option value="65c2166226908c0b6257c1a3">Manchester United F.C.</option>
-            <option value="65c2186326908c0b6257c1aa">Real Madrid CF</option>
-          </select>
-      
-      <button class="signUpBtn"  onclick="handleSignIn()">Sign Up</button>
-
-      <div class="haveAccount">
-        <p>Don't have an account?</p>
-        <a href="/signIn">Sign In</a>
+<select
+      id="favoriteTeamInput"
+    >
+      <option value=""  disabled selected>
+        Select your Favorite Team
+      </option>
+      <option value="65c1fe6be3d6499b5031b39e">Chelsea FC</option>
+      <option value="65c2120026908c0b6257c183">FC Bayern Munich</option>
+      <option value="65c2138b26908c0b6257c18b">FC Barcelona</option>
+      <option value="65c2151d26908c0b6257c19c">Juventus FC</option>
+      <option value="65c2166226908c0b6257c1a3">Manchester United F.C.</option>
+      <option value="65c2186326908c0b6257c1aa">Real Madrid CF</option>
+    </select>
     </div>
+      <button class="signUpBtn"  onclick="handleSignIn()">Sign Up</button>
+      <div class="haveAccount">
+      <p>Already have an account?</p>
+      <a href="/signIn">Sign In</a>
       </div>
-    
-      `;
+    </div>
+  </div></div>`;
   },
 };
 
