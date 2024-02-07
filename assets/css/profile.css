@@ -28,6 +28,9 @@
   align-items: center;
   justify-content: center;
   max-width: 25%;
+  border-radius: 20px;
+  background-color: #e3ae9a6e;
+  padding: 20px;
 }
 
 .container .right .image {
