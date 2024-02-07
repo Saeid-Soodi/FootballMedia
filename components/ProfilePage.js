@@ -327,24 +327,27 @@ export default {
            
            ${tweet.comments
              .map((comment) => {
-               return `<div class="comment">
-               <div class="userInfo">
-                <img src="../assets/images/profile.png" alt="">
-                <div class="text">
-                    <span class="name">${comment.userNameAndFamilyName}</span>
-                    <span class="id">@${comment.userName}</span>
-                </div>
-            </div>
-                <p>${comment.commentContent}</p>
-                <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
-                </div>`;
+               return `
+               <div class="comment">
+                    <div class="userInfo">
+                        <img src="../assets/images/profile.png" alt="userProfile">
+                        <div class="text">
+                          <span class="name">${comment.userNameAndFamilyName}</span>
+                          <span class="id">@${comment.userName}</span>
+                        </div>
+                    </div>
+                    <div class="othersComment">
+                    <p>${comment.commentContent}</p>
+                    <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
+                    </div>
+              </div>`;
              })
              .join('')}
 
            </div>
-           <div class="userInfo" >
+           <div class="userInfo" id="comment" >
                        <input type="text" id="commentInput_${index}" class="comment" placeholder="add a comment for yourself">
-                       <button onclick='commentHandler(${index}, "${
+                       <button class="commentBtn" onclick='commentHandler(${index}, "${
                     tweet._id
                   }")'>comment</button>
                    </div>
