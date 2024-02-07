@@ -37,7 +37,7 @@ export default {
     <div class="head">
     ${userLogin ? `<h1 class="teamName">${team.teamName}</h1>` : ''}
         <span class="logo">My Favorite Team</span>
-        <span class="logo">Football Media</span>
+        <span class="logo">Football <span>Media</span></span>
     </div><div class="teamInfo">${
       userLogin
         ? `

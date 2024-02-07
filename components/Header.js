@@ -53,12 +53,13 @@ export default {
         
         <li><a href="/predict"><i class="bi bi-question-circle-fill"></i> Predict</a></li>
         <li><a href="/myTeam"><i class="bi bi-flag-fill"></i> My Team</a></li>
-        ${
-          userLogin
-            ? '<li><a href="/settings"><i class="bi bi-gear-fill"></i> Settings</a></li>'
-            : ''
-        }
+      
           <li><a href="/termsAndConditions"><i class="bi bi-book-half"></i> Terms and Conditions</a></li>
+          ${
+            userLogin
+              ? '<li><a href="/settings"><i class="bi bi-gear-fill"></i> Settings</a></li>'
+              : ''
+          }
     </ul>
     ${
       !userLogin

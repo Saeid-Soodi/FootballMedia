@@ -252,9 +252,7 @@ export default {
                 } Following</span></button>
                 <div class="favoriteTeam"><img src="${
                   favoriteTeamData.teamLogo
-                }" alt="${favoriteTeamData.teamName}" /> <span>${
-      favoriteTeamData.teamName
-    }</span></div>
+                }" alt="${favoriteTeamData.teamName}" /> </div>
             </div>
             <div class="desc">
                 ${
