@@ -329,16 +329,19 @@ export default {
              .map((comment) => {
                return `
                <div class="comment">
-                    <div class="userInfo">
-                        <img src="../assets/images/profile.png" alt="userProfile">
-                        <div class="text">
-                          <span class="name">${comment.userNameAndFamilyName}</span>
-                          <span class="id">@${comment.userName}</span>
-                        </div>
-                    </div>
+               <div class="userInfo">
+               <div>
+               <img src="../assets/images/profile.png" alt="userProfile">
+               <div class="text">
+                 <span class="name">${comment.userNameAndFamilyName}</span>
+                 <span class="id">@${comment.userName}</span>
+               </div>
+             </div>
+               <div class="time"><i class="bi bi-clock"></i> ${tweet.createdAt} </div>
+             </div>
                     <div class="othersComment">
                     <p>${comment.commentContent}</p>
-                    <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
+                    <button><i class="bi bi-heart"></i> 0</button>
                     </div>
               </div>`;
              })
