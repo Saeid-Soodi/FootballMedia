@@ -44,20 +44,34 @@ export default {
       
     </div>
     <ul class="center">
-        <li><a href="/"><i class="bi bi-house-fill"></i> Home</a></li>
+        <li><a class="${
+          window.location.pathname === '/' ? 'navActive' : null
+        }" href="/"><i class="bi bi-house-fill"></i> Home</a></li>
         ${
           userLogin
-            ? '<li><a href="/profile"><i class="bi bi-person-lines-fill"></i> Profile</a></li>'
+            ? `<li><a class="${
+                window.location.pathname === '/profile' ? 'navActive' : null
+              }" href="/profile"><i class="bi bi-person-lines-fill"></i> Profile</a></li>`
             : ''
         }
         
-        <li><a href="/predict"><i class="bi bi-question-circle-fill"></i> Predict</a></li>
-        <li><a href="/myTeam"><i class="bi bi-flag-fill"></i> My Team</a></li>
+        <li><a class="${
+          window.location.pathname === '/predict' ? 'navActive' : null
+        }" href="/predict"><i class="bi bi-question-circle-fill"></i> Predict</a></li>
+        <li><a class="${
+          window.location.pathname === '/myTeam' ? 'navActive' : null
+        }" href="/myTeam"><i class="bi bi-flag-fill"></i> My Team</a></li>
       
-          <li><a href="/termsAndConditions"><i class="bi bi-book-half"></i> Terms and Conditions</a></li>
+          <li><a class="${
+            window.location.pathname === '/termsAndConditions'
+              ? 'navActive'
+              : null
+          }" href="/termsAndConditions"><i class="bi bi-book-half"></i> Terms and Conditions</a></li>
           ${
             userLogin
-              ? '<li><a href="/settings"><i class="bi bi-gear-fill"></i> Settings</a></li>'
+              ? `<li><a class="${
+                  window.location.pathname === '/settings' ? 'navActive' : null
+                }" href="/settings"><i class="bi bi-gear-fill"></i> Settings</a></li>`
               : ''
           }
     </ul>
