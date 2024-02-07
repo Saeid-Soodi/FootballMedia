@@ -133,7 +133,7 @@ window.handleSignIn = async function () {
         );
         window.location.href = '/';
       } else {
-        alert(data);
+        alert(data.message);
       }
     } catch (error) {
       console.error('Error:', error);
