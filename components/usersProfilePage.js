@@ -236,9 +236,8 @@ export default {
                 } Following</span></button>
                  <div class="favoriteTeam"><img src="${
                    favoriteTeamData.teamLogo
-                 }" alt="${favoriteTeamData.teamName}" /> <span>${
-      favoriteTeamData.teamName
-    }</span></div>
+                 }" alt="${favoriteTeamData.teamName}" />
+   </div>
                 
             </div><div class="desc">
             ${
@@ -300,24 +299,29 @@ export default {
              .map((comment) => {
                return `<div class="comment">
                <div class="userInfo">
+               <div>
                 <img src="../assets/images/profile.png" alt="">
                 <div class="text">
                     <span class="name">${comment.userNameAndFamilyName}</span>
                     <span class="id">@${comment.userName}</span>
                 </div>
             </div>
+            <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
+                </div>
+                <div class="othersComment">
                 <p>${comment.commentContent}</p>
-                <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
+                <button><i class="bi bi-heart"></i> 0</button>
+                  </div>
                 </div>`;
              })
              .join('')}
 
            </div>
-           <div class="userInfo" >
+           <div class="userInfo" id="comment" >
                        <input type="text" id="commentInput_${index}" class="comment" placeholder="add a comment for ${
                     userData.name
                   }">
-                       <button onclick='commentHandler(${index}, "${
+                       <button class="commentBtn" onclick='commentHandler(${index}, "${
                     tweet._id
                   }")'>comment</button>
                    </div>

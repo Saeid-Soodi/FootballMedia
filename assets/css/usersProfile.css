@@ -1,5 +1,3 @@
-/* CSS for Users Profile Page */
-
 /* CSS for Profile Page */
 .container {
   display: flex;
@@ -8,15 +6,31 @@
   justify-content: center;
   gap: 100px;
   margin: 40px auto;
-  padding: 0px 20px;
+  padding: 20px 20px;
+  max-width: 1600px;
 }
-
+.container::after{
+  content: '';
+  position: fixed;
+  top: 170px;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/FootballMediaLogo.png');
+  background-size:650px 650px;
+  background-position: right ;
+  background-repeat: no-repeat;
+  opacity: 0.3; 
+  z-index: -1; 
+}
 .container .right {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 25%;
+  border-radius: 20px;
+  background-color: #e3ae9a6e;
+  padding: 20px;
 }
 
 .container .right .image {
@@ -150,6 +164,9 @@
   align-items: center;
   justify-content: center;
   max-width: 75%;
+  border-radius: 20px;
+  background-color: #e3ae9a6e;
+  padding: 20px;
 }
 .left .bio {
   display: flex;
@@ -213,14 +230,12 @@
   padding: 0;
   cursor: pointer;
 }
-
 .left .bio .profileDesc .favoriteTeam {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  border: 1px solid #fc4308;
   border-radius: 10px;
   padding: 5px;
 }
@@ -251,12 +266,113 @@
   color: rgb(190, 190, 226);
 }
 
+/* Tweet Section */
+
+.tweets {
+  width: 700px;
+  height: 305px;
+  background: rgba(19, 55, 21, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tweets .tweetName {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+.tweets .tweetName img {
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.tweets .tweetName .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+
+.tweets .tweetName .text .name {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.tweets .tweetName .text .id {
+  margin-top: -5px;
+  font-size: 0.9rem;
+}
+
+.tweeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tweeting textarea {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 5px;
+  opacity: 85%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #000;
+  outline: none;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-family: 'Poppins';
+  resize: none;
+}
+
+.tweeting textarea::placeholder {
+  color: white;
+  opacity: 90%;
+  font-size: 1.1rem;
+}
+
+.tweeting button {
+  min-width: 100px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #57cc99;
+}
+
+.tweeting button:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
+/* User Tweet Section */
+
 .userTweet {
   display: flex;
   flex-direction: column;
   width: 700px;
   padding: 30px;
-  background: rgba(252, 67, 8, 0.14);
+  background: rgba(3, 49, 28, 0.749);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(11px);
@@ -297,14 +413,19 @@
 .userTweet .userLastTweet {
   width: 550px;
   margin-top: 25px;
-  background-color: #b67a66;
+  background-color: #0d210c2c;
   color: var(--text-secondary);
   border-radius: 10px;
+  max-width: fit-content;
   padding: 10px;
 }
 
 .userTweet .userIntract {
   margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.userTweet .userIntract div {
   display: flex;
   justify-content: space-between;
 }
@@ -338,7 +459,7 @@
 
 /* Comments Section */
 
-/* .userComments {
+.userComments {
   background: rgba(61, 81, 56, 0.38);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(180, 163, 163, 0.1);
@@ -352,11 +473,10 @@
   width: 700px;
   padding: 30px;
 }
-.userComments .userInfo {
+.userInfo {
   display: flex;
-  justify-content: center;
   align-items: center;
-} */
+}
 
 .userInfo input {
   width: 450px;
@@ -384,29 +504,81 @@
   color: var(--text-secondary);
 }
 
-/* .userComments .comments {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 15px;
-}
-.userComments .comments p {
-  width: 600px;
-  padding-left: 30px;
-  margin-top: 5px;
-  color: var(--text-secondary);
-} */
-
-.commentsSection {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 40px;
+.commentsSection{
+  margin-top: 70px;
 }
 
-.commentsSection .comment {
-  border-top: 2px solid whitesmoke;
-  padding-top: 12px;
+.commentsSection h4{
+max-width: fit-content;
+background-color: rgb(17, 60, 16);
+border-radius: 5px;
+padding: 2px 7px;
 }
+
+.commentsSection .comment{
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid rgb(23, 58, 0);
+  margin-top: 20px;
+}
+
+.commentsSection .comment .userInfo{
+margin-top: 20px;
+display: flex;
+ justify-content: space-between;
+}
+
+.othersComment{
+  display: flex;
+  justify-content: space-between;
+}
+
+.commentsSection .comment p{
+background-color: rgba(80, 144, 69, 0.933);
+color: #ece6e6;
+width: 400px;
+border-radius: 5px;
+display: flex;
+margin-top: 10px;
+max-width: fit-content;
+overflow: auto;
+padding: 1px 10px;
+}
+.othersComment button{
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 0;
+  cursor: pointer;
+  color: white;
+}
+.othersComment button i{
+  color: red;
+}
+#comment{
+  margin-top: 30px;
+}
+
+.commentBtn{
+  min-width: 100px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #57cc99;
+  background: #57cc99;
+}
+
+.commentBtn:hover {
+  background: #fff;
+  color: #57cc99;
+}
+
