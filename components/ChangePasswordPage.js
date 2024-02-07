@@ -86,28 +86,63 @@ export default {
       };
 
       return `
-      <div class="">
-    <h3>Change Password</h3>
-    <div class="">
-      <span>
+      <div class="container">
+      <div class="right"><img src="../assets/images/footballPlayers.jpg" alt="footballPlayers" />
+      <div class="quote"><i class="bi bi-quote"></i><q>I start early, and I stay late, day after day, year after year. It took me 17 years and 114 days to become an overnight success.</q> <span>Lionel Messi</span></div>
+      </div>
+      <div class="left">
+      <span class="brand"><span class="color">F</span>ootball <span class="color">M</span>edia</span>
+      <div class="details">
+      <h3>Change Password</h3>
+      <p>Just type it twice and try not to forget it.
+Password should be and must contain:</p>
+<div class="items">
+<span class="item">
+<span class="top">8+</span>
+<span class="bottom">Character</span>
+</span>
+<span class="item">
+<span class="top">AA</span>
+<span class="bottom">Uppercase</span>
+</span>
+<span class="item">
+<span class="top">aa</span>
+<span class="bottom">Lowercase</span>
+</span>
+<span class="item">
+<span class="top">123</span>
+<span class="bottom">Number</span>
+</span>
+<span class="item">
+<span class="top">@$#</span>
+<span class="bottom">Symbol</span>
+</span>
+</div>
+      </div>
+      <div class="form">
+      
+      <span class="item">
       <label>Old Password : </label>
       <input type="Password" id="oldPasswordInput" placeholder="Old Password"/>
       </span>
-      <span>
+      <span class="item">
       <label>New Password : </label>
       <input type="Password" id="newPasswordInput" placeholder="New Password"/>
       </span>
-      <span>
+      <span class="item">
       <label>Repeat New Password : </label>
       <input type="Password" id="repeatNewPasswordInput" placeholder="Repeat New Password"/>
       </span>
-      </div>
-   
       <button class=""  onclick="changePasswordHandler()">Change Password</button>
-      <button class=""  onclick="cancelHandler()">Cancel</button>
-        
+      <a href="/settings">Back to Settings</a>
       </div>
-
+      </div>
+      
+    
+    
+    
+    
+</div>
       `;
     } catch (error) {
       console.error('Error fetching Change Password data:', error);
