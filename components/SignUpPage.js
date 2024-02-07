@@ -82,6 +82,13 @@ window.handleSignIn = async function () {
   const pass = document.getElementById('passwordInput');
   const repeatPass = document.getElementById('repeatPasswordInput');
 
+  function validate(item, value) {
+    if (item === 'email') {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(String(value).toLowerCase());
+    }
+  }
+
   if (
     name.value === '' ||
     familyName.value === '' ||
@@ -94,9 +101,11 @@ window.handleSignIn = async function () {
     repeatPass.value === '' ||
     pass.value === ''
   ) {
-    alert('You must fill the form before signing up');
+    return alert('You must fill the form before signing up');
   } else if (pass.value !== repeatPass.value) {
-    alert('Repeat Password does not Match');
+    return alert('Repeat Password does not Match');
+  } else if (!validate('email', email.value)) {
+    return alert('please enter a valid email');
   } else {
     try {
       const res = await fetch('http://localhost:8080/M00872834/user', {
