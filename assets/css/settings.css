@@ -9,27 +9,39 @@ main .mainSetting {
   align-items: center;
   justify-content: center;
   width: fit-content;
-  margin: 80px auto;
+  margin: 40px auto;
   background: white;
-
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  /* background-image: url('../images/greenGrass.jpg'); */
   backdrop-filter: blur(9.2px);
   -webkit-backdrop-filter: blur(9.2px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: black;
-  padding: 30px 50px;
+  padding: 0px 0px;
+  padding-bottom: 30px;
   border-radius: 20px;
 }
 
-
-.mainSetting .settingImage {
-  border-radius: 20%;
-
-  width: 250px;
-  position: relative;
+.header {
+  border-radius: 20px;
+  background: #fc4508cb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding-top: 60px;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
-.mainSetting .profileImage {
+.header h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 4px 6px 7px rgba(0, 0, 0, 0.372);
+}
+
+.header .profileImage {
   width: 120px;
   border-radius: 100%;
   /* position: absolute;
@@ -37,9 +49,6 @@ main .mainSetting {
   right: 65%; */
 }
 
-.mainSetting h3 {
-  margin-top: 10px;
-}
 .settingContainer {
   display: flex;
   flex-direction: row;
@@ -134,7 +143,7 @@ main select:focus {
   left: 0;
 }
 
-.textArea{
+.textArea {
   width: 90%;
   padding: 10px;
   border: 2px solid #fc4308;
@@ -142,8 +151,8 @@ main select:focus {
   background-color: rgba(255, 255, 255, 0.424) 0px 3px 8px;
 }
 
-.textArea:focus{
+.textArea:focus {
   color: #fc4308;
   border: 2px dashed #fc4308;
-  outline: none
+  outline: none;
 }
