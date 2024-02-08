@@ -23,7 +23,7 @@ export default {
     await fetchAuth();
     return `
     <div class="mainSetting">
-      <img class="settingImage" src="./assets/images/settingImage.jpg" alt="" />
+      <img class="settingImage" src="../assets/images/largegears.gif" alt="gear settings" />
       <img class="profileImage" src="./assets/images/profile.png" alt="" />
 
  
