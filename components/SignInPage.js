@@ -1,3 +1,4 @@
+// Component for sign In Page
 export default {
   content: async function () {
     const title = 'SignIn | Football Media';

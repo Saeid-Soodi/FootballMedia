@@ -1,4 +1,4 @@
-// Component for not found Page
+// Component for Users Profile Page
 export default {
   content: async function () {
     let id = window.location.toString().split('#')[1];

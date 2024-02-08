@@ -1,4 +1,4 @@
-// Component for Home Page
+// Component for change Password Page
 export default {
   content: async function () {
     const title = 'Change Password | Football Media';

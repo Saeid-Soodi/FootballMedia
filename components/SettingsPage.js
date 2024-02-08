@@ -1,4 +1,4 @@
-// Component for not found Page
+// Component for settings Page
 export default {
   content: async function () {
     const title = 'Settings | Football Media';
