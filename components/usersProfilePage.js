@@ -121,7 +121,6 @@ export default {
       });
       const data = await up.json();
       if (up.status === 201) {
-        alert('comment added!');
         window.location.reload();
       } else {
         alert(data);
@@ -154,11 +153,6 @@ export default {
       }
     };
 
-    const title = `${
-      userData.name + ' ' + userData.familyName
-    } | Football Media`;
-    document.title = title;
-
     window.commentLikeHandler = async function (button) {
       const tweetId = button.getAttribute('data-tweet-id');
       const commentIndex = button.getAttribute('data-comment-id');
@@ -179,6 +173,11 @@ export default {
         alert(data.message);
       }
     };
+
+    const title = `${
+      userData.name + ' ' + userData.familyName
+    } | Football Media`;
+    document.title = title;
 
     return `
     <div class="container">

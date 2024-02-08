@@ -113,7 +113,6 @@ export default {
       });
       const data = await up.json();
       if (up.status === 200) {
-        alert('tweet added!');
         window.location.reload();
       }
     };
@@ -139,7 +138,6 @@ export default {
       });
       const data = await up.json();
       if (up.status === 201) {
-        alert('comment added!');
         window.location.reload();
       } else {
         alert(data);
