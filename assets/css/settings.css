@@ -1,13 +1,14 @@
 /* CSS for Settings and Privacy Page */
 
 /* Setting From Style */
-main .container{
+main .container {
   background-image: url(../images/settingImage.jpg);
+  max-width: 1500px;
   padding: 30px;
   background-size: 100%;
   padding: 60px;
   border-radius: 100%;
-  
+  margin: 40px auto;
 }
 
 main .mainSetting {
@@ -31,7 +32,7 @@ main .mainSetting {
   border-radius: 20px;
 }
 
-.mainSetting a:hover{
+.mainSetting a:hover {
   font-weight: bold;
 }
 
@@ -113,7 +114,7 @@ main input {
   color: gray;
 }
 
-main select{
+main select {
   color: gray;
 }
 

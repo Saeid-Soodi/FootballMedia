@@ -60,7 +60,7 @@ export default {
         gender.value === '' ||
         favoriteTeam.value === ''
       ) {
-        return alert('You must fill the form before signing up');
+        return alert('You must fill the form before editing your data');
       } else if (!validate('email', email.value)) {
         return alert('please enter a valid email');
       } else {
@@ -110,25 +110,33 @@ export default {
       <div>
           <span>
           <label>Name : </label>
-          <input value="${userData.name}" type="text" id="nameInput" placeholder="Name"/>
+          <input value="${
+            userData.name
+          }" type="text" id="nameInput" placeholder="Name"/>
           </span>
          
           
           <span>
           <label>Phone Number : </label>
-          <input value="${userData.phone}" type="text" id="phoneInput" placeholder="Phone Number"/>
+          <input value="${
+            userData.phone
+          }" type="text" id="phoneInput" placeholder="Phone Number"/>
           </span>
 
           <span>
 
           <label>User Name : </label>
-          <input value="${userData.userName}" type="text" id="userNameInput" placeholder="User Name"/>
+          <input value="${
+            userData.userName
+          }" type="text" id="userNameInput" placeholder="User Name"/>
 
           </span>
 
           <span>
             <label>Birth Date : </label>
-            <input value="${userData.birthDate}" type="date" id="birthDateInput"/>
+            <input value="${
+              userData.birthDate
+            }" type="date" id="birthDateInput"/>
           </span>
           
           
@@ -140,13 +148,17 @@ export default {
           <span>
               
           <label>Family Name : </label>
-          <input value="${userData.familyName}" type="text" id="FamilyNameInput" placeholder="Family Name"/>
+          <input value="${
+            userData.familyName
+          }" type="text" id="FamilyNameInput" placeholder="Family Name"/>
           </span>
          
           <span>
           
           <label>Email : </label>
-          <input value="${userData.email}" type="email" id="emailInput" placeholder="Email"/>
+          <input value="${
+            userData.email
+          }" type="email" id="emailInput" placeholder="Email"/>
           </span>
 
           <span>
@@ -154,17 +166,41 @@ export default {
           <label>Favorite Team: </label>
           <select
                 id="favoriteTeamInput"
-                value="${userData.favoriteTeam}"
+                
               >
                 <option value=""  disabled>
                   Select your Favorite Team
                 </option>
-                <option value="65c1fe6be3d6499b5031b39e">Chelsea FC</option>
-                <option value="65c2120026908c0b6257c183">FC Bayern Munich</option>
-                <option value="65c2138b26908c0b6257c18b">FC Barcelona</option>
-                <option value="65c2151d26908c0b6257c19c">Juventus FC</option>
-                <option value="65c2166226908c0b6257c1a3">Manchester United F.C.</option>
-                <option value="65c2186326908c0b6257c1aa">Real Madrid CF</option>
+                <option ${
+                  userData.favoriteTeam === '65c1fe6be3d6499b5031b39e'
+                    ? 'selected'
+                    : ''
+                } value="65c1fe6be3d6499b5031b39e">Chelsea FC</option>
+                <option ${
+                  userData.favoriteTeam === '65c2120026908c0b6257c183'
+                    ? 'selected'
+                    : ''
+                } value="65c2120026908c0b6257c183">FC Bayern Munich</option>
+                <option ${
+                  userData.favoriteTeam === '65c2138b26908c0b6257c18b'
+                    ? 'selected'
+                    : ''
+                } value="65c2138b26908c0b6257c18b">FC Barcelona</option>
+                <option ${
+                  userData.favoriteTeam === '65c2151d26908c0b6257c19c'
+                    ? 'selected'
+                    : ''
+                } value="65c2151d26908c0b6257c19c">Juventus FC</option>
+                <option ${
+                  userData.favoriteTeam === '65c2166226908c0b6257c1a3'
+                    ? 'selected'
+                    : ''
+                } value="65c2166226908c0b6257c1a3">Manchester United F.C.</option>
+                <option ${
+                  userData.favoriteTeam === '65c2186326908c0b6257c1aa'
+                    ? 'selected'
+                    : ''
+                } value="65c2186326908c0b6257c1aa">Real Madrid CF</option>
               </select>
           </span>
           
@@ -173,18 +209,23 @@ export default {
           <label>Gender : </label>
           <select
                 id="genderInput"
-                value="${userData.gender}"
               >
                 <option value=""  disabled>
                   Select Gender
                 </option>
-                <option value="MALE">Male</option>
-                <option value="FEMALE">Female</option>
+                <option ${
+                  userData.gender === 'MALE' ? 'selected' : ''
+                } value="MALE">Male</option>
+                <option ${
+                  userData.gender === 'FEMALE' ? 'selected' : ''
+                } value="FEMALE">Female</option>
               </select>
           </span>
       </div>
     </div>
-    <textarea class="textArea" id="bioInput" cols="30" rows="6" placeHolder="Please Enter Your Bio">${userData.bio}</textarea>
+    <textarea class="textArea" id="bioInput" cols="30" rows="6" placeHolder="Please Enter Your Bio">${
+      userData.bio
+    }</textarea>
    
       <button class="settingBtn"  onclick="handleUpdate()">Change</button>
         <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
