@@ -23,11 +23,14 @@ export default {
     await fetchAuth();
     return `
     <div class="mainSetting">
-      <img class="settingImage" src="../assets/images/largegears.gif" alt="gear settings" />
+   
+    <img class="settingImage" src="../assets/images/largegears.gif" alt="gear settings" />
+  
+     
+
       <img class="profileImage" src="./assets/images/profile.png" alt="" />
 
  
-    <h3>Setting</h3>
     <div class="settingContainer">
       <div>
           <span>
@@ -104,6 +107,7 @@ export default {
           </span>
       </div>
     </div>
+    <textarea class="textArea" name="" id="" cols="30" rows="3" placeHolder="Please Enter Your Bio"></textarea>
    
       <button class="settingBtn"  onclick="handleSignIn()">Change</button>
         <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
