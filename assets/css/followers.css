@@ -37,15 +37,18 @@
   border: none;
   background-color: #343a40;
 }
+
 .backBtn:hover {
   border-radius: 5px;
   padding-right: 24px;
   padding-left: 8px;
 }
+
 .backBtn:hover:after {
   opacity: 1;
   right: 10px;
 }
+
 .backBtn:after {
   content: '\00BB';
   position: absolute;
@@ -64,6 +67,7 @@
   align-items: center;
   margin-top: 20px;
 }
+
 .following {
   display: flex;
   align-items: center;
@@ -95,6 +99,7 @@
   border: 2px solid #d90429;
   background: #d90429;
 }
+
 .unFollowBtn:hover {
   background: #fff;
   color: #d90429;
@@ -102,9 +107,6 @@
 
 .details {
   display: flex;
-}
-
-.userDetails {
 }
 
 .userDetails .detailName {

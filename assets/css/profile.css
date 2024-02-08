@@ -9,19 +9,21 @@
   padding: 20px 20px;
   max-width: 1600px;
 }
-.container::after{
+
+.container::after {
   content: '';
   position: fixed;
   top: 170px;
   width: 100%;
   height: 100%;
   background-image: url('../images/FootballMediaLogo.png');
-  background-size:650px 650px;
-  background-position: right ;
+  background-size: 650px 650px;
+  background-position: right;
   background-repeat: no-repeat;
-  opacity: 0.3; 
-  z-index: -1; 
+  opacity: 0.3;
+  z-index: -1;
 }
+
 .container .right {
   display: flex;
   flex-direction: column;
@@ -144,6 +146,7 @@
   border-radius: 16px;
   padding-left: 15px;
 }
+
 .right .shareProfile span {
   font-size: 1.3rem;
   font-weight: 900;
@@ -155,8 +158,8 @@
   width: 150px;
   cursor: pointer;
 }
-/* Bio Section */
 
+/* Bio Section */
 .container .left {
   display: flex;
   flex-direction: column;
@@ -168,6 +171,7 @@
   background-color: #e3ae9a6e;
   padding: 20px;
 }
+
 .left .bio {
   display: flex;
   gap: 40px;
@@ -179,9 +183,6 @@
   background: rgb(255, 255, 255);
   border-radius: 16px;
   -webkit-backdrop-filter: blur(5px);
-}
-
-.left .bio .profileImg {
 }
 
 .left .bio .profileImg img {
@@ -209,10 +210,12 @@
   font-size: 1.2rem;
   color: black;
 }
+
 .left .bio .profileDesc .text .id {
   margin-top: -5px;
   color: rgb(148, 148, 148);
 }
+
 .left .bio .profileDesc .stats {
   display: flex;
   font-weight: 700;
@@ -221,6 +224,7 @@
   color: black;
   gap: 20px;
 }
+
 .left .bio .profileDesc .stats button {
   border: none;
   background-color: transparent;
@@ -230,6 +234,7 @@
   padding: 0;
   cursor: pointer;
 }
+
 .left .bio .profileDesc .favoriteTeam {
   display: flex;
   flex-direction: column;
@@ -239,6 +244,7 @@
   border-radius: 10px;
   padding: 5px;
 }
+
 .left .bio .profileDesc .favoriteTeam img {
   width: 75px;
   height: 75px;
@@ -262,12 +268,12 @@
   color: rgb(241, 92, 38);
   text-decoration: none;
 }
+
 .left .bio .profileDesc .desc a:active {
   color: rgb(190, 190, 226);
 }
 
 /* Tweet Section */
-
 .tweets {
   width: 700px;
   height: 305px;
@@ -366,7 +372,6 @@
 }
 
 /* User Tweet Section */
-
 .userTweet {
   display: flex;
   flex-direction: column;
@@ -425,6 +430,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .userTweet .userIntract div {
   display: flex;
   justify-content: space-between;
@@ -433,10 +439,12 @@
 .userTweet .userIntract .likes {
   color: var(--text-secondary);
 }
+
 .userTweet .userIntract .comments {
   margin-left: 20px;
   color: var(--text-secondary);
 }
+
 .userTweet .userIntract .likes,
 .userTweet .userIntract .comments {
   border: none;
@@ -458,7 +466,6 @@
 }
 
 /* Comments Section */
-
 .userComments {
   background: rgba(61, 81, 56, 0.38);
   border-radius: 16px;
@@ -473,6 +480,7 @@
   width: 700px;
   padding: 30px;
 }
+
 .userInfo {
   display: flex;
   align-items: center;
@@ -504,47 +512,48 @@
   color: var(--text-secondary);
 }
 
-.commentsSection{
+.commentsSection {
   margin-top: 70px;
 }
 
-.commentsSection h4{
-max-width: fit-content;
-background-color: rgb(17, 60, 16);
-border-radius: 5px;
-padding: 2px 7px;
+.commentsSection h4 {
+  max-width: fit-content;
+  background-color: rgb(17, 60, 16);
+  border-radius: 5px;
+  padding: 2px 7px;
 }
 
-.commentsSection .comment{
+.commentsSection .comment {
   display: flex;
   flex-direction: column;
   border-top: 3px solid rgb(23, 58, 0);
   margin-top: 20px;
 }
 
-.commentsSection .comment .userInfo{
-margin-top: 20px;
-display: flex;
- justify-content: space-between;
-}
-
-.othersComment{
+.commentsSection .comment .userInfo {
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-.commentsSection .comment p{
-background-color: rgba(80, 144, 69, 0.933);
-color: #ece6e6;
-width: 400px;
-border-radius: 5px;
-display: flex;
-margin-top: 10px;
-max-width: fit-content;
-overflow: auto;
-padding: 1px 10px;
+.othersComment {
+  display: flex;
+  justify-content: space-between;
 }
-.othersComment button{
+
+.commentsSection .comment p {
+  background-color: rgba(80, 144, 69, 0.933);
+  color: #ece6e6;
+  width: 400px;
+  border-radius: 5px;
+  display: flex;
+  margin-top: 10px;
+  max-width: fit-content;
+  overflow: auto;
+  padding: 1px 10px;
+}
+
+.othersComment button {
   border: none;
   background-color: transparent;
   font-family: inherit;
@@ -554,14 +563,16 @@ padding: 1px 10px;
   cursor: pointer;
   color: white;
 }
-.othersComment button i{
+
+.othersComment button i {
   color: red;
 }
-#comment{
+
+#comment {
   margin-top: 30px;
 }
 
-.commentBtn{
+.commentBtn {
   min-width: 100px;
   height: 40px;
   color: #fff;
@@ -581,4 +592,3 @@ padding: 1px 10px;
   background: #fff;
   color: #57cc99;
 }
-

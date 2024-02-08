@@ -6,11 +6,13 @@
   margin: 100px auto;
   text-align: center;
 }
+
 .background img {
   width: 700px;
   z-index: 1;
   border-radius: 30px;
 }
+
 main .formContainer {
   z-index: 3;
   position: absolute;
@@ -49,6 +51,7 @@ main input {
   border: 2px solid transparent;
   font-size: 1rem;
 }
+
 main input:focus {
   border: 2px dashed #fc4308;
   outline: none;
@@ -75,12 +78,15 @@ main input:focus {
   color: #fc4308;
   font-size: 1rem;
 }
+
 .signInBtn:hover {
   color: #fff;
 }
+
 .signInBtn:hover:after {
   width: 100%;
 }
+
 .signInBtn:after {
   content: '';
   position: absolute;
@@ -108,6 +114,7 @@ main .dontHaveAccount a {
   font-weight: 900;
   font-size: 1.2rem;
 }
+
 main .dontHaveAccount a:hover {
   opacity: 60%;
   transition: all 0.2s ease;

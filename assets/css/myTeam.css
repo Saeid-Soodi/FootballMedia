@@ -8,12 +8,14 @@
   margin: 0 auto;
   margin-bottom: 40px;
 }
+
 .container .head {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px;
 }
+
 .container .head .teamName {
   font-size: 2rem;
   font-weight: 900;
@@ -28,9 +30,11 @@
   font-size: 1.9rem;
   font-weight: 900;
 }
-.container .head .logo span{
+
+.container .head .logo span {
   color: var(--text-secondary);
 }
+
 .container .teamInfo {
   display: flex;
   justify-content: space-between;
@@ -38,6 +42,7 @@
   background-image: url('../images/myTeamBackground.jpg');
   border-radius: 30px;
 }
+
 .container .teamInfo .teamFormation {
   display: flex;
   flex-direction: column;
@@ -53,31 +58,29 @@
   height: 850px;
   color: white;
 }
+
 .container .teamInfo .teamFormation .text {
   font-size: 1.8rem;
   font-weight: 900;
 }
+
 .container .teamInfo .teamFormation img {
   width: 380px;
   border-radius: 10px;
   cursor: pointer;
 }
-.container .teamInfo .teamFormation .teamPlayers{
 
+.container .teamInfo .teamFormation .teamPlayers .player {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  gap: 20px;
 }
-.container .teamInfo .teamFormation .teamPlayers .player{
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    gap: 20px;
-}
-.container .teamInfo .teamFormation .teamPlayers .player .playerNumber{
-    color:var(--text-main)
-    font-size: 1.1rem;
-    text-align: center;
-}
-.container .teamInfo .teamFormation .teamPlayers .player .playerName{
-    
+
+.container .teamInfo .teamFormation .teamPlayers .player .playerNumber {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 .container .teamInfo .teamDesc {
@@ -94,11 +97,13 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
 }
+
 .container .teamInfo .teamDesc .title {
   font-size: 1.7rem;
   font-weight: 900;
   color: white;
 }
+
 .container .teamInfo .teamDesc .wikipedia {
   width: 600px;
   text-align: justify;
@@ -108,23 +113,27 @@
   color: white;
   border-radius: 3px;
 }
+
 .container .teamInfo .teamDesc .teamGallery {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .container .teamInfo .teamDesc .teamGallery .text {
   margin-top: 40px;
   text-align: center;
   color: white;
   font-size: 2.2rem;
 }
+
 .teamGallery .images {
   display: flex;
   flex-direction: column;
   gap: 7px;
   margin-top: 4px;
 }
+
 .teamGallery .images .up {
   display: flex;
   flex-wrap: wrap;
@@ -137,6 +146,7 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
 .container .teamSummery {
   display: flex;
   flex-direction: column;
@@ -157,10 +167,12 @@
   justify-content: center;
   align-items: center;
 }
+
 .container .teamSummery .teamLogo img {
   width: 200px;
   height: 200px;
 }
+
 .teamInfo .teamSummery .teamShortInfo {
   display: flex;
   gap: 20px;
@@ -181,6 +193,7 @@
   font-weight: 600;
   text-wrap: nowrap;
 }
+
 .teamInfo .teamSummery .teamShortInfo .title,
 .teamInfo .teamSummery .teamShortInfo .value {
   display: flex;
@@ -209,6 +222,7 @@
   font-size: 1.3rem;
   font-weight: 900;
 }
+
 .teamInfo .teamSummery .teamPredictPage .text {
   color: white;
 }

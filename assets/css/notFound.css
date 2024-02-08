@@ -38,10 +38,12 @@ main .notFoundImage {
   z-index: 0;
   border-radius: 10px;
 }
+
 .backToHomeBtn:hover:after {
   top: 0;
   left: 0;
 }
+
 .backToHomeBtn:after {
   content: '';
   width: 100%;

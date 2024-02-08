@@ -152,6 +152,7 @@ main select:focus {
   border: 2px solid #fc4308;
   background: #fc4308;
 }
+
 .settingBtn:hover {
   background: #fff;
   color: #fc4308;
