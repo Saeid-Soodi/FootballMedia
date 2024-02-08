@@ -9,38 +9,47 @@ main .mainSetting {
   align-items: center;
   justify-content: center;
   width: fit-content;
-  margin: 80px auto;
-  background: rgba(255, 255, 255, 0.19);
- 
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  /* background-image: url('../images/greenGrass.jpg'); */
   backdrop-filter: blur(9.2px);
   -webkit-backdrop-filter: blur(9.2px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  padding: 30px 50px;
+  color: black;
+  padding: 0px 0px;
+  padding-bottom: 30px;
   border-radius: 20px;
 }
 
-.mainSetting .settingImage{
-  border-radius: 20%;
-  width: 500px;
-  height: 350px;
-  position: relative;
+.header {
+  border-radius: 20px;
+  background: #fc4508cb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding-top: 60px;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
-.mainSetting .profileImage{
+.header h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 4px 6px 7px rgba(0, 0, 0, 0.372);
+}
+
+.header .profileImage {
   width: 120px;
   border-radius: 100%;
-  position: absolute;
-  top: 29%;
-  right: 65%;
+  /* position: absolute;
+  top: 7%;
+  right: 65%; */
 }
 
-.mainSetting h3{
-  margin-top: 10px;
-}
- .settingContainer {
-  
+.settingContainer {
   display: flex;
   flex-direction: row;
   /* flex-direction: column; */
@@ -54,17 +63,19 @@ main .mainSetting {
   padding: 30px 50px;
 }
 
-main .settingContainer div{
+main .settingContainer div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   gap: 20px;
 }
 
-main h3 {
+main h2 {
   margin-bottom: 10px;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: #fc4308;
+  font-weight: 900;
 }
 
 main span {
@@ -73,7 +84,8 @@ main span {
   align-items: center;
   justify-content: space-evenly;
   gap: 10px;
-  background-color: rgba(252, 67, 8, 0.14);
+  background-color: #fc4508ad;
+  color: #fff;
   padding: 10px;
   border-radius: 20px;
 }
@@ -118,15 +130,29 @@ main select:focus {
   display: inline-block;
   outline: none;
   border-radius: 5px;
-  border: 2px solid #d90429;
-  background: #d90429;
+  border: 2px solid #fc4308;
+  background: #fc4308;
 }
 .settingBtn:hover {
   background: #fff;
-  color: #d90429;
+  color: #fc4308;
 }
 
 .settingBtn:hover:after {
   top: 0;
   left: 0;
+}
+
+.textArea {
+  width: 90%;
+  padding: 10px;
+  border: 2px solid #fc4308;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.424) 0px 3px 8px;
+}
+
+.textArea:focus {
+  color: #fc4308;
+  border: 2px dashed #fc4308;
+  outline: none;
 }

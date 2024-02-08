@@ -25,7 +25,6 @@ router.post('/', async (req, res) => {
       userNameAndFamilyName,
       userName,
       commentContent,
-      dateTime: new Date(),
     });
 
     await tweet.save();

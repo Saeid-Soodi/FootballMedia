@@ -1,3 +1,4 @@
+// Component for sign In Page
 export default {
   content: async function () {
     const title = 'SignIn | Football Media';
@@ -19,7 +20,7 @@ export default {
     }
     await fetchAuth();
 
-    return `   <div class="formContainer">
+    return `<div class="container"><div class="background"><img src="../assets/images/closeUpFootball.jpg" alt="" /></div><div class="formContainer">
           <h3>Sign In</h3>
           <input type="email" id="emailInput" placeholder="Email">
           <input type="password" id="passwordInput" placeholder="Password">
@@ -29,6 +30,9 @@ export default {
           <a href="/signUp">Sign Up</a>
       </div>
         </div> 
+        
+      </div>
+     
       `;
   },
 };

@@ -1,28 +1,48 @@
 /* CSS for SignIn Page */
 
 /* SignIn Form Starts */
-
+.container {
+  position: relative;
+  margin: 100px auto;
+  text-align: center;
+}
+.background img {
+  width: 700px;
+  z-index: 1;
+  border-radius: 30px;
+}
 main .formContainer {
-  min-width: 550px;
+  z-index: 3;
+  position: absolute;
+  top: 5%;
+  right: 25%;
+  width: 400px;
+  height: 400px;
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   gap: 12px;
   align-items: center;
   justify-content: center;
   width: fit-content;
   margin: 80px auto;
-  background-color: #0e1513;
+  background-color: #fc4508aa;
+  color: white;
   padding: 30px 50px;
   border-radius: 20px;
 }
 
-main h3 {
+.formContainer h3 {
+  user-select: none;
   margin-bottom: 10px;
-  font-size: 2rem;
+  font-size: 3rem;
+  text-shadow: 4px 6px 7px rgba(0, 0, 0, 0.372);
+  color: rgb(255, 255, 255);
 }
 
 main input {
-  width: 65%;
+  color: rgb(106, 106, 106);
+  width: 90%;
   padding: 12px 6px;
   border-radius: 12px;
   box-shadow: rgba(255, 255, 255, 0.424) 0px 3px 8px;
@@ -36,6 +56,7 @@ main input:focus {
 
 /*SignIn Btn Styles*/
 .signInBtn {
+  user-select: none;
   min-width: 130px;
   height: 40px;
   color: #fff;
@@ -82,7 +103,12 @@ main .dontHaveAccount {
   user-select: none;
 }
 
+main .dontHaveAccount a {
+  color: white;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
 main .dontHaveAccount a:hover {
-  opacity: 70%;
-  transition: all 0.5s ease;
+  opacity: 60%;
+  transition: all 0.2s ease;
 }

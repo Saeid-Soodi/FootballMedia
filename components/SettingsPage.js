@@ -1,4 +1,4 @@
-// Component for not found Page
+// Component for settings Page
 export default {
   content: async function () {
     const title = 'Settings | Football Media';
@@ -6,6 +6,7 @@ export default {
 
     let userLogin;
     let user;
+    let userData;
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/M00872834/auth', {
         method: 'Get',
@@ -19,38 +20,114 @@ export default {
       } else if (auth.status === 200) {
         userLogin = true;
       }
+      const resUser = await fetch(
+        `http://localhost:8080/M00872834/user/${user.userId}`,
+        {
+          method: 'Get',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+      userData = await resUser.json();
     }
     await fetchAuth();
+
+    window.handleUpdate = async function () {
+      const name = document.getElementById('nameInput');
+      const familyName = document.getElementById('FamilyNameInput');
+      const userName = document.getElementById('userNameInput');
+      const phone = document.getElementById('phoneInput');
+      const email = document.getElementById('emailInput');
+      const birthDate = document.getElementById('birthDateInput');
+      const gender = document.getElementById('genderInput');
+      const favoriteTeam = document.getElementById('favoriteTeamInput');
+      const bio = document.getElementById('bioInput');
+
+      function validate(item, value) {
+        if (item === 'email') {
+          const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return regex.test(String(value).toLowerCase());
+        }
+      }
+
+      if (
+        name.value === '' ||
+        familyName.value === '' ||
+        userName.value === '' ||
+        phone.value === '' ||
+        email.value === '' ||
+        birthDate.value === '' ||
+        gender.value === '' ||
+        favoriteTeam.value === ''
+      ) {
+        return alert('You must fill the form before signing up');
+      } else if (!validate('email', email.value)) {
+        return alert('please enter a valid email');
+      } else {
+        try {
+          const res = await fetch(
+            `http://localhost:8080/M00872834/user/${user.userId}`,
+            {
+              method: 'PATCH',
+              body: JSON.stringify({
+                name: name.value,
+                familyName: familyName.value,
+                userName: userName.value,
+                email: email.value,
+                birthDate: birthDate.value,
+                bio: bio.value,
+                gender: gender.value,
+                favoriteTeam: favoriteTeam.value,
+                phone: phone.value,
+              }),
+              credentials: 'include',
+              headers: { 'Content-Type': 'application/json' },
+            }
+          );
+          const data = await res.json();
+          if (res.status === 201) {
+            alert('Your Account Data has been successfully updated!');
+            window.location.reload();
+          } else {
+            alert(data.message);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+    };
+
     return `
     <div class="mainSetting">
-      <img class="settingImage" src="./assets/images/settingImage.jpg" alt="" />
+   <div class="header">
+      <h2>Settings</h2>
       <img class="profileImage" src="./assets/images/profile.png" alt="" />
+   </div>
 
  
-    <h3>Setting</h3>
     <div class="settingContainer">
       <div>
           <span>
           <label>Name : </label>
-          <input type="text" id="nameInput" placeholder="Name"/>
+          <input value="${userData.name}" type="text" id="nameInput" placeholder="Name"/>
           </span>
          
           
           <span>
           <label>Phone Number : </label>
-          <input type="text" id="phoneInput" placeholder="Phone Number"/>
+          <input value="${userData.phone}" type="text" id="phoneInput" placeholder="Phone Number"/>
           </span>
 
           <span>
 
           <label>User Name : </label>
-          <input type="text" id="userNameInput" placeholder="User Name"/>
+          <input value="${userData.userName}" type="text" id="userNameInput" placeholder="User Name"/>
 
           </span>
 
           <span>
             <label>Birth Date : </label>
-            <input type="date" id="birthDateInput"/>
+            <input value="${userData.birthDate}" type="date" id="birthDateInput"/>
           </span>
           
           
@@ -62,13 +139,13 @@ export default {
           <span>
               
           <label>Family Name : </label>
-          <input type="text" id="FamilyNameInput" placeholder="Family Name"/>
+          <input value="${userData.familyName}" type="text" id="FamilyNameInput" placeholder="Family Name"/>
           </span>
          
           <span>
           
           <label>Email : </label>
-          <input type="email" id="emailInput" placeholder="Email"/>
+          <input value="${userData.email}" type="email" id="emailInput" placeholder="Email"/>
           </span>
 
           <span>
@@ -76,8 +153,9 @@ export default {
           <label>Favorite Team: </label>
           <select
                 id="favoriteTeamInput"
+                value="${userData.favoriteTeam}"
               >
-                <option value=""  disabled selected>
+                <option value=""  disabled>
                   Select your Favorite Team
                 </option>
                 <option value="65c1fe6be3d6499b5031b39e">Chelsea FC</option>
@@ -94,8 +172,9 @@ export default {
           <label>Gender : </label>
           <select
                 id="genderInput"
+                value="${userData.gender}"
               >
-                <option value=""  disabled selected>
+                <option value=""  disabled>
                   Select Gender
                 </option>
                 <option value="MALE">Male</option>
@@ -104,8 +183,9 @@ export default {
           </span>
       </div>
     </div>
+    <textarea class="textArea" id="bioInput" cols="30" rows="6" placeHolder="Please Enter Your Bio">${userData.bio}</textarea>
    
-      <button class="settingBtn"  onclick="handleSignIn()">Change</button>
+      <button class="settingBtn"  onclick="handleUpdate()">Change</button>
         <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
       </div>
 

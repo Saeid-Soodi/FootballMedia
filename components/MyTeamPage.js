@@ -1,4 +1,4 @@
-// Component for not found Page
+// Component for My team Page
 export default {
   content: async function () {
     let userLogin;

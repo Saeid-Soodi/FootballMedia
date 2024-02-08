@@ -24,13 +24,13 @@ export default {
       <div>
         <div class='footer-flex-h1'>
         <h1 class='footer-h1'>
-        No limit to share your emotion and discuss about Football here feel free
+        There's no limit to sharing your emotions and discussing football here. Feel free.
         </h1>
         </div>
         <div class='footer-line'></div>
         <div class='footer-logo'>
          <h1 class='footer-h1-brand'>Football Media</h1>
-         <img  src='../assets/images/FootballMediaLogo.png'></img>
+         <img  src='../assets/images/FootballMediaLogo.png' alt="FootballMediaLogo"></img>
         </div>
         <ul class='footer-ul'>
         <li><a href="/">Home</a></li>
@@ -49,13 +49,10 @@ export default {
   </div>
   <div class='footer-gif-container-margin'>
        <div class="footer-gif-container">
-          <img class="gifImage" autoplay loop src="../assets/images/Football.gif"></img>
+          <img class="gifImage" autoplay loop src="../assets/images/Football.gif" alt="FootballGif"></img>
         </div>
   </div>
- 
   </div>
- 
-
   </div>
     `;
   },

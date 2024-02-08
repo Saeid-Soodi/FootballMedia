@@ -114,7 +114,7 @@ router.patch('/:id', async (req, res) => {
     if (req.body.email) {
       user.email = req.body.email;
     }
-    if (req.body.bio) {
+    if (req.body.bio === '' || req.body.bio) {
       user.bio = req.body.bio;
     }
     if (req.body.birthDate) {
@@ -140,31 +140,12 @@ router.patch('/:id', async (req, res) => {
     if (req.body.predictions) {
       user.predictions.push(req.body.predictions);
     }
-    // if (req.body.followingId) {
-    //   // Check if the followingId is already in the followers array
-    //   if (user.followings.includes(req.body.followingId)) {
-    //     // If already following, send a message indicating that
-    //     return res.status(400).json({
-    //       message: `You are already following user with ID: ${req.body.followingId}`,
-    //     });
-    //   } // If not, add it to the followers array
-    //   user.followings.push(req.body.followingId);
-    // }
-    // if (req.body.followers) {
-    //   user.followers.push(req.body.followers);
-    // }
-    // if (req.body.unFollowingId) {
-    //   // Assuming req.body.unfollowingId is the ID to unfollow
-    //   user.followings = user.followings.filter(
-    //     (id) => id !== req.body.unFollowingId
-    //   );
-    // }
     if (req.body.role) {
       user.role = req.body.role;
     }
 
-    const updatedUser = await user.save();
-    res.status(201).json(updatedUser);
+    await user.save();
+    res.status(201).json({ message: 'user Updated' });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

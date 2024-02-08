@@ -113,7 +113,6 @@ export default {
       });
       const data = await up.json();
       if (up.status === 200) {
-        alert('tweet added!');
         window.location.reload();
       }
     };
@@ -139,7 +138,6 @@ export default {
       });
       const data = await up.json();
       if (up.status === 201) {
-        alert('comment added!');
         window.location.reload();
       } else {
         alert(data);
@@ -152,13 +150,34 @@ export default {
     window.followingLinkHandler = function () {
       window.location.href = `/followings#${user.userId}`;
     };
-    window.likeHandler = async function (button) {
+    window.tweetLikeHandler = async function (button) {
       const tweetId = button.getAttribute('data-tweet-id');
       // like tweet
       const up = await fetch('http://localhost:8080/M00872834/like', {
         method: 'POST',
         body: JSON.stringify({
           tweetId,
+          userId: userData._id,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 201) {
+        window.location.reload();
+      } else {
+        alert(data.message);
+      }
+    };
+
+    window.commentLikeHandler = async function (button) {
+      const tweetId = button.getAttribute('data-tweet-id');
+      const commentIndex = button.getAttribute('data-comment-id');
+      // like tweet
+      const up = await fetch('http://localhost:8080/M00872834/likeComment', {
+        method: 'POST',
+        body: JSON.stringify({
+          tweetId,
+          commentIndex,
           userId: userData._id,
         }),
         headers: { 'Content-Type': 'application/json' },
@@ -282,7 +301,7 @@ export default {
          </div>
         </div>${
           tweetsList.length === 0
-            ? `<div>You has not tweet anything</div>`
+            ? `<div style="color:white">You haven't tweeted anything yet.</div>`
             : tweetsList
                 .reverse()
                 .map((tweet, index) => {
@@ -301,7 +320,7 @@ export default {
            </p>
            <div class="userIntract">
             <div>
-            <button onclick="likeHandler(this)" data-tweet-id="${
+            <button onclick="tweetLikeHandler(this)" data-tweet-id="${
               tweet._id
             }" class="likes">
             ${
@@ -326,25 +345,39 @@ export default {
            }
            
            ${tweet.comments
-             .map((comment) => {
-               return `<div class="comment">
+             .map((comment, index) => {
+               return `
+               <div class="comment">
                <div class="userInfo">
-                <img src="../assets/images/profile.png" alt="">
-                <div class="text">
-                    <span class="name">${comment.userNameAndFamilyName}</span>
-                    <span class="id">@${comment.userName}</span>
-                </div>
-            </div>
-                <p>${comment.commentContent}</p>
-                <span class="time"><i class="bi bi-clock"></i> ${tweet.createdAt}</span>
-                </div>`;
+               <div>
+               <img src="../assets/images/profile.png" alt="userProfile">
+               <div class="text">
+                 <span class="name">${comment.userNameAndFamilyName}</span>
+                 <span class="id">@${comment.userName}</span>
+               </div>
+             </div>
+               <div class="time"><i class="bi bi-clock"></i> ${
+                 tweet.createdAt
+               } </div>
+             </div>
+                    <div class="othersComment">
+                    <p>${comment.commentContent}</p>
+                    <button onclick="commentLikeHandler(this)" data-tweet-id="${
+                      tweet._id
+                    }" data-comment-id="${index}">${
+                 comment.likes.includes(userData._id)
+                   ? '<i class="bi bi-heart-fill"></i>'
+                   : '<i class="bi bi-heart"></i>'
+               } ${comment.likes.length}</button>
+                    </div>
+              </div>`;
              })
              .join('')}
 
            </div>
-           <div class="userInfo" >
+           <div class="userInfo" id="comment" >
                        <input type="text" id="commentInput_${index}" class="comment" placeholder="add a comment for yourself">
-                       <button onclick='commentHandler(${index}, "${
+                       <button class="commentBtn" onclick='commentHandler(${index}, "${
                     tweet._id
                   }")'>comment</button>
                    </div>

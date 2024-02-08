@@ -1,4 +1,4 @@
-// Component for not found Page
+// Component for predict Page
 export default {
   content: async function () {
     const title = 'Predict | Football Media';
@@ -62,11 +62,6 @@ export default {
         console.error('Error:', error);
       }
     };
-
-    // print the date time
-    // const timestamp = 1707140193558;
-    // const date = new Date(timestamp);
-    // console.log(date);
 
     return `
     <div class="container">
