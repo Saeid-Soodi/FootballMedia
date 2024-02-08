@@ -75,6 +75,10 @@ app.use('/M00872834/comment', commentRouter);
 const likeRouter = require('./routes/like');
 app.use('/M00872834/like', likeRouter);
 
+// url is like localhost:8080/M00872834/likeComment
+const likeCommentRouter = require('./routes/likeComment');
+app.use('/M00872834/likeComment', likeCommentRouter);
+
 // url is like localhost:8080/M00872834/team
 const teamRouter = require('./routes/team');
 app.use('/M00872834/team', teamRouter);
