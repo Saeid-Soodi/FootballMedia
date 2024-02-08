@@ -152,13 +152,34 @@ export default {
     window.followingLinkHandler = function () {
       window.location.href = `/followings#${user.userId}`;
     };
-    window.likeHandler = async function (button) {
+    window.tweetLikeHandler = async function (button) {
       const tweetId = button.getAttribute('data-tweet-id');
       // like tweet
       const up = await fetch('http://localhost:8080/M00872834/like', {
         method: 'POST',
         body: JSON.stringify({
           tweetId,
+          userId: userData._id,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await up.json();
+      if (up.status === 201) {
+        window.location.reload();
+      } else {
+        alert(data.message);
+      }
+    };
+
+    window.commentLikeHandler = async function (button) {
+      const tweetId = button.getAttribute('data-tweet-id');
+      const commentIndex = button.getAttribute('data-comment-id');
+      // like tweet
+      const up = await fetch('http://localhost:8080/M00872834/likeComment', {
+        method: 'POST',
+        body: JSON.stringify({
+          tweetId,
+          commentIndex,
           userId: userData._id,
         }),
         headers: { 'Content-Type': 'application/json' },
@@ -301,7 +322,7 @@ export default {
            </p>
            <div class="userIntract">
             <div>
-            <button onclick="likeHandler(this)" data-tweet-id="${
+            <button onclick="tweetLikeHandler(this)" data-tweet-id="${
               tweet._id
             }" class="likes">
             ${
@@ -326,7 +347,7 @@ export default {
            }
            
            ${tweet.comments
-             .map((comment) => {
+             .map((comment, index) => {
                return `
                <div class="comment">
                <div class="userInfo">
@@ -337,11 +358,19 @@ export default {
                  <span class="id">@${comment.userName}</span>
                </div>
              </div>
-               <div class="time"><i class="bi bi-clock"></i> ${tweet.createdAt} </div>
+               <div class="time"><i class="bi bi-clock"></i> ${
+                 tweet.createdAt
+               } </div>
              </div>
                     <div class="othersComment">
                     <p>${comment.commentContent}</p>
-                    <button><i class="bi bi-heart"></i> 0</button>
+                    <button onclick="commentLikeHandler(this)" data-tweet-id="${
+                      tweet._id
+                    }" data-comment-id="${index}">${
+                 comment.likes.includes(userData._id)
+                   ? '<i class="bi bi-heart-fill"></i>'
+                   : '<i class="bi bi-heart"></i>'
+               } ${comment.likes.length}</button>
                     </div>
               </div>`;
              })
