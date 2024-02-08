@@ -1,6 +1,15 @@
 /* CSS for Settings and Privacy Page */
 
 /* Setting From Style */
+main .container{
+  background-image: url(../images/settingImage.jpg);
+  padding: 30px;
+  background-size: 100%;
+  padding: 60px;
+  border-radius: 100%;
+  
+}
+
 main .mainSetting {
   min-width: 800px;
   display: flex;
@@ -10,7 +19,7 @@ main .mainSetting {
   justify-content: center;
   width: fit-content;
   margin: 40px auto;
-  background: white;
+  background: rgba(255, 255, 255, 0.258);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   /* background-image: url('../images/greenGrass.jpg'); */
   backdrop-filter: blur(9.2px);
@@ -20,6 +29,10 @@ main .mainSetting {
   padding: 0px 0px;
   padding-bottom: 30px;
   border-radius: 20px;
+}
+
+.mainSetting a:hover{
+  font-weight: bold;
 }
 
 .header {
@@ -97,6 +110,11 @@ main input {
   box-shadow: rgba(255, 255, 255, 0.424) 0px 3px 8px;
   border: 2px solid transparent;
   font-size: 1rem;
+  color: gray;
+}
+
+main select{
+  color: gray;
 }
 
 main input:focus {
@@ -152,7 +170,7 @@ main select:focus {
 }
 
 .textArea:focus {
-  color: #fc4308;
+  color: gray;
   border: 2px dashed #fc4308;
   outline: none;
 }

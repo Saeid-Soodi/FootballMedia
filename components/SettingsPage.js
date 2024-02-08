@@ -98,14 +98,15 @@ export default {
     };
 
     return `
+    <div class="container">
     <div class="mainSetting">
-   <div class="header">
-      <h2>Settings</h2>
-      <img class="profileImage" src="./assets/images/profile.png" alt="" />
-   </div>
+      <div class="header">
+          <h2>Settings</h2>
+          <img class="profileImage" src="./assets/images/profile.png" alt="" />
+      </div>
 
- 
-    <div class="settingContainer">
+    
+        <div class="settingContainer">
       <div>
           <span>
           <label>Name : </label>
@@ -188,7 +189,7 @@ export default {
       <button class="settingBtn"  onclick="handleUpdate()">Change</button>
         <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
       </div>
-
+  </div>
     `;
   },
 };
