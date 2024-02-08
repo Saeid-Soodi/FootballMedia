@@ -21,7 +21,7 @@ export default {
         });
         authData = await auth.json();
         // ... do something with the data
-
+        user = {userId:auth.id}
         const res = await fetch('http://localhost:8080/M00872834/user');
         data = await res.json();
         const userRes = await fetch('http://localhost:8080/M00872834/user');
@@ -63,39 +63,39 @@ export default {
         );
         favoriteTeamData = await favoriteTeam.json();
       }
-      await fetchAuth();
+      await fetchContent();
 
-      window.followHandler = async function (reqId) {
-        // follow user
-        const up = await fetch('http://localhost:8080/M00872834/follow', {
-          method: 'POST',
-          body: JSON.stringify({
-            reqId,
-            userId: user.userId,
-          }),
-          headers: { 'Content-Type': 'application/json' },
-        });
-        const data = await up.json();
-        if (up.status === 200) {
-          window.location.reload();
-        }
-      };
+      // window.followHandler = async function (reqId) {
+      //   // follow user
+      //   const up = await fetch('http://localhost:8080/M00872834/follow', {
+      //     method: 'POST',
+      //     body: JSON.stringify({
+      //       reqId,
+      //       userId: user.userId,
+      //     }),
+      //     headers: { 'Content-Type': 'application/json' },
+      //   });
+      //   const data = await up.json();
+      //   if (up.status === 200) {
+      //     window.location.reload();
+      //   }
+      // };
 
-      window.unFollowHandler = async function (reqId) {
-        // unFollow user
-        const up = await fetch('http://localhost:8080/M00872834/unFollow', {
-          method: 'POST',
-          body: JSON.stringify({
-            reqId,
-            userId: user.userId,
-          }),
-          headers: { 'Content-Type': 'application/json' },
-        });
-        const data = await up.json();
-        if (up.status === 200) {
-          window.location.reload();
-        }
-      };
+      // window.unFollowHandler = async function (reqId) {
+      //   // unFollow user
+      //   const up = await fetch('http://localhost:8080/M00872834/unFollow', {
+      //     method: 'POST',
+      //     body: JSON.stringify({
+      //       reqId,
+      //       userId: user.userId,
+      //     }),
+      //     headers: { 'Content-Type': 'application/json' },
+      //   });
+      //   const data = await up.json();
+      //   if (up.status === 200) {
+      //     window.location.reload();
+      //   }
+      // };
 
       window.tweetHandler = async function () {
         const tweetContent = document.getElementById('tweetContent').value;
@@ -174,12 +174,157 @@ export default {
       };
 
       return `
-      <h2>Welcome to the Home Page</h2><p>${
-        data[0].name + ' ' + data[0].familyName
-      }</p>
-      <div style="display: flex; flex-direction: column;">${data
-        .map((user) => `<span>${user.name} ${user.familyName}</span>`)
-        .join('')}</div>
+      <div class="container">
+      <div class="header">
+      <div class="tweets">
+      <div class="tweetName">
+       <img src="../assets/images/profile.png" alt="img">
+       <div class="text">
+           <!-- Replace the dynamic name and family name with static values -->
+           <span class="name">John Smith</span>
+           <!-- Replace the dynamic user name with a static value -->
+           <span class="id">@johnsmith</span>
+       </div>
+      </div>
+      <div class="tweeting"">
+       <textarea placeholder="What's happening?" cols="65" rows="5" id="tweetContent"></textarea>
+     <!-- Remove the onclick attribute from the button -->
+     <button>Tweet   <i class="bi bi-send-fill"></i></button>
+       </div>
+      </div>
+      <div class="flex-container">
+          <div class="left-sidebar">
+          <div class="right-sidebar">
+          <div class="container-li">
+          
+          </div>
+          <!-- Add the title for the chart -->
+          <div class="title">
+              <span>England Football League 2024</span>
+         
+          <!-- Add the table for the chart -->
+          <table class="table">
+              <!-- Add the table header row -->
+              <tr>
+                  <th class="th">Team</th>
+                  <th class="th">Points</th>
+                  <th class="th">Goals</th>
+              </tr>
+              <!-- Add the table data rows -->
+              <!-- Use some static data for the example -->
+              <tr>
+                  <td class="td">Liverpool</td>
+                  <td class="td">85</td>
+                  <td class="td">76</td>
+              </tr>
+              <tr>
+                  <td class="td">Manchester City</td>
+                  <td class="td">83</td>
+                  <td class="td">81</td>
+              </tr>
+              <tr>
+                  <td class="td">Chelsea</td>
+                  <td class="td">75</td>
+                  <td class="td">69</td>
+              </tr>
+              <tr>
+                  <td class="td">Manchester United</td>
+                  <td class="td">72</td>
+                  <td class="td">64</td>
+              </tr>
+              <tr>
+                  <td class="td">Leicester City</td>
+                  <td class="td">66</td>
+                  <td class="td">58</td>
+              </tr>
+          </table>
+          </div>
+          </div>
+          </div>
+
+
+          <div class="main">
+
+
+
+             <div class="post">
+          <div class="post-header">
+            <img src="../assets/images/profile.png" class="post-avatar" alt="Avatar">
+            <div class="post-info">
+              <span class="post-name">kiarsh alizadeh</span>
+              <span class="post-username">@ksha</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <p>Hi, I'm Copilot, an AI companion that can help you with various tasks. I can generate code, poems, stories, and more. Ask me anything!</p>
+          
+          </div>
+          <div class="post-footer">
+            <div class="post-action">
+              <!-- snippet for check icon -->
+              <svg class="post-icon" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8-.8-2.08-.8-2.88 0L9.41 15.99l-3.6-3.6c-.8-.8-2.08-.8-2.88 0-.8.8-.8 2.08 0 2.88l5.09 5.09c.39.39.92.59 1.44.59.51 0 1.05-.2 1.44-.59l12.74-12.75c.79-.79.79-2.07-.01-2.87z"></path></svg>
+              <span class="post-count">12</span>
+            </div>
+            <div class="post-action">
+              <!-- snippet for cross icon -->
+              <svg class="post-icon" viewBox="0 0 24 24 src='../assets/images/heart-svgrepo-com.svg'"></svg>
+              <span class="post-count">8</span>
+            </div>
+          </div>
+        </div>   
+       </div>
+
+
+          <div class="right-sidebar">
+
+          
+          <section class="input-part">
+          <p class="info-txt"></p>
+          <div class="content">
+            <input type="text" spellcheck="false" placeholder="Enter city name" required>
+            <div class="separator"></div>
+            <button>Get Device Location</button>
+          </div>
+        </section>
+        <section class="weather-part">
+        
+          <div class="temp">
+            <span class="numb">_</span>
+            <span class="deg">°</span>C
+          </div>
+          <div class="weather">_ _</div>
+          <div class="location">
+            <i class='bx bx-map'></i>
+            <span>_, _</span>
+          </div>
+          <div class="bottom-details">
+            <div class="column feels">
+              <i class='bx bxs-thermometer'></i>
+              <div class="details">
+                <div class="temp">
+                  <span class="numb-2">_</span>
+                  <span class="deg">°</span>C
+                </div>
+                <p>Feels like</p>
+              </div>
+            </div>
+            <div class="column humidity">
+              <i class='bx bxs-droplet-half'></i>
+              <div class="details">
+                <span>_</span>
+                <p>Humidity</p>
+              </div>
+            </div>
+          </div>
+        </section>
+          </div>
+      </div>
+  </div>
+  </div>
+ 
+
+    <p></p>
+      <div style="display: flex; flex-direction: column;">
 
       `;
     } catch (error) {
