@@ -55,7 +55,7 @@ export default {
       <option value="65c2186326908c0b6257c1aa">Real Madrid CF</option>
     </select>
     </div>
-      <button class="signUpBtn"  onclick="handleSignIn()">Sign Up</button>
+      <button class="signUpBtn"  onclick="handleSignUp()">Sign Up</button>
       <div class="haveAccount">
       <p>Already have an account?</p>
       <a href="/signIn">Sign In</a>
@@ -65,7 +65,7 @@ export default {
   },
 };
 
-window.handleSignIn = async function () {
+window.handleSignUp = async function () {
   const name = document.getElementById('nameInput');
   const familyName = document.getElementById('FamilyNameInput');
   const userName = document.getElementById('userNameInput');
