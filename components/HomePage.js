@@ -249,13 +249,17 @@ export default {
            const { date, time } = getDateTime(tweet.createdAt);
            return `
         <div class="userTweet">
-            <div class="userInfo">
+            <a href="${
+              tweet.userId === user._id
+                ? '/profile'
+                : '/usersProfile#' + tweet.userId
+            }" class="userInfo">
                 <img src="../assets/images/profile.png" alt="">
                 <div class="text">
                     <span class="name">${tweet.userNameAndFamilyName}</span>
-                    <span class="id">@${user.userName}</span>
+                    <span class="id">@${tweet.userName}</span>
                 </div>
-            </div>
+            </a>
             <p class="userLastTweet">${tweet.tweetContent}
            </p>
            <div class="userIntract">
@@ -288,7 +292,11 @@ export default {
 
                return `
                <div class="comment">
-               <div class="userInfo">
+               <a href="${
+                 comment.userId === user._id
+                   ? '/profile'
+                   : '/usersProfile#' + comment.userId
+               }" class="userInfo">
                <div>
                <img src="../assets/images/profile.png" alt="userProfile">
                <div class="text">
@@ -298,7 +306,7 @@ export default {
              </div>
                <div class="time"><i class="bi bi-calendar-week-fill"></i> ${date} , <i class="bi bi-clock"></i> ${time}
                </div>
-             </div>
+             </a>
                     <div class="othersComment">
                     <p>${comment.commentContent}</p>
                     <button onclick="commentLikeHandler(this)" data-tweet-id="${
