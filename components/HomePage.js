@@ -346,7 +346,7 @@ export default {
     <p class="info-txt"></p>
     <div class="content">
      
-    <h1 class='center'>Can we play today?</h1>
+    <h1 class='weatherTitle'>Can we play today?</h1>
     </div>
   </section>
   <img class='center-img' src="${

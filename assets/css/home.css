@@ -357,7 +357,7 @@ header i {
   margin-top: -6px;
 }
 
-.center {
+.weatherTitle {
   text-align: center;
   text-shadow: 4px 6px 7px rgba(0, 0, 0, 0.372);
 }
