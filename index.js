@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     { path: '/myTeam', component: 'MyTeamPage', css: 'myTeam' },
     { path: '/settings', component: 'SettingsPage', css: 'settings' },
     {
-      path: '/termsAndConditions',
-      component: 'TermsAndConditionsPage',
-      css: 'termsAndConditions',
+      path: '/privacy',
+      component: 'PrivacyPage',
+      css: 'privacy',
     },
     { path: '/signIn', component: 'SignInPage', css: 'signIn' },
     { path: '/signUp', component: 'SignUpPage', css: 'signUp' },

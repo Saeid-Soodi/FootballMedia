@@ -38,9 +38,10 @@ export default {
             ${
               userLogin
                 ? `
-            <li><a href="/settings">Settings</a></li>`
+                <li><a href="/settings">Settings</a></li>`
                 : ''
             }            
+              <li><a href="/privacy">Privacy</a></li>
             </ul>
      </div> 
        <div class="right">

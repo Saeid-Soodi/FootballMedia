@@ -1,8 +1,12 @@
-// Component for Terms And Conditions Page
+// Component for Privacy Page
 export default {
   content: async function () {
-    const title = 'Terms and Conditions | Football Media'
-    document.title = title
+    const title = 'Terms and Conditions | Football Media';
+    document.title = title;
+
+    window.clickHandler = function () {
+      window.location.href = '/';
+    };
 
     return `
     <div class="container">
@@ -28,7 +32,7 @@ export default {
           </ul>
           <p>This policy was last updated on February 7, 2024.</p>
     </div>
-    <button>
+    <button onclick="clickHandler()">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
   </svg>
@@ -38,6 +42,6 @@ export default {
 </button>
   </div>
   
-      `
+      `;
   },
-}
+};
