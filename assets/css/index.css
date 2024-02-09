@@ -164,6 +164,10 @@ nav .rightLogin button:hover {
 }
 
 /* Footer Section */
+
+
+
+/* 
 .footer-flex-justify {
   display: flex;
   flex-direction: row;
@@ -233,7 +237,84 @@ nav .rightLogin button:hover {
 
 .footer-ul :hover {
   color: #fff;
+} */
+
+.wave{
+  width: 100%;
+  margin: -7px;
 }
+
+.footerContainer{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #0e1513;
+
+}
+
+
+.footerContainer .left{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+}
+
+.footerContainer .left .desc{
+  border-bottom: 2px solid #fc4308;
+  padding-bottom: 5px;
+}
+
+.footerContainer .left .footerLogo{
+  display: flex;
+  align-items: center;
+ 
+}
+
+.footerContainer .left .footerLogo p{
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+.footerContainer .left .footerLogo img{
+  margin-top: 1rem;
+  width: 3rem;
+  height: 3rem;
+  animation: bounce 1s infinite;
+}
+
+ul{
+  list-style-type: none;
+  line-height: 2rem;
+
+}
+
+ul :hover {
+  color: #fff;
+} 
+
+.footerContainer .right{
+
+}
+
+.right .gifImage {
+  border-radius: 500px;
+}
+
+.copyRightContainer{
+  background-color: #0e1513;
+  padding: 20px 0px;
+ 
+}
+.copyRightContainer .copyRight{
+  width: fit-content;
+  margin: auto;
+  padding: 8px 12px;
+  color: #fc4308;
+  border-top: 2px solid #fc4308;
+}
+
 
 @keyframes bounce {
   0%,

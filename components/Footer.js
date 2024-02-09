@@ -19,41 +19,50 @@ export default {
 
     await fetchAuth();
     return `
-    <div>
-  <div class='footer-flex-justify footer-bg-color'>
-      <div>
-        <div class='footer-flex-h1'>
-        <h1 class='footer-h1'>
-        There's no limit to sharing your emotions and discussing football here. Feel free.
-        </h1>
-        </div>
-        <div class='footer-line'></div>
-        <div class='footer-logo'>
-         <h1 class='footer-h1-brand'>Football Media</h1>
-         <img  src='../assets/images/FootballMediaLogo.png' alt="FootballMediaLogo"></img>
-        </div>
-        <ul class='footer-ul'>
-        <li><a href="/">Home</a></li>
-        ${userLogin ? '<li><a href="/profile">Profile</a></li>' : ''}
-        
-        <li><a href="/predict">Predict</a></li>
-        <li><a href="/myTeam">My Team</a></li>
-        ${
-          userLogin
-            ? `
-        <li><a href="/settings">Settings</a></li>`
-            : ''
-        }
-        
-        </ul>
-  </div>
-  <div class='footer-gif-container-margin'>
-       <div class="footer-gif-container">
+    <div class="wave">
+    <img src="../assets/images/footerWave.svg" alt="" />
+    </div>
+    <div class="footerContainer">
+     <div class='left'>
+      
+          
+            <p class="desc">
+              There's no limit to sharing your emotions and discussing football here. Feel free.
+            </p>
+            
+            
+            <span class='footerLogo'>
+            <p>Football Media</p>
+            <img  src='../assets/images/FootballMediaLogo.png' alt="FootballMediaLogo"></img>
+            </span>
+            <ul>
+            <li><a href="/">Home</a></li>
+            ${userLogin ? '<li><a href="/profile">Profile</a></li>' : ''}
+            
+            <li><a href="/predict">Predict</a></li>
+            <li><a href="/myTeam">My Team</a></li>
+            ${
+              userLogin
+                ? `
+            <li><a href="/settings">Settings</a></li>`
+                : ''
+            }
+            
+            </ul>
+     </div>
+  
+       <div class="right">
           <img class="gifImage" autoplay loop src="../assets/images/Football.gif" alt="FootballGif"></img>
         </div>
+  
+  
   </div>
-  </div>
-  </div>
+   <div class="copyRightContainer">
+    <div class="copyRight">
+    
+    Copyright © 2023 FOOTBALL MEDIA. All Rights Reserved.
+    </div>
+    </div>
     `;
   },
 };
