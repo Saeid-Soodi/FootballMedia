@@ -7,6 +7,7 @@ export default {
     try {
       let data;
       let authData;
+      let userLogin;
       let user;
       let users;
       let listData;
@@ -22,6 +23,11 @@ export default {
           headers: { 'Content-Type': 'application/json' },
         });
         authData = await auth.json();
+        if (auth.status === 500) {
+          userLogin = false;
+        } else if (auth.status === 200) {
+          userLogin = true;
+        }
 
         // get login user data
         const resUser = await fetch(
@@ -95,7 +101,6 @@ export default {
           alert(data);
         }
       };
-
       window.followerLinkHandler = function () {
         window.location.href = `/followers#${user.userId}`;
       };
@@ -225,7 +230,9 @@ export default {
 
 
           <div class="tweetSection">
-          <div class="newTweet">
+          ${
+            userLogin
+              ? `<div class="newTweet">
       <div class="tweetName">
        <img src="../assets/images/profile.png" alt="img">
        <div class="text">
@@ -238,7 +245,10 @@ export default {
      <!-- Remove the onclick attribute from the button -->
      <button onclick="tweetHandler()">Tweet <i class="bi bi-send-fill"></i></button>
        </div>
-      </div>
+      </div>`
+              : ''
+          }
+          
       
  ${
    tweetsList.length === 0
@@ -264,9 +274,11 @@ export default {
            </p>
            <div class="userIntract">
             <div>
-            <button onclick="tweetLikeHandler(this)" data-tweet-id="${
-              tweet._id
-            }" class="likes">
+            <button ${
+              userLogin ? '' : 'disabled'
+            }  onclick="tweetLikeHandler(this)" data-tweet-id="${
+             tweet._id
+           }" class="likes">
             ${
               tweet.likes.includes(user._id)
                 ? '<i class="bi bi-heart-fill"></i>'
@@ -309,9 +321,11 @@ export default {
              </a>
                     <div class="othersComment">
                     <p>${comment.commentContent}</p>
-                    <button onclick="commentLikeHandler(this)" data-tweet-id="${
-                      tweet._id
-                    }" data-comment-id="${index}">${
+                    <button ${
+                      userLogin ? '' : 'disabled'
+                    } onclick="commentLikeHandler(this)" data-tweet-id="${
+                 tweet._id
+               }" data-comment-id="${index}">${
                  comment.likes.includes(user._id)
                    ? '<i class="bi bi-heart-fill"></i>'
                    : '<i class="bi bi-heart"></i>'
@@ -322,16 +336,21 @@ export default {
              .join('')}
 
            </div>
-           <div class="userInfo" id="comment" >
+           ${
+             userLogin
+               ? `<div class="userInfo" id="comment" >
                        <input type="text" id="commentInput_${index}" class="comment" placeholder="${
-             tweet.userId === user._id
-               ? 'add a comment for yourself'
-               : `${'add a comment for ' + tweet.userNameAndFamilyName}`
-           }">
+                   tweet.userId === user._id
+                     ? 'add a comment for yourself'
+                     : `${'add a comment for ' + tweet.userNameAndFamilyName}`
+                 }">
                        <button class="commentBtn" onclick='commentHandler(${index}, "${
-             tweet._id
-           }")'>comment</button>
-                   </div>
+                   tweet._id
+                 }")'>comment</button>
+                   </div>`
+               : ''
+           }
+           
            </div>`;
          })
          .join('')
