@@ -164,157 +164,74 @@ nav .rightLogin button:hover {
 }
 
 /* Footer Section */
-
-
-
-/* 
-.footer-flex-justify {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.footer-bg-color {
-  padding: 3rem 0;
-  background-color: #0e1513;
-}
-
-.footer-h1 {
-  font-size: 1rem;
-}
-
-.footer-flex-h1 {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 3rem;
-}
-
-.footer-line {
-  margin-top: 0.5rem;
-  margin-left: 3rem;
-  width: 35rem;
-  height: 1rem;
-  border-top: 1px solid white;
-}
-
-.footer-gif-container {
-  width: 20rem;
-  height: 20rem;
-}
-
-.gifImage {
-  border-radius: 500px;
-}
-
-.footer-gif-container-margin {
-  margin-right: 10rem;
-}
-
-.footer-h1-brand {
-  margin-left: 3rem;
-  margin-top: 1rem;
-}
-
-.footer-logo {
-  display: flex;
-  direction: row;
-  align-items: center;
-}
-
-.footer-logo img {
-  margin-top: 1rem;
-  width: 3rem;
-  height: 3rem;
-  animation: bounce 1s infinite;
-}
-
-.footer-ul {
-  margin-left: 3rem;
-  list-style-type: none;
-  line-height: 2.5rem;
-}
-
-.footer-ul :hover {
-  color: #fff;
-} */
-
-.wave{
+.wave {
   width: 100%;
-  margin: -7px;
+  margin-bottom: -7px;
 }
 
-.footerContainer{
-
+.footerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: #0e1513;
-
 }
 
-
-.footerContainer .left{
+.footerContainer .left {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 8px;
 }
 
-.footerContainer .left .desc{
+.footerContainer .left .desc {
   border-bottom: 2px solid #fc4308;
   padding-bottom: 5px;
 }
 
-.footerContainer .left .footerLogo{
+.footerContainer .left .footerLogo {
   display: flex;
   align-items: center;
- 
 }
 
-.footerContainer .left .footerLogo p{
+.footerContainer .left .footerLogo p {
   font-weight: 900;
   font-size: 1.3rem;
 }
-.footerContainer .left .footerLogo img{
+.footerContainer .left .footerLogo img {
   margin-top: 1rem;
   width: 3rem;
   height: 3rem;
   animation: bounce 1s infinite;
 }
 
-ul{
+ul {
   list-style-type: none;
   line-height: 2rem;
-
 }
 
 ul :hover {
   color: #fff;
-} 
+}
 
-.footerContainer .right{
-
+.footerContainer .right {
 }
 
 .right .gifImage {
   border-radius: 500px;
 }
 
-.copyRightContainer{
+.copyRightContainer {
   background-color: #0e1513;
   padding: 20px 0px;
- 
 }
-.copyRightContainer .copyRight{
+.copyRightContainer .copyRight {
   width: fit-content;
   margin: auto;
   padding: 8px 12px;
   color: #fc4308;
   border-top: 2px solid #fc4308;
 }
-
 
 @keyframes bounce {
   0%,
