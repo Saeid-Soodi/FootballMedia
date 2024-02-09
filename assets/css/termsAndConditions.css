@@ -1,23 +1,54 @@
 /* CSS for Terms and Conditions Page */
-    /* Define the background color of the body */
-    body {
-        background-color: #215d3e;
-    }
 
-    /* Define the text color of the body */
-    body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
-        color: white;
-    }
+p,
+ul,
+ol,
+li {
+  color: gray;
+}
 
-    /* Define the link color and remove the underline */
-    a {
-        color: #fc4308;
-        text-decoration: none;
-    }
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+}
 
-    /* Define the container element for the policy content */
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
+h2 {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+p {
+  color: #910209;
+  margin-top: 8px;
+}
+
+li {
+  margin-top: 4px;
+}
+
+/* Define the container element for the policy content */
+.container {
+  max-width: 1600px;
+  margin: 40px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.container img {
+  max-width: 800px;
+}
+
+.policy {
+  padding-left: 35px;
+  border-left: 2px solid #fc4308;
+  border-radius: 25px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
