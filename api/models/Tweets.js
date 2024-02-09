@@ -45,14 +45,14 @@ const twitsSchema = new mongoose.Schema({
       },
       dateTime: {
         type: Date,
-        default: Date.now(),
+        default: () => Date.now(),
         immutable: true,
       },
     },
   ],
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: () => Date.now(),
     immutable: true,
   },
 });

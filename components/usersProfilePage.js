@@ -190,7 +190,7 @@ export default {
       const day = dateObject.getDate();
       const hour = dateObject.getHours().toString().padStart(2, '0');
       const minute = dateObject.getMinutes().toString().padStart(2, '0');
-      const second = dateObject.getSeconds();
+      const second = dateObject.getSeconds().toString().padStart(2, '0');
 
       // Format the date and time
       const formattedDate = `${year}-${month}-${day}`;
