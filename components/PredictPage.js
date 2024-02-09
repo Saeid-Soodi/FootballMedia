@@ -30,7 +30,6 @@ export default {
       const secondTeamPrediction = document.getElementById(
         'secondTeamPrediction'
       );
-
       try {
         const res = await fetch(
           `http://localhost:8080/M00872834/user/${user.userId}`,
@@ -51,11 +50,11 @@ export default {
         );
         const data = await res.json();
 
-        if (res.status === 200) {
+        if (res.status === 201) {
           alert('Prediction Submitted!');
           window.location.reload();
         } else {
-          alert('something went wrong!');
+          alert(data.message);
           window.location.reload();
         }
       } catch (error) {
