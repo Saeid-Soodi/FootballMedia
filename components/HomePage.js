@@ -44,7 +44,6 @@ export default {
           'https://api.weatherapi.com/v1/current.json?key=8d1867c0eb6447ea876202032240802&q=london'
         );
         wether = await resWether.json();
-        console.log(wether);
       }
       await fetchContent();
 
@@ -145,6 +144,35 @@ export default {
         }
       };
 
+      // Function to extract date and time components from a given date string
+      function getDateTime(dateString) {
+        // Check the input format
+        if (!/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/.test(dateString)) {
+          throw new Error('Invalid date and time format.');
+        }
+
+        // Convert the string to a Date object
+        const dateObject = new Date(dateString);
+
+        // Extract the date and time
+        const year = dateObject.getFullYear();
+        const month = dateObject.getMonth() + 1; // 0-based index
+        const day = dateObject.getDate();
+        const hour = dateObject.getHours().toString().padStart(2, '0');
+        const minute = dateObject.getMinutes().toString().padStart(2, '0');
+        const second = dateObject.getSeconds();
+
+        // Format the date and time
+        const formattedDate = `${year}-${month}-${day}`;
+        const formattedTime = `${hour}:${minute}:${second}`;
+
+        // Return the values
+        return {
+          date: formattedDate,
+          time: formattedTime,
+        };
+      }
+
       return `
       <div class="banner">
       <img  src="../assets/images/twitterHeader.jpg" alt="twitterHeader" />
@@ -218,6 +246,7 @@ export default {
      : tweetsList
          .reverse()
          .map((tweet, index) => {
+           const { date, time } = getDateTime(tweet.createdAt);
            return `
         <div class="userTweet">
             <div class="userInfo">
@@ -243,9 +272,7 @@ export default {
               tweet.comments.length
             }</span>
              </div>
-            <span class="time"><i class="bi bi-clock"></i> ${
-              tweet.createdAt
-            }</span>
+            <span class="time"> <i class="bi bi-calendar-week-fill"></i> ${date} , <i class="bi bi-clock"></i> ${time}</span>
            </div>
            <div class="commentsSection">
            ${
@@ -257,6 +284,8 @@ export default {
            
            ${tweet.comments
              .map((comment, index) => {
+               const { date, time } = getDateTime(comment.dateTime);
+
                return `
                <div class="comment">
                <div class="userInfo">
@@ -267,9 +296,8 @@ export default {
                  <span class="id">@${comment.userName}</span>
                </div>
              </div>
-               <div class="time"><i class="bi bi-clock"></i> ${
-                 tweet.createdAt
-               } </div>
+               <div class="time"><i class="bi bi-calendar-week-fill"></i> ${date} , <i class="bi bi-clock"></i> ${time}
+               </div>
              </div>
                     <div class="othersComment">
                     <p>${comment.commentContent}</p>
