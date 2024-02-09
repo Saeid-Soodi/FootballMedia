@@ -1,7 +1,8 @@
 
         .container {
-          width: 90%;
+          width: 100%;
           margin: 0 auto;
+
         }
 
         .header {
@@ -49,8 +50,8 @@
         /* بالای صفحه است جایی که پست هارو نشون میده  */
         .tweets {
           margin-bottom: 5rem;
-          margin-left: 7rem;
-          width: 1000px;
+          margin-left: 3rem;
+          width: 90%;
           height: 300px;
           background: #283c36 !important;
           border-radius: 16px;
@@ -149,15 +150,15 @@
         /* پست های وسطی که نشون میده  */
 
         .post {
-
+          
           max-width: fit-content;
     
-
+          padding-bottom: 3rem;
           box-sizing: border-box;
-          border: 1px solid #e1e8ed;
+          border: 2px solid orangered;
           border-radius: 10px;
           font-family: Arial, sans-serif;
-          font-size: 14px;
+          font-size: 12px;
           color: #14171a;
         }
 
@@ -181,6 +182,7 @@
         .post-username {
           color: #657786;
           margin-left: 5px;
+          margin-right: 10px;
         }
 
         .post-content {
@@ -196,7 +198,7 @@
 
         .post-footer {
           display: flex;
-          justify-content: space-around;
+          
           align-items: center;
           padding: 10px;
         }
@@ -212,6 +214,35 @@
           margin-left: 5px;
         }
 
+        .post-action{
+          margin-left: 2rem;
+        }
+        .input-style{
+  
+          margin-left: 2rem;
+          border-radius: 2rem;
+          width: 50vh;
+          height: 1.87rem;
+        }
+        .input-style ::placeholder{
+          margin-left: 1rem;
+          color: #000;
+        } 
+        .button-style{
+        background-color: #5DBBFF;
+        padding: 0 1.30rem;
+        font-size: medium;
+        border-radius: 2rem;
+
+        }
+        .button-style :hover{
+          background-color: #000;
+          box-shadow: #000 1rem;
+        }
+        .center-input-items{
+          display: flex;
+          justify-content: space-evenly;
+        }
         /* چارت بازی های لینگ انگلستان */
 
 
@@ -435,4 +466,15 @@
   }
   .humidity i{
     font-size: 37px;
+  }
+
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .center-img{
+    display: flex;
+    align-self: center;
+    justify-content: center;
   }

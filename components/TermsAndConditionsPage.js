@@ -27,7 +27,7 @@ export default {
       <p>This is a sample policy page for your website. You can edit this text to suit your needs.</p>
       <p>This policy page covers the following topics:</p>
       <ul>
-          <li>What information we collect and why</li>
+          <li>What information we collect and why </></li>
           <li>How we use and share the information</li>
           <li>How we protect the information</li>
           <li>How you can access and update the information</li>

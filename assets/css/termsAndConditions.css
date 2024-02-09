@@ -17,7 +17,12 @@
 
     /* Define the container element for the policy content */
     .container {
+        border-radius:5rem;
+        margin-top: 2rem;
+    
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
     }
+
+   
