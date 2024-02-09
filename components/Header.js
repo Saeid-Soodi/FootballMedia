@@ -48,7 +48,7 @@ export default {
     <nav>
     <div class="left">
         <img src="../assets/images/FootballMediaLogo.png" alt="FootballMediaLogo">
-        <span class="text displayNone">Football Media</span>
+        <span class="text displayBlock">Football Media</span>
       
     </div>
     <ul class="center">

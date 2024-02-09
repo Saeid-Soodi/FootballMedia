@@ -84,7 +84,7 @@ nav .left img {
 }
 
 nav .left img:hover {
-  transform: translateX(185px);
+  transform: translateX(195px);
   transition: transform 1s ease-in-out;
   cursor: pointer;
 }
@@ -212,9 +212,6 @@ ul {
 
 ul :hover {
   color: #fff;
-}
-
-.footerContainer .right {
 }
 
 .right .gifImage {
