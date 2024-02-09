@@ -348,7 +348,11 @@ export default {
                const { date, time } = getDateTime(comment.dateTime);
 
                return `<div class="comment">
-               <div class="userInfo">
+               <a href="${
+                 comment.userId === user.userId
+                   ? '/profile'
+                   : '/usersProfile#' + comment.userId
+               }" class="userInfo">
                <div>
                 <img src="../assets/images/profile.png" alt="">
                 <div class="text">
@@ -357,7 +361,7 @@ export default {
                 </div>
             </div>
             <span class="time"><i class="bi bi-calendar-week-fill"></i> ${date} , <i class="bi bi-clock"></i> ${time} </span>
-                </div>
+                </a>
                 <div class="othersComment">
                 <p>${comment.commentContent}</p>
                 <button onclick="commentLikeHandler(this)" data-tweet-id="${
