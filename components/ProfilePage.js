@@ -240,16 +240,14 @@ export default {
                 if (User._id === user.userId) {
                   return;
                 }
-                return `<a href="/usersProfile#${
-                  User._id
-                } " class="suggestionsUser">
-                <span class="details">
+                return `<div class="suggestionsUser">
+                <a href="/usersProfile#${User._id}" class="details">
         <img class="userImage" src="../assets/images/profile.png" alt="" />
         <span class="userDetails">
         <span class="detailName">${User.name + ' ' + User.familyName}</span>
         <span class="detailId">@${User.userName}</span>
         </span>
-        </span>
+        </a>
         ${
           isFollowing
             ? ` <button
@@ -266,7 +264,7 @@ export default {
             </button>`
         }
         
-      </a>`;
+      </div>`;
               })
               .join(' ')
           : '<div>no User Found!</div>'
