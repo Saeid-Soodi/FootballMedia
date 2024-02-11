@@ -16,7 +16,7 @@ export default {
       user = await auth.json();
       if (auth.status === 500) {
         const userLogin = false;
-        window.location.href = '/';
+        window.location.href = '/signIn';
       } else if (auth.status === 200) {
         const userLogin = true;
       }
