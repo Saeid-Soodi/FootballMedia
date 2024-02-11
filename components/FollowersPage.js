@@ -18,6 +18,14 @@ export default {
       authUser = await auth.json();
       if (auth.status === 500) {
         userLogin = false;
+
+        // set redirect
+        const url = window.location.toString();
+        let d = new Date();
+        d.setTime(d.getTime() + 2 * 60 * 60 * 1000);
+        let expires = 'expires=' + d.toUTCString();
+        document.cookie = 'redirect=' + url + '; ' + expires + '; path=/;';
+
         window.location.href = '/signIn';
       } else if (auth.status === 200) {
         userLogin = true;

@@ -20,6 +20,23 @@ export default {
     }
     await fetchAuth();
 
+    // A function to extract the value of a cookie with a specific name
+    function getCookie(cookieName) {
+      var name = cookieName + '=';
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var cookieArray = decodedCookie.split(';');
+      for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i];
+        while (cookie.charAt(0) == ' ') {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) == 0) {
+          return cookie.substring(name.length, cookie.length);
+        }
+      }
+      return '';
+    }
+
     window.handleSignUp = async function () {
       const name = document.getElementById('nameInput');
       const familyName = document.getElementById('FamilyNameInput');
@@ -90,10 +107,22 @@ export default {
             );
             const logInAuthData = await logInAuth.json();
 
+            // Get the value of the cookie with the name "redirect"
+            var redirectURL = getCookie('redirect');
+
             alert(
               'Your Account has been successfully created and You are Logged In!'
             );
-            window.location.href = '/';
+
+            // Check if a cookie with the desired value exists or not
+            if (redirectURL != '') {
+              console.log(redirectURL);
+              document.cookie =
+                'redirect=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+              window.location.href = redirectURL;
+            } else {
+              window.location.href = '/';
+            }
           } else {
             alert(data.message);
           }
