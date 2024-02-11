@@ -109,6 +109,10 @@
   display: flex;
 }
 
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
 .userDetails .detailName {
   font-weight: bold;
   margin: 0px;
