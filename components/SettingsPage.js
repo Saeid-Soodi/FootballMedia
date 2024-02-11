@@ -223,10 +223,18 @@ export default {
           </span>
       </div>
     </div>
+   
+    <div class="bioLink">
+    <label>Your Bio Link: </label>
+    <div class="link">
+    <input type="text" placeHolder="Your Link" />
+    <input type="text" placeHolder="Link" />
+    </div>
+    </div>
+   
     <textarea class="textArea" id="bioInput" cols="30" rows="6" placeHolder="Please Enter Your Bio">${
       userData.bio
     }</textarea>
-   
       <button class="settingBtn"  onclick="handleUpdate()">Change</button>
         <p>Do You want to Change Your Password ?  <a href="/changePassword">Click Here</a></p>
       </div>
@@ -234,3 +242,4 @@ export default {
     `;
   },
 };
+

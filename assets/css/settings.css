@@ -27,7 +27,7 @@ main .mainSetting {
   -webkit-backdrop-filter: blur(9.2px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: black;
-  padding: 0px 0px;
+  padding: 0px 30px;
   padding-bottom: 30px;
   border-radius: 20px;
 }
@@ -66,15 +66,16 @@ main .mainSetting {
 .settingContainer {
   display: flex;
   flex-direction: row;
+  width: 100%;
   /* flex-direction: column; */
   /* align-items: start; */
   justify-content: space-between;
   gap: 200px;
   /* align-items: start; */
-  justify-content: center;
-  width: fit-content;
 
-  padding: 30px 50px;
+ 
+
+  padding: 30px 0px;
 }
 
 main .settingContainer div {
@@ -175,4 +176,31 @@ main select:focus {
   color: gray;
   border: 2px dashed #fc4308;
   outline: none;
+}
+
+.bioLink{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: #fc4508ad;
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  gap: 20px;
+  width: 90%;
+
+}
+.link{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  
+}
+
+.link input{
+  width: 40%;
 }
