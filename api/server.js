@@ -83,6 +83,10 @@ app.use('/M00872834/likeComment', likeCommentRouter);
 const teamRouter = require('./routes/team');
 app.use('/M00872834/team', teamRouter);
 
+// url is like localhost:8080/M00872834/footballLeague
+const footballLeagueRouter = require('./routes/footballLeague');
+app.use('/M00872834/footballLeague', footballLeagueRouter);
+
 const PORT = 8080;
 // server port
 app.listen(PORT, () => {

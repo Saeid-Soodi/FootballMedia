@@ -14,6 +14,7 @@ export default {
       let tweetsList;
       let favoriteTeamData;
       let wether;
+      let footballLeagueList;
 
       async function fetchContent() {
         // get login user
@@ -50,6 +51,12 @@ export default {
           'https://api.weatherapi.com/v1/current.json?key=8d1867c0eb6447ea876202032240802&q=london'
         );
         wether = await resWether.json();
+
+        // get FootballLeague list
+        const resFootballLeague = await fetch(
+          'http://localhost:8080/M00872834/footballLeague'
+        );
+        footballLeagueList = await resFootballLeague.json();
       }
       await fetchContent();
 
@@ -200,31 +207,15 @@ export default {
               </tr>
               <!-- Add the table data rows -->
               <!-- Use some static data for the example -->
-              <tr>
-                  <td class="td">Liverpool</td>
-                  <td class="td">85</td>
-                  <td class="td">76</td>
-              </tr>
-              <tr>
-                  <td class="td">Manchester City</td>
-                  <td class="td">83</td>
-                  <td class="td">81</td>
-              </tr>
-              <tr>
-                  <td class="td">Chelsea</td>
-                  <td class="td">75</td>
-                  <td class="td">69</td>
-              </tr>
-              <tr>
-                  <td class="td">Manchester United</td>
-                  <td class="td">72</td>
-                  <td class="td">64</td>
-              </tr>
-              <tr>
-                  <td class="td">Leicester City</td>
-                  <td class="td">66</td>
-                  <td class="td">58</td>
-              </tr>
+              ${footballLeagueList
+                .map((item) => {
+                  return `<tr>
+                    <td class="td">${item.teamName}</td>
+                    <td class="td">${item.points}</td>
+                    <td class="td">${item.goals}</td>
+                </tr>`;
+                })
+                .join('')}
           </table>
           </div>
 

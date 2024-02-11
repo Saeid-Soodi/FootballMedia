@@ -129,3 +129,23 @@ content-type: application/json
   ]
   
 }
+
+
+###
+
+POST http://localhost:8080/M00872834/footballLeague
+content-type: application/json
+
+{
+  "teamName": "Leicester City",
+  "points": 66,
+  "goals": 58
+}
+###
+
+PATCH  http://localhost:8080/M00872834/footballLeague/65c89ea4faca4745506d164f
+content-type: application/json
+
+{
+  "teamName": "Leicester City"
+}
