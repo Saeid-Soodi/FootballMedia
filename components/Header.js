@@ -46,11 +46,11 @@ export default {
 
     return `<div>
     <nav>
-    <div class="left">
+    <a href="/" class="left">
         <img src="../assets/images/FootballMediaLogo.png" alt="FootballMediaLogo">
         <span class="text displayBlock">Football Media</span>
       
-    </div>
+    </a>
     <ul class="center">
         <li><a class="${
           window.location.pathname === '/' ? 'navActive' : null
