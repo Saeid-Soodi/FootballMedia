@@ -5,7 +5,9 @@ export default {
     const title = 'Followers | Football Media';
     document.title = title;
 
-    let user;
+    let authUser;
+    let userLogin;
+    let userData;
     let listData;
     async function fetchAuth() {
       const auth = await fetch('http://localhost:8080/M00872834/auth', {
@@ -13,13 +15,18 @@ export default {
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
       });
-      user = await auth.json();
+      authUser = await auth.json();
       if (auth.status === 500) {
-        const userLogin = false;
+        userLogin = false;
         window.location.href = '/signIn';
       } else if (auth.status === 200) {
-        const userLogin = true;
+        userLogin = true;
       }
+
+      //user data
+      const resUser = await fetch(`http://localhost:8080/M00872834/user/${id}`);
+      userData = await resUser.json();
+
       // list of followers
       const res = await fetch(
         `http://localhost:8080/M00872834/followerList/${id}`,
@@ -47,26 +54,39 @@ export default {
         window.location.reload();
       }
     };
+    window.clickHandler = function () {
+      window.location.href = `${
+        authUser.userId === id ? '/profile' : `/usersProfile#${id}`
+      }`;
+    };
 
     return `
     <div class="container">
     <div class="backBtnContainer">
-    <a class="backBtn" href="/profile">Back</a>
+    <button onclick="clickHandler()" class="backBtn">Back</button>
     <div class="followings">
-    <h3>Followers</h3>
+    ${
+      authUser.userId === id
+        ? `<h3>My Followers</h3>`
+        : `<h3>Followers of ${userData.name + ' ' + userData.familyName}</h3>`
+    }
     ${
       listData.length >= 1
         ? listData
-            .map((user) => {
+            .map((followUser) => {
               return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails">
-            <span class="detailName">${user.name + ' ' + user.familyName}</span>
-             <span class="detailId">@${user.userName}</span>
+            <span class="detailName">${
+              followUser.name + ' ' + followUser.familyName
+            }</span>
+             <span class="detailId">@${followUser.userName}</span>
             </span>
             </span>
-            
-             <button class="unFollowBtn" onclick="removeHandler('${
-               user.id
-             }')">Remove</button> </div>`;
+            ${
+              authUser.userId === id
+                ? `<button class="unFollowBtn" onclick="removeHandler('${followUser.id}')">Remove</button>`
+                : ''
+            }
+              </div>`;
             })
             .join('')
         : '<div>you do not have any followers! </div>'
