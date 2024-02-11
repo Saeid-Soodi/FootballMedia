@@ -117,6 +117,12 @@ router.patch('/:id', async (req, res) => {
     if (req.body.bio === '' || req.body.bio) {
       user.bio = req.body.bio;
     }
+    if (req.body.yourLink === '' || req.body.yourLink) {
+      user.yourLink = req.body.yourLink;
+    }
+    if (req.body.link === '' || req.body.link) {
+      user.link = req.body.link;
+    }
     if (req.body.birthDate) {
       user.birthDate = req.body.birthDate;
     }

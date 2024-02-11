@@ -294,7 +294,11 @@ export default {
                 `
                 : ''
             }
-            <a href="${window.location.toString()}" class="bioLink"><i class="bi bi-link-45deg"></i> Your Link</a>
+            ${
+              userData.yourLink != ''
+                ? `<a href="${userData.link}" class="bioLink"><i class="bi bi-link-45deg"></i> ${userData.yourLink}</a>`
+                : ''
+            }
             </div>
         </div>
         </div>

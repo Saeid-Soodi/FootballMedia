@@ -42,6 +42,8 @@ export default {
       const gender = document.getElementById('genderInput');
       const favoriteTeam = document.getElementById('favoriteTeamInput');
       const bio = document.getElementById('bioInput');
+      const yourLink = document.getElementById('yourLinkInput');
+      const link = document.getElementById('linkInput');
 
       function validate(item, value) {
         if (item === 'email') {
@@ -76,6 +78,8 @@ export default {
                 email: email.value,
                 birthDate: birthDate.value,
                 bio: bio.value,
+                yourLink: yourLink.value,
+                link: link.value,
                 gender: gender.value,
                 favoriteTeam: favoriteTeam.value,
                 phone: phone.value,
@@ -227,8 +231,12 @@ export default {
     <div class="bioLink">
     <label>Your Bio Link: </label>
     <div class="link">
-    <input type="text" placeHolder="Your Link" />
-    <input type="text" placeHolder="Link" />
+    <input value="${
+      userData.yourLink
+    }" id="yourLinkInput" type="text" placeHolder="Your Link" />
+    <input value="${
+      userData.link
+    }" id="linkInput" type="text" placeHolder="Link" />
     </div>
     </div>
    
@@ -242,4 +250,3 @@ export default {
     `;
   },
 };
-

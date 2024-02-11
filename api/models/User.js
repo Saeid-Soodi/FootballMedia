@@ -49,6 +49,14 @@ const userSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  yourLink: {
+    type: String,
+    default: '',
+  },
+  link: {
+    type: String,
+    default: '',
+  },
   bio: {
     type: String,
     default: '',
