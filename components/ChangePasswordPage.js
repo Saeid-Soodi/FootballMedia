@@ -102,29 +102,6 @@ export default {
       <div class="details">
       <h3>Change Password</h3>
       <p>Just type it twice and try not to forget it.
-Password should be and must contain:</p>
-<div class="items">
-<span class="item">
-<span class="top">8+</span>
-<span class="bottom">Character</span>
-</span>
-<span class="item">
-<span class="top">AA</span>
-<span class="bottom">Uppercase</span>
-</span>
-<span class="item">
-<span class="top">aa</span>
-<span class="bottom">Lowercase</span>
-</span>
-<span class="item">
-<span class="top">123</span>
-<span class="bottom">Number</span>
-</span>
-<span class="item">
-<span class="top">@$#</span>
-<span class="bottom">Symbol</span>
-</span>
-</div>
       </div>
       <div class="form">
       

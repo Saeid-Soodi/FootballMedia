@@ -50,7 +50,7 @@ export default {
   </div>
    <div class="copyRightContainer">
     <div class="copyRight">    
-    Copyright © 2023 FOOTBALL MEDIA. All Rights Reserved.
+    Copyright © 2024 FOOTBALL MEDIA. All Rights Reserved.
     </div>
     </div>
     `;

@@ -107,6 +107,7 @@
 
 .details {
   display: flex;
+  color: black;
 }
 
 .userDetails {

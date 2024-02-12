@@ -85,11 +85,15 @@ export default {
       listData.length >= 1
         ? listData
             .map((followingUser) => {
-              return `<div class="following"><span class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails"><span class="detailName"">${
+              return `<div class="following"><a href="${
+                followingUser.id === authUser.userId
+                  ? '/profile'
+                  : '/usersProfile#' + followingUser.id
+              }" class="details"><img class="profileImage" src="../assets/images/profile.png" alt="user Profile" /> <span class="userDetails"><span class="detailName"">${
                 followingUser.name + ' ' + followingUser.familyName
               }</span> <span class="detailId">@${
                 followingUser.userName
-              }</span></span> </span>
+              }</span></span> </a>
               ${
                 authUser.userId === id
                   ? `<button class="unFollowBtn" onclick="unFollowHandler('${followingUser.id}')">unFollow</button>`
